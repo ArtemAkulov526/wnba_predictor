@@ -1,0 +1,10658 @@
+this is sample size data that was used to train AI
+
+team: MIN
+season: 2024
+date_game: Tue, May 14, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 83
+opp_pts: 70
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: MIN
+season: 2024
+date_game: Fri, May 17, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 102
+opp_pts: 93
+wins: 2
+losses: 0
+game_streak: W 2
+
+team: MIN
+season: 2024
+date_game: Thu, May 23, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 82
+opp_pts: 83
+wins: 2
+losses: 1
+game_streak: L 1
+
+team: MIN
+season: 2024
+date_game: Sat, May 25, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 84
+opp_pts: 67
+wins: 3
+losses: 1
+game_streak: W 1
+
+team: MIN
+season: 2024
+date_game: Sun, May 26, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 92
+opp_pts: 79
+wins: 4
+losses: 1
+game_streak: W 2
+
+team: MIN
+season: 2024
+date_game: Wed, May 29, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 66
+opp_pts: 80
+wins: 4
+losses: 2
+game_streak: L 1
+
+team: MIN
+season: 2024
+date_game: Fri, May 31, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 95
+opp_pts: 71
+wins: 5
+losses: 2
+game_streak: W 1
+
+team: MIN
+season: 2024
+date_game: Sun, Jun 2, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 87
+opp_pts: 76
+wins: 6
+losses: 2
+game_streak: W 2
+
+team: MIN
+season: 2024
+date_game: Wed, Jun 5, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 86
+opp_pts: 62
+wins: 7
+losses: 2
+game_streak: W 3
+
+team: MIN
+season: 2024
+date_game: Fri, Jun 7, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 80
+opp_pts: 81
+wins: 7
+losses: 3
+game_streak: L 1
+
+team: MIN
+season: 2024
+date_game: Sun, Jun 9, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 83
+opp_pts: 64
+wins: 8
+losses: 3
+game_streak: W 1
+
+team: MIN
+season: 2024
+date_game: Tue, Jun 11, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 100
+opp_pts: 86
+wins: 9
+losses: 3
+game_streak: W 2
+
+team: MIN
+season: 2024
+date_game: Fri, Jun 14, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 81
+opp_pts: 76
+wins: 10
+losses: 3
+game_streak: W 3
+
+team: MIN
+season: 2024
+date_game: Mon, Jun 17, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 90
+opp_pts: 78
+wins: 11
+losses: 3
+game_streak: W 4
+
+team: MIN
+season: 2024
+date_game: Wed, Jun 19, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 68
+opp_pts: 55
+wins: 12
+losses: 3
+game_streak: W 5
+
+team: MIN
+season: 2024
+date_game: Sat, Jun 22, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 73
+opp_pts: 60
+wins: 13
+losses: 3
+game_streak: W 6
+
+team: MIN
+season: 2024
+date_game: Thu, Jun 27, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 88
+opp_pts: 94
+wins: 13
+losses: 4
+game_streak: L 1
+
+team: MIN
+season: 2024
+date_game: Sun, Jun 30, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 70
+opp_pts: 62
+wins: 14
+losses: 4
+game_streak: W 1
+
+team: MIN
+season: 2024
+date_game: Tue, Jul 2, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 67
+opp_pts: 76
+wins: 14
+losses: 5
+game_streak: L 1
+
+team: MIN
+season: 2024
+date_game: Thu, Jul 4, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 73
+opp_pts: 78
+wins: 14
+losses: 6
+game_streak: L 2
+
+team: MIN
+season: 2024
+date_game: Sat, Jul 6, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 74
+opp_pts: 67
+wins: 15
+losses: 6
+game_streak: W 1
+
+team: MIN
+season: 2024
+date_game: Tue, Jul 9, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 82
+opp_pts: 67
+wins: 16
+losses: 6
+game_streak: W 2
+
+team: MIN
+season: 2024
+date_game: Fri, Jul 12, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 63
+opp_pts: 91
+wins: 16
+losses: 7
+game_streak: L 1
+
+team: MIN
+season: 2024
+date_game: Sun, Jul 14, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 74
+opp_pts: 81
+wins: 16
+losses: 8
+game_streak: L 2
+
+team: MIN
+season: 2024
+date_game: Wed, Jul 17, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 86
+opp_pts: 79
+wins: 17
+losses: 8
+game_streak: W 1
+
+team: MIN
+season: 2024
+date_game: Thu, Aug 15, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 79
+opp_pts: 68
+wins: 18
+losses: 8
+game_streak: W 2
+
+team: MIN
+season: 2024
+date_game: Sat, Aug 17, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 99
+opp_pts: 83
+wins: 19
+losses: 8
+game_streak: W 3
+
+team: MIN
+season: 2024
+date_game: Wed, Aug 21, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 98
+opp_pts: 87
+wins: 20
+losses: 8
+game_streak: W 4
+
+team: MIN
+season: 2024
+date_game: Fri, Aug 23, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 87
+opp_pts: 74
+wins: 21
+losses: 8
+game_streak: W 5
+
+team: MIN
+season: 2024
+date_game: Sat, Aug 24, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 90
+opp_pts: 80
+wins: 22
+losses: 8
+game_streak: W 6
+
+team: MIN
+season: 2024
+date_game: Wed, Aug 28, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 89
+opp_pts: 76
+wins: 23
+losses: 8
+game_streak: W 7
+
+team: MIN
+season: 2024
+date_game: Fri, Aug 30, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 76
+opp_pts: 94
+wins: 23
+losses: 9
+game_streak: L 1
+
+team: MIN
+season: 2024
+date_game: Sun, Sep 1, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 79
+opp_pts: 74
+wins: 24
+losses: 9
+game_streak: W 1
+
+team: MIN
+season: 2024
+date_game: Fri, Sep 6, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 99
+opp_pts: 88
+wins: 25
+losses: 9
+game_streak: W 2
+
+team: MIN
+season: 2024
+date_game: Sun, Sep 8, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 78
+opp_pts: 71
+wins: 26
+losses: 9
+game_streak: W 3
+
+team: MIN
+season: 2024
+date_game: Tue, Sep 10, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 76
+opp_pts: 64
+wins: 27
+losses: 9
+game_streak: W 4
+
+team: MIN
+season: 2024
+date_game: Fri, Sep 13, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 83
+opp_pts: 66
+wins: 28
+losses: 9
+game_streak: W 5
+
+team: MIN
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: W
+pts: 88
+opp_pts: 79
+wins: 29
+losses: 9
+game_streak: W 6
+
+team: MIN
+season: 2024
+date_game: Tue, Sep 17, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 78
+opp_pts: 76
+wins: 30
+losses: 9
+game_streak: W 7
+
+team: MIN
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 51
+opp_pts: 68
+wins: 30
+losses: 10
+game_streak: L 1
+
+team: MIN
+season: 2025
+date_game: Fri, May 16, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 99
+opp_pts: 84
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: MIN
+season: 2025
+date_game: Sun, May 18, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 89
+opp_pts: 75
+wins: 2
+losses: 0
+game_streak: W 2
+
+team: MIN
+season: 2025
+date_game: Wed, May 21, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 85
+opp_pts: 81
+wins: 3
+losses: 0
+game_streak: W 3
+
+team: MIN
+season: 2025
+date_game: Fri, May 23, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 76
+opp_pts: 70
+wins: 4
+losses: 0
+game_streak: W 4
+
+team: MIN
+season: 2025
+date_game: Tue, May 27, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 82
+opp_pts: 77
+wins: 5
+losses: 0
+game_streak: W 5
+
+team: MIN
+season: 2025
+date_game: Fri, May 30, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 74
+opp_pts: 71
+wins: 6
+losses: 0
+game_streak: W 6
+
+team: MIN
+season: 2025
+date_game: Sun, Jun 1, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: W
+pts: 86
+opp_pts: 75
+wins: 7
+losses: 0
+game_streak: W 7
+
+team: MIN
+season: 2025
+date_game: Tue, Jun 3, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 88
+opp_pts: 65
+wins: 8
+losses: 0
+game_streak: W 8
+
+team: MIN
+season: 2025
+date_game: Sun, Jun 8, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 81
+opp_pts: 65
+wins: 9
+losses: 0
+game_streak: W 9
+
+team: MIN
+season: 2025
+date_game: Wed, Jun 11, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 84
+opp_pts: 94
+wins: 9
+losses: 1
+game_streak: L 1
+
+team: MIN
+season: 2025
+date_game: Sat, Jun 14, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 101
+opp_pts: 78
+wins: 10
+losses: 1
+game_streak: W 1
+
+team: MIN
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 76
+opp_pts: 62
+wins: 11
+losses: 1
+game_streak: W 2
+
+team: MIN
+season: 2025
+date_game: Sat, Jun 21, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 82
+opp_pts: 66
+wins: 12
+losses: 1
+game_streak: W 3
+
+team: MIN
+season: 2025
+date_game: Tue, Jun 24, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 64
+opp_pts: 68
+wins: 12
+losses: 2
+game_streak: L 1
+
+team: MIN
+season: 2025
+date_game: Fri, Jun 27, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 96
+opp_pts: 92
+wins: 13
+losses: 2
+game_streak: W 1
+
+team: MIN
+season: 2025
+date_game: Sun, Jun 29, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 102
+opp_pts: 63
+wins: 14
+losses: 2
+game_streak: W 2
+
+team: MIN
+season: 2025
+date_game: Thu, Jul 3, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 92
+opp_pts: 75
+wins: 15
+losses: 2
+game_streak: W 3
+
+team: MIN
+season: 2025
+date_game: Sat, Jul 5, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: W
+pts: 82
+opp_pts: 71
+wins: 16
+losses: 2
+game_streak: W 4
+
+team: MIN
+season: 2025
+date_game: Sun, Jul 6, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 80
+opp_pts: 75
+wins: 17
+losses: 2
+game_streak: W 5
+
+team: MIN
+season: 2025
+date_game: Wed, Jul 9, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 71
+opp_pts: 79
+wins: 17
+losses: 3
+game_streak: L 1
+
+team: MIN
+season: 2025
+date_game: Thu, Jul 10, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 91
+opp_pts: 82
+wins: 18
+losses: 3
+game_streak: W 1
+
+team: MIN
+season: 2025
+date_game: Sat, Jul 12, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 81
+opp_pts: 87
+wins: 18
+losses: 4
+game_streak: L 1
+
+team: MIN
+season: 2025
+date_game: Mon, Jul 14, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 91
+opp_pts: 78
+wins: 19
+losses: 4
+game_streak: W 1
+
+team: MIN
+season: 2025
+date_game: Wed, Jul 16, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 79
+opp_pts: 66
+wins: 20
+losses: 4
+game_streak: W 2
+
+team: MIN
+season: 2025
+date_game: Tue, Jul 22, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 91
+opp_pts: 68
+wins: 21
+losses: 4
+game_streak: W 3
+
+team: MIN
+season: 2025
+date_game: Fri, Jul 25, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 109
+opp_pts: 78
+wins: 22
+losses: 4
+game_streak: W 4
+
+team: MIN
+season: 2025
+date_game: Sun, Jul 27, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 86
+opp_pts: 90
+wins: 22
+losses: 5
+game_streak: L 1
+
+team: MIN
+season: 2025
+date_game: Wed, Jul 30, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 100
+opp_pts: 93
+wins: 23
+losses: 5
+game_streak: W 1
+
+team: MIN
+season: 2025
+date_game: Sat, Aug 2, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 111
+opp_pts: 58
+wins: 24
+losses: 5
+game_streak: W 2
+
+team: MIN
+season: 2025
+date_game: Tue, Aug 5, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 91
+opp_pts: 87
+wins: 25
+losses: 5
+game_streak: W 3
+
+team: MIN
+season: 2025
+date_game: Fri, Aug 8, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 80
+opp_pts: 76
+wins: 26
+losses: 5
+game_streak: W 4
+
+team: MIN
+season: 2025
+date_game: Sun, Aug 10, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: W
+pts: 83
+opp_pts: 71
+wins: 27
+losses: 5
+game_streak: W 5
+
+team: NYL
+season: 2024
+date_game: Tue, May 14, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 85
+opp_pts: 80
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: NYL
+season: 2024
+date_game: Thu, May 16, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 102
+opp_pts: 66
+wins: 2
+losses: 0
+game_streak: W 2
+
+team: NYL
+season: 2024
+date_game: Sat, May 18, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 91
+opp_pts: 80
+wins: 3
+losses: 0
+game_streak: W 3
+
+team: NYL
+season: 2024
+date_game: Mon, May 20, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 74
+opp_pts: 63
+wins: 4
+losses: 0
+game_streak: W 4
+
+team: NYL
+season: 2024
+date_game: Thu, May 23, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: L
+pts: 81
+opp_pts: 90
+wins: 4
+losses: 1
+game_streak: L 1
+
+team: NYL
+season: 2024
+date_game: Sat, May 25, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 67
+opp_pts: 84
+wins: 4
+losses: 2
+game_streak: L 2
+
+team: NYL
+season: 2024
+date_game: Wed, May 29, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 81
+opp_pts: 78
+wins: 5
+losses: 2
+game_streak: W 1
+
+team: NYL
+season: 2024
+date_game: Fri, May 31, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 90
+opp_pts: 79
+wins: 6
+losses: 2
+game_streak: W 2
+
+team: NYL
+season: 2024
+date_game: Sun, Jun 2, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 104
+opp_pts: 68
+wins: 7
+losses: 2
+game_streak: W 3
+
+team: NYL
+season: 2024
+date_game: Tue, Jun 4, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 88
+opp_pts: 75
+wins: 8
+losses: 2
+game_streak: W 4
+
+team: NYL
+season: 2024
+date_game: Thu, Jun 6, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 78
+opp_pts: 61
+wins: 9
+losses: 2
+game_streak: W 5
+
+team: NYL
+season: 2024
+date_game: Sat, Jun 8, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 82
+opp_pts: 75
+wins: 10
+losses: 2
+game_streak: W 6
+
+team: NYL
+season: 2024
+date_game: Sun, Jun 9, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 93
+opp_pts: 88
+wins: 11
+losses: 2
+game_streak: W 7
+
+team: NYL
+season: 2024
+date_game: Sat, Jun 15, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 90
+opp_pts: 82
+wins: 12
+losses: 2
+game_streak: W 8
+
+team: NYL
+season: 2024
+date_game: Tue, Jun 18, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 93
+opp_pts: 99
+wins: 12
+losses: 3
+game_streak: L 1
+
+team: NYL
+season: 2024
+date_game: Thu, Jun 20, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 93
+opp_pts: 80
+wins: 13
+losses: 3
+game_streak: W 1
+
+team: NYL
+season: 2024
+date_game: Sat, Jun 22, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 98
+opp_pts: 88
+wins: 14
+losses: 3
+game_streak: W 2
+
+team: NYL
+season: 2024
+date_game: Sun, Jun 23, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 96
+opp_pts: 75
+wins: 15
+losses: 3
+game_streak: W 3
+
+team: NYL
+season: 2024
+date_game: Sun, Jun 30, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 81
+opp_pts: 75
+wins: 16
+losses: 3
+game_streak: W 4
+
+team: NYL
+season: 2024
+date_game: Tue, Jul 2, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: W
+pts: 76
+opp_pts: 67
+wins: 17
+losses: 3
+game_streak: W 5
+
+team: NYL
+season: 2024
+date_game: Sat, Jul 6, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 78
+opp_pts: 83
+wins: 17
+losses: 4
+game_streak: L 1
+
+team: NYL
+season: 2024
+date_game: Wed, Jul 10, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 71
+opp_pts: 68
+wins: 18
+losses: 4
+game_streak: W 1
+
+team: NYL
+season: 2024
+date_game: Thu, Jul 11, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 91
+opp_pts: 76
+wins: 19
+losses: 4
+game_streak: W 2
+
+team: NYL
+season: 2024
+date_game: Sat, Jul 13, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 81
+opp_pts: 67
+wins: 20
+losses: 4
+game_streak: W 3
+
+team: NYL
+season: 2024
+date_game: Tue, Jul 16, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 82
+opp_pts: 74
+wins: 21
+losses: 4
+game_streak: W 4
+
+team: NYL
+season: 2024
+date_game: Thu, Aug 15, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 103
+opp_pts: 68
+wins: 22
+losses: 4
+game_streak: W 5
+
+team: NYL
+season: 2024
+date_game: Sat, Aug 17, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 79
+opp_pts: 67
+wins: 23
+losses: 4
+game_streak: W 6
+
+team: NYL
+season: 2024
+date_game: Tue, Aug 20, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 94
+opp_pts: 74
+wins: 24
+losses: 4
+game_streak: W 7
+
+team: NYL
+season: 2024
+date_game: Thu, Aug 22, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 79
+opp_pts: 71
+wins: 25
+losses: 4
+game_streak: W 8
+
+team: NYL
+season: 2024
+date_game: Sat, Aug 24, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 64
+opp_pts: 72
+wins: 25
+losses: 5
+game_streak: L 1
+
+team: NYL
+season: 2024
+date_game: Mon, Aug 26, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 84
+opp_pts: 70
+wins: 26
+losses: 5
+game_streak: W 1
+
+team: NYL
+season: 2024
+date_game: Wed, Aug 28, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 88
+opp_pts: 94
+wins: 26
+losses: 6
+game_streak: L 1
+
+team: NYL
+season: 2024
+date_game: Fri, Aug 30, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 98
+opp_pts: 85
+wins: 27
+losses: 6
+game_streak: W 1
+
+team: NYL
+season: 2024
+date_game: Thu, Sep 5, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 77
+opp_pts: 70
+wins: 28
+losses: 6
+game_streak: W 2
+
+team: NYL
+season: 2024
+date_game: Sun, Sep 8, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 75
+opp_pts: 71
+wins: 29
+losses: 6
+game_streak: W 3
+
+team: NYL
+season: 2024
+date_game: Tue, Sep 10, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 105
+opp_pts: 91
+wins: 30
+losses: 6
+game_streak: W 4
+
+team: NYL
+season: 2024
+date_game: Thu, Sep 12, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 99
+opp_pts: 67
+wins: 31
+losses: 6
+game_streak: W 5
+
+team: NYL
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 79
+opp_pts: 88
+wins: 31
+losses: 7
+game_streak: L 1
+
+team: NYL
+season: 2024
+date_game: Tue, Sep 17, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 87
+opp_pts: 71
+wins: 32
+losses: 7
+game_streak: W 1
+
+team: NYL
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 67
+opp_pts: 78
+wins: 32
+losses: 8
+game_streak: L 1
+
+team: NYL
+season: 2025
+date_game: Sat, May 17, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 92
+opp_pts: 78
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: NYL
+season: 2025
+date_game: Thu, May 22, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 99
+opp_pts: 74
+wins: 2
+losses: 0
+game_streak: W 2
+
+team: NYL
+season: 2025
+date_game: Sat, May 24, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 90
+opp_pts: 88
+wins: 3
+losses: 0
+game_streak: W 3
+
+team: NYL
+season: 2025
+date_game: Tue, May 27, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: W
+pts: 95
+opp_pts: 67
+wins: 4
+losses: 0
+game_streak: W 4
+
+team: NYL
+season: 2025
+date_game: Thu, May 29, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: W
+pts: 82
+opp_pts: 77
+wins: 5
+losses: 0
+game_streak: W 5
+
+team: NYL
+season: 2025
+date_game: Fri, May 30, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 85
+opp_pts: 63
+wins: 6
+losses: 0
+game_streak: W 6
+
+team: NYL
+season: 2025
+date_game: Sun, Jun 1, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 100
+opp_pts: 52
+wins: 7
+losses: 0
+game_streak: W 7
+
+team: NYL
+season: 2025
+date_game: Thu, Jun 5, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 86
+opp_pts: 78
+wins: 8
+losses: 0
+game_streak: W 8
+
+team: NYL
+season: 2025
+date_game: Tue, Jun 10, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 85
+opp_pts: 66
+wins: 9
+losses: 0
+game_streak: W 9
+
+team: NYL
+season: 2025
+date_game: Sat, Jun 14, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 88
+opp_pts: 102
+wins: 9
+losses: 1
+game_streak: L 1
+
+team: NYL
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 86
+opp_pts: 81
+wins: 10
+losses: 1
+game_streak: W 1
+
+team: NYL
+season: 2025
+date_game: Thu, Jun 19, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 81
+opp_pts: 89
+wins: 10
+losses: 2
+game_streak: L 1
+
+team: NYL
+season: 2025
+date_game: Sun, Jun 22, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 79
+opp_pts: 89
+wins: 10
+losses: 3
+game_streak: L 2
+
+team: NYL
+season: 2025
+date_game: Wed, Jun 25, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: W
+pts: 81
+opp_pts: 78
+wins: 11
+losses: 3
+game_streak: W 1
+
+team: NYL
+season: 2025
+date_game: Fri, Jun 27, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 91
+opp_pts: 106
+wins: 11
+losses: 4
+game_streak: L 1
+
+team: NYL
+season: 2025
+date_game: Sun, Jun 29, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 81
+opp_pts: 90
+wins: 11
+losses: 5
+game_streak: L 2
+
+team: NYL
+season: 2025
+date_game: Thu, Jul 3, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 89
+opp_pts: 79
+wins: 12
+losses: 5
+game_streak: W 1
+
+team: NYL
+season: 2025
+date_game: Sun, Jul 6, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 70
+opp_pts: 79
+wins: 12
+losses: 6
+game_streak: L 1
+
+team: NYL
+season: 2025
+date_game: Tue, Jul 8, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 87
+opp_pts: 78
+wins: 13
+losses: 6
+game_streak: W 1
+
+team: NYL
+season: 2025
+date_game: Sun, Jul 13, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 79
+opp_pts: 72
+wins: 14
+losses: 6
+game_streak: W 2
+
+team: NYL
+season: 2025
+date_game: Wed, Jul 16, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 98
+opp_pts: 77
+wins: 15
+losses: 6
+game_streak: W 3
+
+team: NYL
+season: 2025
+date_game: Tue, Jul 22, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 98
+opp_pts: 84
+wins: 16
+losses: 6
+game_streak: W 4
+
+team: NYL
+season: 2025
+date_game: Fri, Jul 25, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 89
+opp_pts: 76
+wins: 17
+losses: 6
+game_streak: W 5
+
+team: NYL
+season: 2025
+date_game: Sat, Jul 26, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 99
+opp_pts: 101
+wins: 17
+losses: 7
+game_streak: L 1
+
+team: NYL
+season: 2025
+date_game: Mon, Jul 28, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 82
+opp_pts: 92
+wins: 17
+losses: 8
+game_streak: L 2
+
+team: NYL
+season: 2025
+date_game: Wed, Jul 30, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 93
+opp_pts: 100
+wins: 17
+losses: 9
+game_streak: L 3
+
+team: NYL
+season: 2025
+date_game: Fri, Aug 1, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 62
+opp_pts: 78
+wins: 17
+losses: 10
+game_streak: L 4
+
+team: NYL
+season: 2025
+date_game: Sun, Aug 3, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 87
+opp_pts: 78
+wins: 18
+losses: 10
+game_streak: W 1
+
+team: NYL
+season: 2025
+date_game: Tue, Aug 5, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 85
+opp_pts: 76
+wins: 19
+losses: 10
+game_streak: W 2
+
+team: NYL
+season: 2025
+date_game: Fri, Aug 8, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 88
+opp_pts: 77
+wins: 20
+losses: 10
+game_streak: W 3
+
+team: NYL
+season: 2025
+date_game: Sun, Aug 10, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 71
+opp_pts: 83
+wins: 20
+losses: 11
+game_streak: L 1
+
+team: ATL
+season: 2024
+date_game: Wed, May 15, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 92
+opp_pts: 81
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: ATL
+season: 2024
+date_game: Sat, May 18, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 85
+opp_pts: 88
+wins: 1
+losses: 1
+game_streak: L 1
+
+team: ATL
+season: 2024
+date_game: Tue, May 21, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 83
+opp_pts: 78
+wins: 2
+losses: 1
+game_streak: W 1
+
+team: ATL
+season: 2024
+date_game: Sun, May 26, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 79
+opp_pts: 92
+wins: 2
+losses: 2
+game_streak: L 1
+
+team: ATL
+season: 2024
+date_game: Wed, May 29, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 73
+opp_pts: 67
+wins: 3
+losses: 2
+game_streak: W 1
+
+team: ATL
+season: 2024
+date_game: Fri, May 31, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 78
+opp_pts: 74
+wins: 4
+losses: 2
+game_streak: W 2
+
+team: ATL
+season: 2024
+date_game: Sun, Jun 2, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 50
+opp_pts: 69
+wins: 4
+losses: 3
+game_streak: L 1
+
+team: ATL
+season: 2024
+date_game: Thu, Jun 6, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 61
+opp_pts: 78
+wins: 4
+losses: 4
+game_streak: L 2
+
+team: ATL
+season: 2024
+date_game: Sat, Jun 8, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 89
+opp_pts: 80
+wins: 5
+losses: 4
+game_streak: W 1
+
+team: ATL
+season: 2024
+date_game: Tue, Jun 11, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 68
+opp_pts: 87
+wins: 5
+losses: 5
+game_streak: L 1
+
+team: ATL
+season: 2024
+date_game: Thu, Jun 13, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 84
+opp_pts: 91
+wins: 5
+losses: 6
+game_streak: L 2
+
+team: ATL
+season: 2024
+date_game: Sun, Jun 16, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 87
+opp_pts: 74
+wins: 6
+losses: 6
+game_streak: W 1
+
+team: ATL
+season: 2024
+date_game: Wed, Jun 19, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 55
+opp_pts: 68
+wins: 6
+losses: 7
+game_streak: L 1
+
+team: ATL
+season: 2024
+date_game: Fri, Jun 21, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 79
+opp_pts: 91
+wins: 6
+losses: 8
+game_streak: L 2
+
+team: ATL
+season: 2024
+date_game: Sun, Jun 23, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 75
+opp_pts: 96
+wins: 6
+losses: 9
+game_streak: L 3
+
+team: ATL
+season: 2024
+date_game: Fri, Jun 28, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 78
+opp_pts: 74
+wins: 7
+losses: 9
+game_streak: W 1
+
+team: ATL
+season: 2024
+date_game: Sun, Jun 30, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 75
+opp_pts: 81
+wins: 7
+losses: 10
+game_streak: L 1
+
+team: ATL
+season: 2024
+date_game: Tue, Jul 2, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: L
+pts: 77
+opp_pts: 85
+wins: 7
+losses: 11
+game_streak: L 2
+
+team: ATL
+season: 2024
+date_game: Fri, Jul 5, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 82
+opp_pts: 85
+wins: 7
+losses: 12
+game_streak: L 3
+
+team: ATL
+season: 2024
+date_game: Sun, Jul 7, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 67
+opp_pts: 80
+wins: 7
+losses: 13
+game_streak: L 4
+
+team: ATL
+season: 2024
+date_game: Wed, Jul 10, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 69
+opp_pts: 78
+wins: 7
+losses: 14
+game_streak: L 5
+
+team: ATL
+season: 2024
+date_game: Fri, Jul 12, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 70
+opp_pts: 84
+wins: 7
+losses: 15
+game_streak: L 6
+
+team: ATL
+season: 2024
+date_game: Sun, Jul 14, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 70
+opp_pts: 81
+wins: 7
+losses: 16
+game_streak: L 7
+
+team: ATL
+season: 2024
+date_game: Wed, Jul 17, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 79
+opp_pts: 86
+wins: 7
+losses: 17
+game_streak: L 8
+
+team: ATL
+season: 2024
+date_game: Fri, Aug 16, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 83
+opp_pts: 81
+wins: 8
+losses: 17
+game_streak: W 1
+
+team: ATL
+season: 2024
+date_game: Sun, Aug 18, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 82
+opp_pts: 70
+wins: 9
+losses: 17
+game_streak: W 2
+
+team: ATL
+season: 2024
+date_game: Wed, Aug 21, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 72
+opp_pts: 63
+wins: 10
+losses: 17
+game_streak: W 3
+
+team: ATL
+season: 2024
+date_game: Fri, Aug 23, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 80
+opp_pts: 82
+wins: 10
+losses: 18
+game_streak: L 1
+
+team: ATL
+season: 2024
+date_game: Mon, Aug 26, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 79
+opp_pts: 84
+wins: 10
+losses: 19
+game_streak: L 2
+
+team: ATL
+season: 2024
+date_game: Wed, Aug 28, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 81
+opp_pts: 85
+wins: 10
+losses: 20
+game_streak: L 3
+
+team: ATL
+season: 2024
+date_game: Fri, Aug 30, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 72
+opp_pts: 83
+wins: 10
+losses: 21
+game_streak: L 4
+
+team: ATL
+season: 2024
+date_game: Sun, Sep 1, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 80
+opp_pts: 62
+wins: 11
+losses: 21
+game_streak: W 1
+
+team: ATL
+season: 2024
+date_game: Tue, Sep 3, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 66
+opp_pts: 74
+wins: 11
+losses: 22
+game_streak: L 1
+
+team: ATL
+season: 2024
+date_game: Fri, Sep 6, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 107
+opp_pts: 96
+wins: 12
+losses: 22
+game_streak: W 1
+
+team: ATL
+season: 2024
+date_game: Sun, Sep 8, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 100
+opp_pts: 104
+wins: 12
+losses: 23
+game_streak: L 1
+
+team: ATL
+season: 2024
+date_game: Tue, Sep 10, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 64
+opp_pts: 76
+wins: 12
+losses: 24
+game_streak: L 2
+
+team: ATL
+season: 2024
+date_game: Fri, Sep 13, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 69
+opp_pts: 72
+wins: 12
+losses: 25
+game_streak: L 3
+
+team: ATL
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 76
+opp_pts: 73
+wins: 13
+losses: 25
+game_streak: W 1
+
+team: ATL
+season: 2024
+date_game: Tue, Sep 17, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 86
+opp_pts: 70
+wins: 14
+losses: 25
+game_streak: W 2
+
+team: ATL
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: W
+pts: 78
+opp_pts: 67
+wins: 15
+losses: 25
+game_streak: W 3
+
+team: ATL
+season: 2025
+date_game: Fri, May 16, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 90
+opp_pts: 94
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: ATL
+season: 2025
+date_game: Tue, May 20, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 91
+opp_pts: 90
+wins: 1
+losses: 1
+game_streak: W 1
+
+team: ATL
+season: 2025
+date_game: Thu, May 22, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 76
+opp_pts: 81
+wins: 1
+losses: 2
+game_streak: L 1
+
+team: ATL
+season: 2025
+date_game: Sat, May 24, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 83
+opp_pts: 75
+wins: 2
+losses: 2
+game_streak: W 1
+
+team: ATL
+season: 2025
+date_game: Sun, May 25, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 79
+opp_pts: 55
+wins: 3
+losses: 2
+game_streak: W 2
+
+team: ATL
+season: 2025
+date_game: Tue, May 27, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 88
+opp_pts: 82
+wins: 4
+losses: 2
+game_streak: W 3
+
+team: ATL
+season: 2025
+date_game: Fri, May 30, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 94
+opp_pts: 87
+wins: 5
+losses: 2
+game_streak: W 4
+
+team: ATL
+season: 2025
+date_game: Fri, Jun 6, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 76
+opp_pts: 84
+wins: 5
+losses: 3
+game_streak: L 1
+
+team: ATL
+season: 2025
+date_game: Tue, Jun 10, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 77
+opp_pts: 58
+wins: 6
+losses: 3
+game_streak: W 1
+
+team: ATL
+season: 2025
+date_game: Fri, Jun 13, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 88
+opp_pts: 70
+wins: 7
+losses: 3
+game_streak: W 2
+
+team: ATL
+season: 2025
+date_game: Sun, Jun 15, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 89
+opp_pts: 56
+wins: 8
+losses: 3
+game_streak: W 3
+
+team: ATL
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 81
+opp_pts: 86
+wins: 8
+losses: 4
+game_streak: L 1
+
+team: ATL
+season: 2025
+date_game: Fri, Jun 20, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 92
+opp_pts: 91
+wins: 9
+losses: 4
+game_streak: W 1
+
+team: ATL
+season: 2025
+date_game: Sun, Jun 22, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 93
+opp_pts: 80
+wins: 10
+losses: 4
+game_streak: W 2
+
+team: ATL
+season: 2025
+date_game: Tue, Jun 24, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 55
+opp_pts: 68
+wins: 10
+losses: 5
+game_streak: L 1
+
+team: ATL
+season: 2025
+date_game: Fri, Jun 27, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 92
+opp_pts: 96
+wins: 10
+losses: 6
+game_streak: L 2
+
+team: ATL
+season: 2025
+date_game: Sun, Jun 29, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 90
+opp_pts: 81
+wins: 11
+losses: 6
+game_streak: W 1
+
+team: ATL
+season: 2025
+date_game: Thu, Jul 3, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 79
+opp_pts: 80
+wins: 11
+losses: 7
+game_streak: L 1
+
+team: ATL
+season: 2025
+date_game: Mon, Jul 7, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: W
+pts: 90
+opp_pts: 81
+wins: 12
+losses: 7
+game_streak: W 1
+
+team: ATL
+season: 2025
+date_game: Fri, Jul 11, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 82
+opp_pts: 99
+wins: 12
+losses: 8
+game_streak: L 1
+
+team: ATL
+season: 2025
+date_game: Sun, Jul 13, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 72
+opp_pts: 79
+wins: 12
+losses: 9
+game_streak: L 2
+
+team: ATL
+season: 2025
+date_game: Wed, Jul 16, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 86
+opp_pts: 49
+wins: 13
+losses: 9
+game_streak: W 1
+
+team: ATL
+season: 2025
+date_game: Tue, Jul 22, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 72
+opp_pts: 87
+wins: 13
+losses: 10
+game_streak: L 1
+
+team: ATL
+season: 2025
+date_game: Wed, Jul 23, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 90
+opp_pts: 79
+wins: 14
+losses: 10
+game_streak: W 1
+
+team: ATL
+season: 2025
+date_game: Sun, Jul 27, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: W
+pts: 90
+opp_pts: 86
+wins: 15
+losses: 10
+game_streak: W 2
+
+team: ATL
+season: 2025
+date_game: Tue, Jul 29, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: L
+pts: 75
+opp_pts: 77
+wins: 15
+losses: 11
+game_streak: L 1
+
+team: ATL
+season: 2025
+date_game: Wed, Jul 30, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 88
+opp_pts: 85
+wins: 16
+losses: 11
+game_streak: W 1
+
+team: ATL
+season: 2025
+date_game: Fri, Aug 1, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 95
+opp_pts: 72
+wins: 17
+losses: 11
+game_streak: W 2
+
+team: ATL
+season: 2025
+date_game: Sun, Aug 3, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 99
+opp_pts: 83
+wins: 18
+losses: 11
+game_streak: W 3
+
+team: ATL
+season: 2025
+date_game: Thu, Aug 7, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 86
+opp_pts: 65
+wins: 19
+losses: 11
+game_streak: W 4
+
+team: ATL
+season: 2025
+date_game: Sun, Aug 10, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 74
+opp_pts: 66
+wins: 20
+losses: 11
+game_streak: W 5
+
+team: PHO
+season: 2024
+date_game: Tue, May 14, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 80
+opp_pts: 89
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Sat, May 18, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 88
+opp_pts: 85
+wins: 1
+losses: 1
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Tue, May 21, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 98
+opp_pts: 88
+wins: 2
+losses: 1
+game_streak: W 2
+
+team: PHO
+season: 2024
+date_game: Thu, May 23, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 83
+opp_pts: 80
+wins: 3
+losses: 1
+game_streak: W 3
+
+team: PHO
+season: 2024
+date_game: Sat, May 25, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: L
+pts: 92
+opp_pts: 107
+wins: 3
+losses: 2
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Tue, May 28, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 47
+opp_pts: 70
+wins: 3
+losses: 3
+game_streak: L 2
+
+team: PHO
+season: 2024
+date_game: Wed, May 29, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 78
+opp_pts: 81
+wins: 3
+losses: 4
+game_streak: L 3
+
+team: PHO
+season: 2024
+date_game: Fri, May 31, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 71
+opp_pts: 95
+wins: 3
+losses: 5
+game_streak: L 4
+
+team: PHO
+season: 2024
+date_game: Sun, Jun 2, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 87
+opp_pts: 68
+wins: 4
+losses: 5
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Tue, Jun 4, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 62
+opp_pts: 80
+wins: 4
+losses: 6
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Fri, Jun 7, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: W
+pts: 81
+opp_pts: 80
+wins: 5
+losses: 6
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Sun, Jun 9, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 97
+opp_pts: 90
+wins: 6
+losses: 6
+game_streak: W 2
+
+team: PHO
+season: 2024
+date_game: Thu, Jun 13, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 99
+opp_pts: 103
+wins: 6
+losses: 7
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Sun, Jun 16, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 87
+opp_pts: 78
+wins: 7
+losses: 7
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Tue, Jun 18, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 99
+opp_pts: 93
+wins: 8
+losses: 7
+game_streak: W 2
+
+team: PHO
+season: 2024
+date_game: Sat, Jun 22, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 60
+opp_pts: 73
+wins: 8
+losses: 8
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Fri, Jun 28, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 92
+opp_pts: 78
+wins: 9
+losses: 8
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Sun, Jun 30, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 82
+opp_pts: 88
+wins: 9
+losses: 9
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Mon, Jul 1, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 72
+opp_pts: 83
+wins: 9
+losses: 10
+game_streak: L 2
+
+team: PHO
+season: 2024
+date_game: Wed, Jul 3, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 104
+opp_pts: 96
+wins: 10
+losses: 10
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Sun, Jul 7, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 84
+opp_pts: 78
+wins: 11
+losses: 10
+game_streak: W 2
+
+team: PHO
+season: 2024
+date_game: Wed, Jul 10, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 100
+opp_pts: 84
+wins: 12
+losses: 10
+game_streak: W 3
+
+team: PHO
+season: 2024
+date_game: Fri, Jul 12, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 86
+opp_pts: 95
+wins: 12
+losses: 11
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Sun, Jul 14, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 69
+opp_pts: 96
+wins: 12
+losses: 12
+game_streak: L 2
+
+team: PHO
+season: 2024
+date_game: Tue, Jul 16, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 96
+opp_pts: 87
+wins: 13
+losses: 12
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Thu, Aug 15, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 85
+opp_pts: 65
+wins: 14
+losses: 12
+game_streak: W 2
+
+team: PHO
+season: 2024
+date_game: Fri, Aug 16, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 89
+opp_pts: 98
+wins: 14
+losses: 13
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Sun, Aug 18, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 86
+opp_pts: 68
+wins: 15
+losses: 13
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Wed, Aug 21, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 63
+opp_pts: 72
+wins: 15
+losses: 14
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Fri, Aug 23, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 82
+opp_pts: 80
+wins: 16
+losses: 14
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Mon, Aug 26, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 70
+opp_pts: 84
+wins: 16
+losses: 15
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Wed, Aug 28, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 76
+opp_pts: 89
+wins: 16
+losses: 16
+game_streak: L 2
+
+team: PHO
+season: 2024
+date_game: Sun, Sep 1, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 79
+opp_pts: 97
+wins: 16
+losses: 17
+game_streak: L 3
+
+team: PHO
+season: 2024
+date_game: Tue, Sep 3, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 74
+opp_pts: 66
+wins: 17
+losses: 17
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Thu, Sep 5, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 77
+opp_pts: 90
+wins: 17
+losses: 18
+game_streak: L 1
+
+team: PHO
+season: 2024
+date_game: Sat, Sep 7, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 66
+opp_pts: 90
+wins: 17
+losses: 19
+game_streak: L 2
+
+team: PHO
+season: 2024
+date_game: Fri, Sep 13, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 69
+opp_pts: 88
+wins: 17
+losses: 20
+game_streak: L 3
+
+team: PHO
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 93
+opp_pts: 88
+wins: 18
+losses: 20
+game_streak: W 1
+
+team: PHO
+season: 2024
+date_game: Tue, Sep 17, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 85
+opp_pts: 81
+wins: 19
+losses: 20
+game_streak: W 2
+
+team: PHO
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 70
+opp_pts: 89
+wins: 19
+losses: 21
+game_streak: L 1
+
+team: PHO
+season: 2025
+date_game: Sat, May 17, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 81
+opp_pts: 59
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: PHO
+season: 2025
+date_game: Wed, May 21, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 89
+opp_pts: 86
+wins: 2
+losses: 0
+game_streak: W 2
+
+team: PHO
+season: 2025
+date_game: Fri, May 23, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 70
+opp_pts: 77
+wins: 2
+losses: 1
+game_streak: L 1
+
+team: PHO
+season: 2025
+date_game: Sun, May 25, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 68
+opp_pts: 62
+wins: 3
+losses: 1
+game_streak: W 1
+
+team: PHO
+season: 2025
+date_game: Tue, May 27, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 94
+opp_pts: 89
+wins: 4
+losses: 1
+game_streak: W 2
+
+team: PHO
+season: 2025
+date_game: Fri, May 30, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 71
+opp_pts: 74
+wins: 4
+losses: 2
+game_streak: L 1
+
+team: PHO
+season: 2025
+date_game: Sun, Jun 1, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 85
+opp_pts: 80
+wins: 5
+losses: 2
+game_streak: W 1
+
+team: PHO
+season: 2025
+date_game: Tue, Jun 3, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 65
+opp_pts: 88
+wins: 5
+losses: 3
+game_streak: L 1
+
+team: PHO
+season: 2025
+date_game: Thu, Jun 5, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: W
+pts: 86
+opp_pts: 77
+wins: 6
+losses: 3
+game_streak: W 1
+
+team: PHO
+season: 2025
+date_game: Sat, Jun 7, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 77
+opp_pts: 89
+wins: 6
+losses: 4
+game_streak: L 1
+
+team: PHO
+season: 2025
+date_game: Wed, Jun 11, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 93
+opp_pts: 80
+wins: 7
+losses: 4
+game_streak: W 1
+
+team: PHO
+season: 2025
+date_game: Sun, Jun 15, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 76
+opp_pts: 70
+wins: 8
+losses: 4
+game_streak: W 2
+
+team: PHO
+season: 2025
+date_game: Wed, Jun 18, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 83
+opp_pts: 75
+wins: 9
+losses: 4
+game_streak: W 3
+
+team: PHO
+season: 2025
+date_game: Thu, Jun 19, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: W
+pts: 89
+opp_pts: 81
+wins: 10
+losses: 4
+game_streak: W 4
+
+team: PHO
+season: 2025
+date_game: Sat, Jun 21, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 107
+opp_pts: 86
+wins: 11
+losses: 4
+game_streak: W 5
+
+team: PHO
+season: 2025
+date_game: Fri, Jun 27, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 106
+opp_pts: 91
+wins: 12
+losses: 4
+game_streak: W 6
+
+team: PHO
+season: 2025
+date_game: Sun, Jun 29, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 81
+opp_pts: 84
+wins: 12
+losses: 5
+game_streak: L 1
+
+team: PHO
+season: 2025
+date_game: Thu, Jul 3, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 89
+opp_pts: 98
+wins: 12
+losses: 6
+game_streak: L 2
+
+team: PHO
+season: 2025
+date_game: Mon, Jul 7, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 102
+opp_pts: 72
+wins: 13
+losses: 6
+game_streak: W 1
+
+team: PHO
+season: 2025
+date_game: Wed, Jul 9, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: W
+pts: 79
+opp_pts: 71
+wins: 14
+losses: 6
+game_streak: W 2
+
+team: PHO
+season: 2025
+date_game: Mon, Jul 14, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: W
+pts: 78
+opp_pts: 77
+wins: 15
+losses: 6
+game_streak: W 3
+
+team: PHO
+season: 2025
+date_game: Wed, Jul 16, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 66
+opp_pts: 79
+wins: 15
+losses: 7
+game_streak: L 1
+
+team: PHO
+season: 2025
+date_game: Wed, Jul 23, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 79
+opp_pts: 90
+wins: 15
+losses: 8
+game_streak: L 2
+
+team: PHO
+season: 2025
+date_game: Fri, Jul 25, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 76
+opp_pts: 89
+wins: 15
+losses: 9
+game_streak: L 3
+
+team: PHO
+season: 2025
+date_game: Sun, Jul 27, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 88
+opp_pts: 72
+wins: 16
+losses: 9
+game_streak: W 1
+
+team: PHO
+season: 2025
+date_game: Wed, Jul 30, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 101
+opp_pts: 107
+wins: 16
+losses: 10
+game_streak: L 1
+
+team: PHO
+season: 2025
+date_game: Fri, Aug 1, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 72
+opp_pts: 95
+wins: 16
+losses: 11
+game_streak: L 2
+
+team: PHO
+season: 2025
+date_game: Sun, Aug 3, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 83
+opp_pts: 67
+wins: 17
+losses: 11
+game_streak: W 1
+
+team: PHO
+season: 2025
+date_game: Tue, Aug 5, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 82
+opp_pts: 66
+wins: 18
+losses: 11
+game_streak: W 2
+
+team: PHO
+season: 2025
+date_game: Thu, Aug 7, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 95
+opp_pts: 60
+wins: 19
+losses: 11
+game_streak: W 3
+
+team: PHO
+season: 2025
+date_game: Sun, Aug 10, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 66
+opp_pts: 74
+wins: 19
+losses: 12
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Tue, May 14, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 71
+opp_pts: 92
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Thu, May 16, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 66
+opp_pts: 102
+wins: 0
+losses: 2
+game_streak: L 2
+
+team: IND
+season: 2024
+date_game: Sat, May 18, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 80
+opp_pts: 91
+wins: 0
+losses: 3
+game_streak: L 3
+
+team: IND
+season: 2024
+date_game: Mon, May 20, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 84
+opp_pts: 88
+wins: 0
+losses: 4
+game_streak: L 4
+
+team: IND
+season: 2024
+date_game: Wed, May 22, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 83
+opp_pts: 85
+wins: 0
+losses: 5
+game_streak: L 5
+
+team: IND
+season: 2024
+date_game: Fri, May 24, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 78
+opp_pts: 73
+wins: 1
+losses: 5
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Sat, May 25, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 80
+opp_pts: 99
+wins: 1
+losses: 6
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Tue, May 28, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 82
+opp_pts: 88
+wins: 1
+losses: 7
+game_streak: L 2
+
+team: IND
+season: 2024
+date_game: Thu, May 30, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 88
+opp_pts: 103
+wins: 1
+losses: 8
+game_streak: L 3
+
+team: IND
+season: 2024
+date_game: Sat, Jun 1, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 71
+opp_pts: 70
+wins: 2
+losses: 8
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Sun, Jun 2, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 68
+opp_pts: 104
+wins: 2
+losses: 9
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Fri, Jun 7, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 85
+opp_pts: 83
+wins: 3
+losses: 9
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Mon, Jun 10, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 72
+opp_pts: 89
+wins: 3
+losses: 10
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Thu, Jun 13, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 91
+opp_pts: 84
+wins: 4
+losses: 10
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Sun, Jun 16, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 91
+opp_pts: 83
+wins: 5
+losses: 10
+game_streak: W 2
+
+team: IND
+season: 2024
+date_game: Wed, Jun 19, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 88
+opp_pts: 81
+wins: 6
+losses: 10
+game_streak: W 3
+
+team: IND
+season: 2024
+date_game: Fri, Jun 21, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 91
+opp_pts: 79
+wins: 7
+losses: 10
+game_streak: W 4
+
+team: IND
+season: 2024
+date_game: Sun, Jun 23, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 87
+opp_pts: 88
+wins: 7
+losses: 11
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Thu, Jun 27, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 77
+opp_pts: 89
+wins: 7
+losses: 12
+game_streak: L 2
+
+team: IND
+season: 2024
+date_game: Sun, Jun 30, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 88
+opp_pts: 82
+wins: 8
+losses: 12
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Tue, Jul 2, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 69
+opp_pts: 88
+wins: 8
+losses: 13
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Sat, Jul 6, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 83
+opp_pts: 78
+wins: 9
+losses: 13
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Wed, Jul 10, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 84
+opp_pts: 89
+wins: 9
+losses: 14
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Fri, Jul 12, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 95
+opp_pts: 86
+wins: 10
+losses: 14
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Sun, Jul 14, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: W
+pts: 81
+opp_pts: 74
+wins: 11
+losses: 14
+game_streak: W 2
+
+team: IND
+season: 2024
+date_game: Wed, Jul 17, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 93
+opp_pts: 101
+wins: 11
+losses: 15
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Fri, Aug 16, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 98
+opp_pts: 89
+wins: 12
+losses: 15
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Sun, Aug 18, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 92
+opp_pts: 75
+wins: 13
+losses: 15
+game_streak: W 2
+
+team: IND
+season: 2024
+date_game: Sat, Aug 24, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 80
+opp_pts: 90
+wins: 13
+losses: 16
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Mon, Aug 26, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 84
+opp_pts: 79
+wins: 14
+losses: 16
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Wed, Aug 28, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 84
+opp_pts: 80
+wins: 15
+losses: 16
+game_streak: W 2
+
+team: IND
+season: 2024
+date_game: Fri, Aug 30, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 100
+opp_pts: 81
+wins: 16
+losses: 16
+game_streak: W 3
+
+team: IND
+season: 2024
+date_game: Sun, Sep 1, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 100
+opp_pts: 93
+wins: 17
+losses: 16
+game_streak: W 4
+
+team: IND
+season: 2024
+date_game: Wed, Sep 4, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 93
+opp_pts: 86
+wins: 18
+losses: 16
+game_streak: W 5
+
+team: IND
+season: 2024
+date_game: Fri, Sep 6, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 88
+opp_pts: 99
+wins: 18
+losses: 17
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Sun, Sep 8, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 104
+opp_pts: 100
+wins: 19
+losses: 17
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Wed, Sep 11, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 75
+opp_pts: 86
+wins: 19
+losses: 18
+game_streak: L 1
+
+team: IND
+season: 2024
+date_game: Fri, Sep 13, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 74
+opp_pts: 78
+wins: 19
+losses: 19
+game_streak: L 2
+
+team: IND
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 110
+opp_pts: 109
+wins: 20
+losses: 19
+game_streak: W 1
+
+team: IND
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 91
+opp_pts: 92
+wins: 20
+losses: 20
+game_streak: L 1
+
+team: IND
+season: 2025
+date_game: Sat, May 17, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 93
+opp_pts: 58
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: IND
+season: 2025
+date_game: Tue, May 20, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 90
+opp_pts: 91
+wins: 1
+losses: 1
+game_streak: L 1
+
+team: IND
+season: 2025
+date_game: Thu, May 22, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 81
+opp_pts: 76
+wins: 2
+losses: 1
+game_streak: W 1
+
+team: IND
+season: 2025
+date_game: Sat, May 24, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 88
+opp_pts: 90
+wins: 2
+losses: 2
+game_streak: L 1
+
+team: IND
+season: 2025
+date_game: Wed, May 28, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 77
+opp_pts: 83
+wins: 2
+losses: 3
+game_streak: L 2
+
+team: IND
+season: 2025
+date_game: Fri, May 30, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 83
+opp_pts: 85
+wins: 2
+losses: 4
+game_streak: L 3
+
+team: IND
+season: 2025
+date_game: Tue, Jun 3, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 85
+opp_pts: 76
+wins: 3
+losses: 4
+game_streak: W 1
+
+team: IND
+season: 2025
+date_game: Sat, Jun 7, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 79
+opp_pts: 52
+wins: 4
+losses: 4
+game_streak: W 2
+
+team: IND
+season: 2025
+date_game: Tue, Jun 10, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 58
+opp_pts: 77
+wins: 4
+losses: 5
+game_streak: L 1
+
+team: IND
+season: 2025
+date_game: Sat, Jun 14, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 102
+opp_pts: 88
+wins: 5
+losses: 5
+game_streak: W 1
+
+team: IND
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 88
+opp_pts: 71
+wins: 6
+losses: 5
+game_streak: W 2
+
+team: IND
+season: 2025
+date_game: Thu, Jun 19, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: L
+pts: 77
+opp_pts: 88
+wins: 6
+losses: 6
+game_streak: L 1
+
+team: IND
+season: 2025
+date_game: Sun, Jun 22, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 81
+opp_pts: 89
+wins: 6
+losses: 7
+game_streak: L 2
+
+team: IND
+season: 2025
+date_game: Tue, Jun 24, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 94
+opp_pts: 86
+wins: 7
+losses: 7
+game_streak: W 1
+
+team: IND
+season: 2025
+date_game: Thu, Jun 26, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 75
+opp_pts: 85
+wins: 7
+losses: 8
+game_streak: L 1
+
+team: IND
+season: 2025
+date_game: Fri, Jun 27, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 94
+opp_pts: 86
+wins: 8
+losses: 8
+game_streak: W 1
+
+team: IND
+season: 2025
+date_game: Thu, Jul 3, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 81
+opp_pts: 54
+wins: 9
+losses: 8
+game_streak: W 2
+
+team: IND
+season: 2025
+date_game: Sat, Jul 5, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 87
+opp_pts: 89
+wins: 9
+losses: 9
+game_streak: L 1
+
+team: IND
+season: 2025
+date_game: Wed, Jul 9, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: L
+pts: 61
+opp_pts: 80
+wins: 9
+losses: 10
+game_streak: L 2
+
+team: IND
+season: 2025
+date_game: Fri, Jul 11, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 99
+opp_pts: 82
+wins: 10
+losses: 10
+game_streak: W 1
+
+team: IND
+season: 2025
+date_game: Sun, Jul 13, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 102
+opp_pts: 83
+wins: 11
+losses: 10
+game_streak: W 2
+
+team: IND
+season: 2025
+date_game: Tue, Jul 15, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 85
+opp_pts: 77
+wins: 12
+losses: 10
+game_streak: W 3
+
+team: IND
+season: 2025
+date_game: Wed, Jul 16, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 77
+opp_pts: 98
+wins: 12
+losses: 11
+game_streak: L 1
+
+team: IND
+season: 2025
+date_game: Tue, Jul 22, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 84
+opp_pts: 98
+wins: 12
+losses: 12
+game_streak: L 2
+
+team: IND
+season: 2025
+date_game: Thu, Jul 24, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 80
+opp_pts: 70
+wins: 13
+losses: 12
+game_streak: W 1
+
+team: IND
+season: 2025
+date_game: Sun, Jul 27, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 93
+opp_pts: 78
+wins: 14
+losses: 12
+game_streak: W 2
+
+team: IND
+season: 2025
+date_game: Wed, Jul 30, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 107
+opp_pts: 101
+wins: 15
+losses: 12
+game_streak: W 3
+
+team: IND
+season: 2025
+date_game: Fri, Aug 1, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 88
+opp_pts: 78
+wins: 16
+losses: 12
+game_streak: W 4
+
+team: IND
+season: 2025
+date_game: Sun, Aug 3, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 78
+opp_pts: 74
+wins: 17
+losses: 12
+game_streak: W 5
+
+team: IND
+season: 2025
+date_game: Tue, Aug 5, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 91
+opp_pts: 100
+wins: 17
+losses: 13
+game_streak: L 1
+
+team: IND
+season: 2025
+date_game: Thu, Aug 7, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 60
+opp_pts: 95
+wins: 17
+losses: 14
+game_streak: L 2
+
+team: IND
+season: 2025
+date_game: Sat, Aug 9, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 92
+opp_pts: 70
+wins: 18
+losses: 14
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Tue, May 14, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 89
+opp_pts: 80
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Sat, May 18, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 89
+opp_pts: 82
+wins: 2
+losses: 0
+game_streak: W 2
+
+team: LVA
+season: 2024
+date_game: Tue, May 21, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 88
+opp_pts: 98
+wins: 2
+losses: 1
+game_streak: L 1
+
+team: LVA
+season: 2024
+date_game: Sat, May 25, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 99
+opp_pts: 80
+wins: 3
+losses: 1
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Wed, May 29, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: W
+pts: 80
+opp_pts: 66
+wins: 4
+losses: 1
+game_streak: W 2
+
+team: LVA
+season: 2024
+date_game: Fri, May 31, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 74
+opp_pts: 78
+wins: 4
+losses: 2
+game_streak: L 1
+
+team: LVA
+season: 2024
+date_game: Wed, Jun 5, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 95
+opp_pts: 81
+wins: 5
+losses: 2
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Fri, Jun 7, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 65
+opp_pts: 78
+wins: 5
+losses: 3
+game_streak: L 1
+
+team: LVA
+season: 2024
+date_game: Sun, Jun 9, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 92
+opp_pts: 96
+wins: 5
+losses: 4
+game_streak: L 2
+
+team: LVA
+season: 2024
+date_game: Tue, Jun 11, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 86
+opp_pts: 100
+wins: 5
+losses: 5
+game_streak: L 3
+
+team: LVA
+season: 2024
+date_game: Thu, Jun 13, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 103
+opp_pts: 99
+wins: 6
+losses: 5
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Sat, Jun 15, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 82
+opp_pts: 90
+wins: 6
+losses: 6
+game_streak: L 1
+
+team: LVA
+season: 2024
+date_game: Wed, Jun 19, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 94
+opp_pts: 83
+wins: 7
+losses: 6
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Fri, Jun 21, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 85
+opp_pts: 74
+wins: 8
+losses: 6
+game_streak: W 2
+
+team: LVA
+season: 2024
+date_game: Thu, Jun 27, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 95
+opp_pts: 83
+wins: 9
+losses: 6
+game_streak: W 3
+
+team: LVA
+season: 2024
+date_game: Sat, Jun 29, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 88
+opp_pts: 77
+wins: 10
+losses: 6
+game_streak: W 4
+
+team: LVA
+season: 2024
+date_game: Tue, Jul 2, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 88
+opp_pts: 69
+wins: 11
+losses: 6
+game_streak: W 5
+
+team: LVA
+season: 2024
+date_game: Thu, Jul 4, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 98
+opp_pts: 77
+wins: 12
+losses: 6
+game_streak: W 6
+
+team: LVA
+season: 2024
+date_game: Fri, Jul 5, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 93
+opp_pts: 98
+wins: 12
+losses: 7
+game_streak: L 1
+
+team: LVA
+season: 2024
+date_game: Sun, Jul 7, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 104
+opp_pts: 85
+wins: 13
+losses: 7
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Wed, Jul 10, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 84
+opp_pts: 79
+wins: 14
+losses: 7
+game_streak: W 2
+
+team: LVA
+season: 2024
+date_game: Fri, Jul 12, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 84
+opp_pts: 70
+wins: 15
+losses: 7
+game_streak: W 3
+
+team: LVA
+season: 2024
+date_game: Sun, Jul 14, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 89
+opp_pts: 77
+wins: 16
+losses: 7
+game_streak: W 4
+
+team: LVA
+season: 2024
+date_game: Tue, Jul 16, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: L
+pts: 85
+opp_pts: 93
+wins: 16
+losses: 8
+game_streak: L 1
+
+team: LVA
+season: 2024
+date_game: Sat, Aug 17, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 67
+opp_pts: 79
+wins: 16
+losses: 9
+game_streak: L 2
+
+team: LVA
+season: 2024
+date_game: Sun, Aug 18, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 87
+opp_pts: 71
+wins: 17
+losses: 9
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Wed, Aug 21, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 87
+opp_pts: 98
+wins: 17
+losses: 10
+game_streak: L 1
+
+team: LVA
+season: 2024
+date_game: Fri, Aug 23, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 74
+opp_pts: 87
+wins: 17
+losses: 11
+game_streak: L 2
+
+team: LVA
+season: 2024
+date_game: Sun, Aug 25, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 77
+opp_pts: 75
+wins: 18
+losses: 11
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Tue, Aug 27, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 90
+opp_pts: 93
+wins: 18
+losses: 12
+game_streak: L 1
+
+team: LVA
+season: 2024
+date_game: Fri, Aug 30, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 83
+opp_pts: 72
+wins: 19
+losses: 12
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Sun, Sep 1, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 97
+opp_pts: 79
+wins: 20
+losses: 12
+game_streak: W 2
+
+team: LVA
+season: 2024
+date_game: Tue, Sep 3, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 90
+opp_pts: 71
+wins: 21
+losses: 12
+game_streak: W 3
+
+team: LVA
+season: 2024
+date_game: Fri, Sep 6, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 72
+opp_pts: 67
+wins: 22
+losses: 12
+game_streak: W 4
+
+team: LVA
+season: 2024
+date_game: Sun, Sep 8, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 71
+opp_pts: 75
+wins: 22
+losses: 13
+game_streak: L 1
+
+team: LVA
+season: 2024
+date_game: Wed, Sep 11, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 86
+opp_pts: 75
+wins: 23
+losses: 13
+game_streak: W 1
+
+team: LVA
+season: 2024
+date_game: Fri, Sep 13, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 78
+opp_pts: 74
+wins: 24
+losses: 13
+game_streak: W 2
+
+team: LVA
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 84
+opp_pts: 71
+wins: 25
+losses: 13
+game_streak: W 3
+
+team: LVA
+season: 2024
+date_game: Tue, Sep 17, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 85
+opp_pts: 72
+wins: 26
+losses: 13
+game_streak: W 4
+
+team: LVA
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 98
+opp_pts: 84
+wins: 27
+losses: 13
+game_streak: W 5
+
+team: LVA
+season: 2025
+date_game: Sat, May 17, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 78
+opp_pts: 92
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: LVA
+season: 2025
+date_game: Tue, May 20, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 87
+opp_pts: 62
+wins: 1
+losses: 1
+game_streak: W 1
+
+team: LVA
+season: 2025
+date_game: Fri, May 23, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 75
+opp_pts: 72
+wins: 2
+losses: 1
+game_streak: W 2
+
+team: LVA
+season: 2025
+date_game: Sun, May 25, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 82
+opp_pts: 102
+wins: 2
+losses: 2
+game_streak: L 1
+
+team: LVA
+season: 2025
+date_game: Fri, May 30, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 96
+opp_pts: 81
+wins: 3
+losses: 2
+game_streak: W 1
+
+team: LVA
+season: 2025
+date_game: Sun, Jun 1, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 75
+opp_pts: 70
+wins: 4
+losses: 2
+game_streak: W 2
+
+team: LVA
+season: 2025
+date_game: Sat, Jun 7, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: L
+pts: 68
+opp_pts: 95
+wins: 4
+losses: 3
+game_streak: L 1
+
+team: LVA
+season: 2025
+date_game: Wed, Jun 11, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 89
+opp_pts: 97
+wins: 4
+losses: 4
+game_streak: L 2
+
+team: LVA
+season: 2025
+date_game: Fri, Jun 13, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 88
+opp_pts: 84
+wins: 5
+losses: 4
+game_streak: W 1
+
+team: LVA
+season: 2025
+date_game: Sun, Jun 15, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 70
+opp_pts: 76
+wins: 5
+losses: 5
+game_streak: L 1
+
+team: LVA
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 62
+opp_pts: 76
+wins: 5
+losses: 6
+game_streak: L 2
+
+team: LVA
+season: 2025
+date_game: Fri, Jun 20, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 83
+opp_pts: 90
+wins: 5
+losses: 7
+game_streak: L 3
+
+team: LVA
+season: 2025
+date_game: Sun, Jun 22, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 89
+opp_pts: 81
+wins: 6
+losses: 7
+game_streak: W 1
+
+team: LVA
+season: 2025
+date_game: Wed, Jun 25, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 85
+opp_pts: 59
+wins: 7
+losses: 7
+game_streak: W 2
+
+team: LVA
+season: 2025
+date_game: Thu, Jun 26, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 83
+opp_pts: 94
+wins: 7
+losses: 8
+game_streak: L 1
+
+team: LVA
+season: 2025
+date_game: Sun, Jun 29, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 84
+opp_pts: 81
+wins: 8
+losses: 8
+game_streak: W 1
+
+team: LVA
+season: 2025
+date_game: Thu, Jul 3, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 54
+opp_pts: 81
+wins: 8
+losses: 9
+game_streak: L 1
+
+team: LVA
+season: 2025
+date_game: Sun, Jul 6, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 86
+opp_pts: 68
+wins: 9
+losses: 9
+game_streak: W 1
+
+team: LVA
+season: 2025
+date_game: Tue, Jul 8, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 78
+opp_pts: 87
+wins: 9
+losses: 10
+game_streak: L 1
+
+team: LVA
+season: 2025
+date_game: Thu, Jul 10, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 68
+opp_pts: 70
+wins: 9
+losses: 11
+game_streak: L 2
+
+team: LVA
+season: 2025
+date_game: Sat, Jul 12, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: W
+pts: 104
+opp_pts: 102
+wins: 10
+losses: 11
+game_streak: W 1
+
+team: LVA
+season: 2025
+date_game: Wed, Jul 16, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 90
+opp_pts: 86
+wins: 11
+losses: 11
+game_streak: W 2
+
+team: LVA
+season: 2025
+date_game: Tue, Jul 22, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 87
+opp_pts: 72
+wins: 12
+losses: 11
+game_streak: W 3
+
+team: LVA
+season: 2025
+date_game: Thu, Jul 24, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 70
+opp_pts: 80
+wins: 12
+losses: 12
+game_streak: L 1
+
+team: LVA
+season: 2025
+date_game: Fri, Jul 25, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 78
+opp_pts: 109
+wins: 12
+losses: 13
+game_streak: L 2
+
+team: LVA
+season: 2025
+date_game: Sun, Jul 27, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 106
+opp_pts: 80
+wins: 13
+losses: 13
+game_streak: W 1
+
+team: LVA
+season: 2025
+date_game: Tue, Jul 29, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 89
+opp_pts: 74
+wins: 14
+losses: 13
+game_streak: W 2
+
+team: LVA
+season: 2025
+date_game: Sat, Aug 2, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 58
+opp_pts: 111
+wins: 14
+losses: 14
+game_streak: L 1
+
+team: LVA
+season: 2025
+date_game: Sun, Aug 3, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: W
+pts: 101
+opp_pts: 77
+wins: 15
+losses: 14
+game_streak: W 1
+
+team: LVA
+season: 2025
+date_game: Wed, Aug 6, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: W
+pts: 78
+opp_pts: 72
+wins: 16
+losses: 14
+game_streak: W 2
+
+team: LVA
+season: 2025
+date_game: Fri, Aug 8, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 90
+opp_pts: 86
+wins: 17
+losses: 14
+game_streak: W 3
+
+team: LVA
+season: 2025
+date_game: Sun, Aug 10, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 94
+opp_pts: 86
+wins: 18
+losses: 14
+game_streak: W 4
+
+team: SEA
+season: 2024
+date_game: Tue, May 14, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 70
+opp_pts: 83
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Fri, May 17, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 93
+opp_pts: 102
+wins: 0
+losses: 2
+game_streak: L 2
+
+team: SEA
+season: 2024
+date_game: Sun, May 19, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 84
+opp_pts: 75
+wins: 1
+losses: 2
+game_streak: W 1
+
+team: SEA
+season: 2024
+date_game: Mon, May 20, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 63
+opp_pts: 74
+wins: 1
+losses: 3
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Wed, May 22, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 85
+opp_pts: 83
+wins: 2
+losses: 3
+game_streak: W 1
+
+team: SEA
+season: 2024
+date_game: Sat, May 25, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 101
+opp_pts: 69
+wins: 3
+losses: 3
+game_streak: W 2
+
+team: SEA
+season: 2024
+date_game: Tue, May 28, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 77
+opp_pts: 68
+wins: 4
+losses: 3
+game_streak: W 3
+
+team: SEA
+season: 2024
+date_game: Thu, May 30, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 103
+opp_pts: 88
+wins: 5
+losses: 3
+game_streak: W 4
+
+team: SEA
+season: 2024
+date_game: Tue, Jun 4, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 80
+opp_pts: 62
+wins: 6
+losses: 3
+game_streak: W 5
+
+team: SEA
+season: 2024
+date_game: Fri, Jun 7, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 78
+opp_pts: 65
+wins: 7
+losses: 3
+game_streak: W 6
+
+team: SEA
+season: 2024
+date_game: Sun, Jun 9, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 64
+opp_pts: 83
+wins: 7
+losses: 4
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Tue, Jun 11, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 95
+opp_pts: 79
+wins: 8
+losses: 4
+game_streak: W 1
+
+team: SEA
+season: 2024
+date_game: Thu, Jun 13, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 92
+opp_pts: 84
+wins: 9
+losses: 4
+game_streak: W 2
+
+team: SEA
+season: 2024
+date_game: Sun, Jun 16, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 78
+opp_pts: 87
+wins: 9
+losses: 5
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Wed, Jun 19, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 83
+opp_pts: 94
+wins: 9
+losses: 6
+game_streak: L 2
+
+team: SEA
+season: 2024
+date_game: Sun, Jun 23, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 72
+opp_pts: 61
+wins: 10
+losses: 6
+game_streak: W 1
+
+team: SEA
+season: 2024
+date_game: Thu, Jun 27, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 89
+opp_pts: 77
+wins: 11
+losses: 6
+game_streak: W 2
+
+team: SEA
+season: 2024
+date_game: Sat, Jun 29, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 97
+opp_pts: 76
+wins: 12
+losses: 6
+game_streak: W 3
+
+team: SEA
+season: 2024
+date_game: Mon, Jul 1, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 95
+opp_pts: 71
+wins: 13
+losses: 6
+game_streak: W 4
+
+team: SEA
+season: 2024
+date_game: Fri, Jul 5, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: L
+pts: 84
+opp_pts: 88
+wins: 13
+losses: 7
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Sun, Jul 7, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 84
+opp_pts: 71
+wins: 14
+losses: 7
+game_streak: W 1
+
+team: SEA
+season: 2024
+date_game: Wed, Jul 10, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 79
+opp_pts: 84
+wins: 14
+losses: 8
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Fri, Jul 12, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: W
+pts: 91
+opp_pts: 63
+wins: 15
+losses: 8
+game_streak: W 1
+
+team: SEA
+season: 2024
+date_game: Sun, Jul 14, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 81
+opp_pts: 70
+wins: 16
+losses: 8
+game_streak: W 2
+
+team: SEA
+season: 2024
+date_game: Tue, Jul 16, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 89
+opp_pts: 83
+wins: 17
+losses: 8
+game_streak: W 3
+
+team: SEA
+season: 2024
+date_game: Fri, Aug 16, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 81
+opp_pts: 83
+wins: 17
+losses: 9
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Sun, Aug 18, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 75
+opp_pts: 92
+wins: 17
+losses: 10
+game_streak: L 2
+
+team: SEA
+season: 2024
+date_game: Tue, Aug 20, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 83
+opp_pts: 77
+wins: 18
+losses: 10
+game_streak: W 1
+
+team: SEA
+season: 2024
+date_game: Mon, Aug 26, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 72
+opp_pts: 74
+wins: 18
+losses: 11
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Wed, Aug 28, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 85
+opp_pts: 81
+wins: 19
+losses: 11
+game_streak: W 1
+
+team: SEA
+season: 2024
+date_game: Fri, Aug 30, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 85
+opp_pts: 98
+wins: 19
+losses: 12
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Sun, Sep 1, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 86
+opp_pts: 93
+wins: 19
+losses: 13
+game_streak: L 2
+
+team: SEA
+season: 2024
+date_game: Tue, Sep 3, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 71
+opp_pts: 64
+wins: 20
+losses: 13
+game_streak: W 1
+
+team: SEA
+season: 2024
+date_game: Thu, Sep 5, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 70
+opp_pts: 77
+wins: 20
+losses: 14
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Sat, Sep 7, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 90
+opp_pts: 66
+wins: 21
+losses: 14
+game_streak: W 1
+
+team: SEA
+season: 2024
+date_game: Wed, Sep 11, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 90
+opp_pts: 82
+wins: 22
+losses: 14
+game_streak: W 2
+
+team: SEA
+season: 2024
+date_game: Fri, Sep 13, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 83
+opp_pts: 81
+wins: 23
+losses: 14
+game_streak: W 3
+
+team: SEA
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 90
+opp_pts: 87
+wins: 24
+losses: 14
+game_streak: W 4
+
+team: SEA
+season: 2024
+date_game: Tue, Sep 17, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 72
+opp_pts: 85
+wins: 24
+losses: 15
+game_streak: L 1
+
+team: SEA
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 89
+opp_pts: 70
+wins: 25
+losses: 15
+game_streak: W 1
+
+team: SEA
+season: 2025
+date_game: Sat, May 17, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 59
+opp_pts: 81
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: SEA
+season: 2025
+date_game: Mon, May 19, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 79
+opp_pts: 71
+wins: 1
+losses: 1
+game_streak: W 1
+
+team: SEA
+season: 2025
+date_game: Fri, May 23, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 77
+opp_pts: 70
+wins: 2
+losses: 1
+game_streak: W 2
+
+team: SEA
+season: 2025
+date_game: Sun, May 25, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 102
+opp_pts: 82
+wins: 3
+losses: 1
+game_streak: W 3
+
+team: SEA
+season: 2025
+date_game: Tue, May 27, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 77
+opp_pts: 82
+wins: 3
+losses: 2
+game_streak: L 1
+
+team: SEA
+season: 2025
+date_game: Fri, May 30, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 87
+opp_pts: 94
+wins: 3
+losses: 3
+game_streak: L 2
+
+team: SEA
+season: 2025
+date_game: Sun, Jun 1, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 70
+opp_pts: 75
+wins: 3
+losses: 4
+game_streak: L 3
+
+team: SEA
+season: 2025
+date_game: Tue, Jun 3, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 83
+opp_pts: 77
+wins: 4
+losses: 4
+game_streak: W 1
+
+team: SEA
+season: 2025
+date_game: Sat, Jun 7, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 89
+opp_pts: 77
+wins: 5
+losses: 4
+game_streak: W 2
+
+team: SEA
+season: 2025
+date_game: Wed, Jun 11, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: W
+pts: 94
+opp_pts: 84
+wins: 6
+losses: 4
+game_streak: W 3
+
+team: SEA
+season: 2025
+date_game: Sat, Jun 14, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: L
+pts: 70
+opp_pts: 76
+wins: 6
+losses: 5
+game_streak: L 1
+
+team: SEA
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 98
+opp_pts: 67
+wins: 7
+losses: 5
+game_streak: W 1
+
+team: SEA
+season: 2025
+date_game: Fri, Jun 20, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 90
+opp_pts: 83
+wins: 8
+losses: 5
+game_streak: W 2
+
+team: SEA
+season: 2025
+date_game: Sun, Jun 22, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 89
+opp_pts: 79
+wins: 9
+losses: 5
+game_streak: W 3
+
+team: SEA
+season: 2025
+date_game: Tue, Jun 24, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 86
+opp_pts: 94
+wins: 9
+losses: 6
+game_streak: L 1
+
+team: SEA
+season: 2025
+date_game: Fri, Jun 27, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 97
+opp_pts: 81
+wins: 10
+losses: 6
+game_streak: W 1
+
+team: SEA
+season: 2025
+date_game: Sun, Jun 29, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: L
+pts: 57
+opp_pts: 84
+wins: 10
+losses: 7
+game_streak: L 1
+
+team: SEA
+season: 2025
+date_game: Thu, Jul 3, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 80
+opp_pts: 79
+wins: 11
+losses: 7
+game_streak: W 1
+
+team: SEA
+season: 2025
+date_game: Sun, Jul 6, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: W
+pts: 79
+opp_pts: 70
+wins: 12
+losses: 7
+game_streak: W 2
+
+team: SEA
+season: 2025
+date_game: Wed, Jul 9, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 83
+opp_pts: 93
+wins: 12
+losses: 8
+game_streak: L 1
+
+team: SEA
+season: 2025
+date_game: Fri, Jul 11, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 79
+opp_pts: 65
+wins: 13
+losses: 8
+game_streak: W 1
+
+team: SEA
+season: 2025
+date_game: Sun, Jul 13, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 69
+opp_pts: 74
+wins: 13
+losses: 9
+game_streak: L 1
+
+team: SEA
+season: 2025
+date_game: Wed, Jul 16, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: W
+pts: 67
+opp_pts: 58
+wins: 14
+losses: 9
+game_streak: W 1
+
+team: SEA
+season: 2025
+date_game: Tue, Jul 22, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: L
+pts: 63
+opp_pts: 87
+wins: 14
+losses: 10
+game_streak: L 1
+
+team: SEA
+season: 2025
+date_game: Thu, Jul 24, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 95
+opp_pts: 57
+wins: 15
+losses: 10
+game_streak: W 1
+
+team: SEA
+season: 2025
+date_game: Sat, Jul 26, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 58
+opp_pts: 69
+wins: 15
+losses: 11
+game_streak: L 1
+
+team: SEA
+season: 2025
+date_game: Mon, Jul 28, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 101
+opp_pts: 85
+wins: 16
+losses: 11
+game_streak: W 1
+
+team: SEA
+season: 2025
+date_game: Fri, Aug 1, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 106
+opp_pts: 108
+wins: 16
+losses: 12
+game_streak: L 1
+
+team: SEA
+season: 2025
+date_game: Sun, Aug 3, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 74
+opp_pts: 78
+wins: 16
+losses: 13
+game_streak: L 2
+
+team: SEA
+season: 2025
+date_game: Tue, Aug 5, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 87
+opp_pts: 91
+wins: 16
+losses: 14
+game_streak: L 3
+
+team: SEA
+season: 2025
+date_game: Fri, Aug 8, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 86
+opp_pts: 90
+wins: 16
+losses: 15
+game_streak: L 4
+
+team: SEA
+season: 2025
+date_game: Sun, Aug 10, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 91
+opp_pts: 94
+wins: 16
+losses: 16
+game_streak: L 5
+
+team: LAS
+season: 2024
+date_game: Wed, May 15, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 81
+opp_pts: 92
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: LAS
+season: 2024
+date_game: Sat, May 18, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 82
+opp_pts: 89
+wins: 0
+losses: 2
+game_streak: L 2
+
+team: LAS
+season: 2024
+date_game: Tue, May 21, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 70
+opp_pts: 68
+wins: 1
+losses: 2
+game_streak: W 1
+
+team: LAS
+season: 2024
+date_game: Fri, May 24, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 73
+opp_pts: 78
+wins: 1
+losses: 3
+game_streak: L 1
+
+team: LAS
+season: 2024
+date_game: Sun, May 26, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: L
+pts: 83
+opp_pts: 84
+wins: 1
+losses: 4
+game_streak: L 2
+
+team: LAS
+season: 2024
+date_game: Tue, May 28, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 88
+opp_pts: 82
+wins: 2
+losses: 4
+game_streak: W 1
+
+team: LAS
+season: 2024
+date_game: Thu, May 30, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 73
+opp_pts: 83
+wins: 2
+losses: 5
+game_streak: L 1
+
+team: LAS
+season: 2024
+date_game: Sun, Jun 2, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 68
+opp_pts: 87
+wins: 2
+losses: 6
+game_streak: L 2
+
+team: LAS
+season: 2024
+date_game: Wed, Jun 5, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 62
+opp_pts: 86
+wins: 2
+losses: 7
+game_streak: L 3
+
+team: LAS
+season: 2024
+date_game: Fri, Jun 7, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 81
+opp_pts: 72
+wins: 3
+losses: 7
+game_streak: W 1
+
+team: LAS
+season: 2024
+date_game: Sun, Jun 9, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 96
+opp_pts: 92
+wins: 4
+losses: 7
+game_streak: W 2
+
+team: LAS
+season: 2024
+date_game: Tue, Jun 11, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 79
+opp_pts: 95
+wins: 4
+losses: 8
+game_streak: L 1
+
+team: LAS
+season: 2024
+date_game: Fri, Jun 14, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 76
+opp_pts: 81
+wins: 4
+losses: 9
+game_streak: L 2
+
+team: LAS
+season: 2024
+date_game: Sun, Jun 16, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 74
+opp_pts: 87
+wins: 4
+losses: 10
+game_streak: L 3
+
+team: LAS
+season: 2024
+date_game: Tue, Jun 18, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 70
+opp_pts: 79
+wins: 4
+losses: 11
+game_streak: L 4
+
+team: LAS
+season: 2024
+date_game: Thu, Jun 20, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 80
+opp_pts: 93
+wins: 4
+losses: 12
+game_streak: L 5
+
+team: LAS
+season: 2024
+date_game: Sat, Jun 22, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 88
+opp_pts: 98
+wins: 4
+losses: 13
+game_streak: L 6
+
+team: LAS
+season: 2024
+date_game: Fri, Jun 28, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 78
+opp_pts: 92
+wins: 4
+losses: 14
+game_streak: L 7
+
+team: LAS
+season: 2024
+date_game: Tue, Jul 2, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 80
+opp_pts: 82
+wins: 4
+losses: 15
+game_streak: L 8
+
+team: LAS
+season: 2024
+date_game: Fri, Jul 5, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 98
+opp_pts: 93
+wins: 5
+losses: 15
+game_streak: W 1
+
+team: LAS
+season: 2024
+date_game: Sun, Jul 7, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 78
+opp_pts: 84
+wins: 5
+losses: 16
+game_streak: L 1
+
+team: LAS
+season: 2024
+date_game: Tue, Jul 9, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 67
+opp_pts: 82
+wins: 5
+losses: 17
+game_streak: L 2
+
+team: LAS
+season: 2024
+date_game: Sat, Jul 13, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 87
+opp_pts: 81
+wins: 6
+losses: 17
+game_streak: W 1
+
+team: LAS
+season: 2024
+date_game: Tue, Jul 16, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 83
+opp_pts: 89
+wins: 6
+losses: 18
+game_streak: L 1
+
+team: LAS
+season: 2024
+date_game: Thu, Aug 15, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 68
+opp_pts: 103
+wins: 6
+losses: 19
+game_streak: L 2
+
+team: LAS
+season: 2024
+date_game: Sat, Aug 17, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: L
+pts: 86
+opp_pts: 90
+wins: 6
+losses: 20
+game_streak: L 3
+
+team: LAS
+season: 2024
+date_game: Sun, Aug 18, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 71
+opp_pts: 87
+wins: 6
+losses: 21
+game_streak: L 4
+
+team: LAS
+season: 2024
+date_game: Tue, Aug 20, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 61
+opp_pts: 69
+wins: 6
+losses: 22
+game_streak: L 5
+
+team: LAS
+season: 2024
+date_game: Fri, Aug 23, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 74
+opp_pts: 80
+wins: 6
+losses: 23
+game_streak: L 6
+
+team: LAS
+season: 2024
+date_game: Sun, Aug 25, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 110
+opp_pts: 113
+wins: 6
+losses: 24
+game_streak: L 7
+
+team: LAS
+season: 2024
+date_game: Wed, Aug 28, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 94
+opp_pts: 88
+wins: 7
+losses: 24
+game_streak: W 1
+
+team: LAS
+season: 2024
+date_game: Sun, Sep 1, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 62
+opp_pts: 80
+wins: 7
+losses: 25
+game_streak: L 1
+
+team: LAS
+season: 2024
+date_game: Wed, Sep 4, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 86
+opp_pts: 93
+wins: 7
+losses: 26
+game_streak: L 2
+
+team: LAS
+season: 2024
+date_game: Fri, Sep 6, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 78
+opp_pts: 92
+wins: 7
+losses: 27
+game_streak: L 3
+
+team: LAS
+season: 2024
+date_game: Sun, Sep 8, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 67
+opp_pts: 79
+wins: 7
+losses: 28
+game_streak: L 4
+
+team: LAS
+season: 2024
+date_game: Tue, Sep 10, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 66
+opp_pts: 86
+wins: 7
+losses: 29
+game_streak: L 5
+
+team: LAS
+season: 2024
+date_game: Wed, Sep 11, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 82
+opp_pts: 90
+wins: 7
+losses: 30
+game_streak: L 6
+
+team: LAS
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 87
+opp_pts: 90
+wins: 7
+losses: 31
+game_streak: L 7
+
+team: LAS
+season: 2024
+date_game: Tue, Sep 17, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 81
+opp_pts: 85
+wins: 7
+losses: 32
+game_streak: L 8
+
+team: LAS
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: W
+pts: 68
+opp_pts: 51
+wins: 8
+losses: 32
+game_streak: W 1
+
+team: LAS
+season: 2025
+date_game: Fri, May 16, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: W
+pts: 84
+opp_pts: 67
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: LAS
+season: 2025
+date_game: Sun, May 18, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 75
+opp_pts: 89
+wins: 1
+losses: 1
+game_streak: L 1
+
+team: LAS
+season: 2025
+date_game: Wed, May 21, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 86
+opp_pts: 89
+wins: 1
+losses: 2
+game_streak: L 2
+
+team: LAS
+season: 2025
+date_game: Fri, May 23, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: L
+pts: 73
+opp_pts: 82
+wins: 1
+losses: 3
+game_streak: L 3
+
+team: LAS
+season: 2025
+date_game: Sun, May 25, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 91
+opp_pts: 78
+wins: 2
+losses: 3
+game_streak: W 1
+
+team: LAS
+season: 2025
+date_game: Tue, May 27, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 82
+opp_pts: 88
+wins: 2
+losses: 4
+game_streak: L 1
+
+team: LAS
+season: 2025
+date_game: Fri, May 30, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 81
+opp_pts: 96
+wins: 2
+losses: 5
+game_streak: L 2
+
+team: LAS
+season: 2025
+date_game: Sun, Jun 1, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 80
+opp_pts: 85
+wins: 2
+losses: 6
+game_streak: L 3
+
+team: LAS
+season: 2025
+date_game: Fri, Jun 6, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 93
+opp_pts: 79
+wins: 3
+losses: 6
+game_streak: W 1
+
+team: LAS
+season: 2025
+date_game: Mon, Jun 9, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: L
+pts: 81
+opp_pts: 89
+wins: 3
+losses: 7
+game_streak: L 1
+
+team: LAS
+season: 2025
+date_game: Wed, Jun 11, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 97
+opp_pts: 89
+wins: 4
+losses: 7
+game_streak: W 1
+
+team: LAS
+season: 2025
+date_game: Sat, Jun 14, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 78
+opp_pts: 101
+wins: 4
+losses: 8
+game_streak: L 1
+
+team: LAS
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 67
+opp_pts: 98
+wins: 4
+losses: 9
+game_streak: L 2
+
+team: LAS
+season: 2025
+date_game: Sat, Jun 21, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 66
+opp_pts: 82
+wins: 4
+losses: 10
+game_streak: L 3
+
+team: LAS
+season: 2025
+date_game: Tue, Jun 24, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 86
+opp_pts: 97
+wins: 4
+losses: 11
+game_streak: L 4
+
+team: LAS
+season: 2025
+date_game: Thu, Jun 26, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 85
+opp_pts: 75
+wins: 5
+losses: 11
+game_streak: W 1
+
+team: LAS
+season: 2025
+date_game: Sun, Jun 29, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: L
+pts: 85
+opp_pts: 92
+wins: 5
+losses: 12
+game_streak: L 1
+
+team: LAS
+season: 2025
+date_game: Thu, Jul 3, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 79
+opp_pts: 89
+wins: 5
+losses: 13
+game_streak: L 2
+
+team: LAS
+season: 2025
+date_game: Sat, Jul 5, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 89
+opp_pts: 87
+wins: 6
+losses: 13
+game_streak: W 1
+
+team: LAS
+season: 2025
+date_game: Thu, Jul 10, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 82
+opp_pts: 91
+wins: 6
+losses: 14
+game_streak: L 1
+
+team: LAS
+season: 2025
+date_game: Sun, Jul 13, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 92
+opp_pts: 88
+wins: 7
+losses: 14
+game_streak: W 1
+
+team: LAS
+season: 2025
+date_game: Tue, Jul 15, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 99
+opp_pts: 80
+wins: 8
+losses: 14
+game_streak: W 2
+
+team: LAS
+season: 2025
+date_game: Tue, Jul 22, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 93
+opp_pts: 86
+wins: 9
+losses: 14
+game_streak: W 3
+
+team: LAS
+season: 2025
+date_game: Thu, Jul 24, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 101
+opp_pts: 86
+wins: 10
+losses: 14
+game_streak: W 4
+
+team: LAS
+season: 2025
+date_game: Sat, Jul 26, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: W
+pts: 101
+opp_pts: 99
+wins: 11
+losses: 14
+game_streak: W 5
+
+team: LAS
+season: 2025
+date_game: Tue, Jul 29, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 74
+opp_pts: 89
+wins: 11
+losses: 15
+game_streak: L 1
+
+team: LAS
+season: 2025
+date_game: Fri, Aug 1, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 108
+opp_pts: 106
+wins: 12
+losses: 15
+game_streak: W 1
+
+team: LAS
+season: 2025
+date_game: Tue, Aug 5, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 100
+opp_pts: 91
+wins: 13
+losses: 15
+game_streak: W 2
+
+team: LAS
+season: 2025
+date_game: Thu, Aug 7, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 102
+opp_pts: 91
+wins: 14
+losses: 15
+game_streak: W 3
+
+team: LAS
+season: 2025
+date_game: Sat, Aug 9, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: L
+pts: 59
+opp_pts: 72
+wins: 14
+losses: 16
+game_streak: L 1
+
+team: LAS
+season: 2025
+date_game: Sun, Aug 10, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 94
+opp_pts: 91
+wins: 15
+losses: 16
+game_streak: W 1
+
+team: WAS
+season: 2024
+date_game: Tue, May 14, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 80
+opp_pts: 85
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: WAS
+season: 2024
+date_game: Fri, May 17, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 77
+opp_pts: 84
+wins: 0
+losses: 2
+game_streak: L 2
+
+team: WAS
+season: 2024
+date_game: Sun, May 19, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 75
+opp_pts: 84
+wins: 0
+losses: 3
+game_streak: L 3
+
+team: WAS
+season: 2024
+date_game: Tue, May 21, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 68
+opp_pts: 70
+wins: 0
+losses: 4
+game_streak: L 4
+
+team: WAS
+season: 2024
+date_game: Thu, May 23, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 80
+opp_pts: 83
+wins: 0
+losses: 5
+game_streak: L 5
+
+team: WAS
+season: 2024
+date_game: Sat, May 25, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 69
+opp_pts: 101
+wins: 0
+losses: 6
+game_streak: L 6
+
+team: WAS
+season: 2024
+date_game: Wed, May 29, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 67
+opp_pts: 73
+wins: 0
+losses: 7
+game_streak: L 7
+
+team: WAS
+season: 2024
+date_game: Fri, May 31, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 79
+opp_pts: 90
+wins: 0
+losses: 8
+game_streak: L 8
+
+team: WAS
+season: 2024
+date_game: Tue, Jun 4, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 59
+opp_pts: 76
+wins: 0
+losses: 9
+game_streak: L 9
+
+team: WAS
+season: 2024
+date_game: Thu, Jun 6, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: L
+pts: 71
+opp_pts: 79
+wins: 0
+losses: 10
+game_streak: L 10
+
+team: WAS
+season: 2024
+date_game: Fri, Jun 7, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 83
+opp_pts: 85
+wins: 0
+losses: 11
+game_streak: L 11
+
+team: WAS
+season: 2024
+date_game: Sun, Jun 9, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 88
+opp_pts: 93
+wins: 0
+losses: 12
+game_streak: L 12
+
+team: WAS
+season: 2024
+date_game: Tue, Jun 11, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 87
+opp_pts: 68
+wins: 1
+losses: 12
+game_streak: W 1
+
+team: WAS
+season: 2024
+date_game: Fri, Jun 14, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 83
+opp_pts: 81
+wins: 2
+losses: 12
+game_streak: W 2
+
+team: WAS
+season: 2024
+date_game: Wed, Jun 19, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 81
+opp_pts: 88
+wins: 2
+losses: 13
+game_streak: L 1
+
+team: WAS
+season: 2024
+date_game: Sat, Jun 22, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 97
+opp_pts: 69
+wins: 3
+losses: 13
+game_streak: W 1
+
+team: WAS
+season: 2024
+date_game: Sun, Jun 23, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 92
+opp_pts: 84
+wins: 4
+losses: 13
+game_streak: W 2
+
+team: WAS
+season: 2024
+date_game: Thu, Jun 27, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 91
+opp_pts: 94
+wins: 4
+losses: 14
+game_streak: L 1
+
+team: WAS
+season: 2024
+date_game: Sat, Jun 29, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 77
+opp_pts: 88
+wins: 4
+losses: 15
+game_streak: L 2
+
+team: WAS
+season: 2024
+date_game: Tue, Jul 2, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 82
+opp_pts: 80
+wins: 5
+losses: 15
+game_streak: W 1
+
+team: WAS
+season: 2024
+date_game: Thu, Jul 4, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 77
+opp_pts: 98
+wins: 5
+losses: 16
+game_streak: L 1
+
+team: WAS
+season: 2024
+date_game: Sat, Jul 6, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 67
+opp_pts: 74
+wins: 5
+losses: 17
+game_streak: L 2
+
+team: WAS
+season: 2024
+date_game: Wed, Jul 10, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 89
+opp_pts: 84
+wins: 6
+losses: 17
+game_streak: W 1
+
+team: WAS
+season: 2024
+date_game: Sun, Jul 14, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 77
+opp_pts: 89
+wins: 6
+losses: 18
+game_streak: L 1
+
+team: WAS
+season: 2024
+date_game: Tue, Jul 16, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 87
+opp_pts: 96
+wins: 6
+losses: 19
+game_streak: L 2
+
+team: WAS
+season: 2024
+date_game: Thu, Aug 15, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 68
+opp_pts: 79
+wins: 6
+losses: 20
+game_streak: L 3
+
+team: WAS
+season: 2024
+date_game: Sat, Aug 17, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 83
+opp_pts: 99
+wins: 6
+losses: 21
+game_streak: L 4
+
+team: WAS
+season: 2024
+date_game: Tue, Aug 20, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 77
+opp_pts: 83
+wins: 6
+losses: 22
+game_streak: L 5
+
+team: WAS
+season: 2024
+date_game: Fri, Aug 23, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 80
+opp_pts: 74
+wins: 7
+losses: 22
+game_streak: W 1
+
+team: WAS
+season: 2024
+date_game: Mon, Aug 26, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 74
+opp_pts: 72
+wins: 8
+losses: 22
+game_streak: W 2
+
+team: WAS
+season: 2024
+date_game: Wed, Aug 28, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 74
+opp_pts: 70
+wins: 9
+losses: 22
+game_streak: W 3
+
+team: WAS
+season: 2024
+date_game: Sat, Aug 31, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 85
+opp_pts: 96
+wins: 9
+losses: 23
+game_streak: L 1
+
+team: WAS
+season: 2024
+date_game: Tue, Sep 3, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 90
+opp_pts: 86
+wins: 10
+losses: 23
+game_streak: W 1
+
+team: WAS
+season: 2024
+date_game: Thu, Sep 5, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 90
+opp_pts: 77
+wins: 11
+losses: 23
+game_streak: W 2
+
+team: WAS
+season: 2024
+date_game: Sun, Sep 8, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 71
+opp_pts: 78
+wins: 11
+losses: 24
+game_streak: L 1
+
+team: WAS
+season: 2024
+date_game: Wed, Sep 11, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 89
+opp_pts: 58
+wins: 12
+losses: 24
+game_streak: W 1
+
+team: WAS
+season: 2024
+date_game: Fri, Sep 13, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 72
+opp_pts: 69
+wins: 13
+losses: 24
+game_streak: W 2
+
+team: WAS
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 73
+opp_pts: 76
+wins: 13
+losses: 25
+game_streak: L 1
+
+team: WAS
+season: 2024
+date_game: Tue, Sep 17, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 71
+opp_pts: 87
+wins: 13
+losses: 26
+game_streak: L 2
+
+team: WAS
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 92
+opp_pts: 91
+wins: 14
+losses: 26
+game_streak: W 1
+
+team: WAS
+season: 2025
+date_game: Fri, May 16, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 94
+opp_pts: 90
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: WAS
+season: 2025
+date_game: Sun, May 18, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 90
+opp_pts: 85
+wins: 2
+losses: 0
+game_streak: W 2
+
+team: WAS
+season: 2025
+date_game: Wed, May 21, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: L
+pts: 74
+opp_pts: 76
+wins: 2
+losses: 1
+game_streak: L 1
+
+team: WAS
+season: 2025
+date_game: Fri, May 23, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 72
+opp_pts: 75
+wins: 2
+losses: 2
+game_streak: L 2
+
+team: WAS
+season: 2025
+date_game: Sun, May 25, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 62
+opp_pts: 68
+wins: 2
+losses: 3
+game_streak: L 3
+
+team: WAS
+season: 2025
+date_game: Wed, May 28, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 83
+opp_pts: 77
+wins: 3
+losses: 3
+game_streak: W 1
+
+team: WAS
+season: 2025
+date_game: Fri, May 30, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 63
+opp_pts: 85
+wins: 3
+losses: 4
+game_streak: L 1
+
+team: WAS
+season: 2025
+date_game: Tue, Jun 3, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 76
+opp_pts: 85
+wins: 3
+losses: 5
+game_streak: L 2
+
+team: WAS
+season: 2025
+date_game: Thu, Jun 5, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 78
+opp_pts: 86
+wins: 3
+losses: 6
+game_streak: L 3
+
+team: WAS
+season: 2025
+date_game: Sun, Jun 8, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 104
+opp_pts: 67
+wins: 4
+losses: 6
+game_streak: W 1
+
+team: WAS
+season: 2025
+date_game: Sun, Jun 15, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 56
+opp_pts: 89
+wins: 4
+losses: 7
+game_streak: L 1
+
+team: WAS
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 79
+opp_pts: 72
+wins: 5
+losses: 7
+game_streak: W 1
+
+team: WAS
+season: 2025
+date_game: Fri, Jun 20, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 91
+opp_pts: 92
+wins: 5
+losses: 8
+game_streak: L 1
+
+team: WAS
+season: 2025
+date_game: Sun, Jun 22, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 91
+opp_pts: 88
+wins: 6
+losses: 8
+game_streak: W 1
+
+team: WAS
+season: 2025
+date_game: Tue, Jun 24, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: W
+pts: 68
+opp_pts: 64
+wins: 7
+losses: 8
+game_streak: W 2
+
+team: WAS
+season: 2025
+date_game: Thu, Jun 26, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 94
+opp_pts: 83
+wins: 8
+losses: 8
+game_streak: W 3
+
+team: WAS
+season: 2025
+date_game: Sat, Jun 28, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 71
+opp_pts: 79
+wins: 8
+losses: 9
+game_streak: L 1
+
+team: WAS
+season: 2025
+date_game: Thu, Jul 3, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 75
+opp_pts: 92
+wins: 8
+losses: 10
+game_streak: L 2
+
+team: WAS
+season: 2025
+date_game: Tue, Jul 8, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 81
+opp_pts: 79
+wins: 9
+losses: 10
+game_streak: W 1
+
+team: WAS
+season: 2025
+date_game: Thu, Jul 10, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 70
+opp_pts: 68
+wins: 10
+losses: 10
+game_streak: W 2
+
+team: WAS
+season: 2025
+date_game: Sun, Jul 13, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 74
+opp_pts: 69
+wins: 11
+losses: 10
+game_streak: W 3
+
+team: WAS
+season: 2025
+date_game: Tue, Jul 15, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 80
+opp_pts: 99
+wins: 11
+losses: 11
+game_streak: L 1
+
+team: WAS
+season: 2025
+date_game: Tue, Jul 22, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 86
+opp_pts: 93
+wins: 11
+losses: 12
+game_streak: L 2
+
+team: WAS
+season: 2025
+date_game: Sat, Jul 26, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 69
+opp_pts: 58
+wins: 12
+losses: 12
+game_streak: W 1
+
+team: WAS
+season: 2025
+date_game: Sun, Jul 27, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 72
+opp_pts: 88
+wins: 12
+losses: 13
+game_streak: L 1
+
+team: WAS
+season: 2025
+date_game: Tue, Jul 29, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 103
+opp_pts: 86
+wins: 13
+losses: 13
+game_streak: W 1
+
+team: WAS
+season: 2025
+date_game: Thu, Jul 31, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: L
+pts: 67
+opp_pts: 68
+wins: 13
+losses: 14
+game_streak: L 1
+
+team: WAS
+season: 2025
+date_game: Sun, Aug 3, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 83
+opp_pts: 99
+wins: 13
+losses: 15
+game_streak: L 2
+
+team: WAS
+season: 2025
+date_game: Tue, Aug 5, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 64
+opp_pts: 78
+wins: 13
+losses: 16
+game_streak: L 3
+
+team: WAS
+season: 2025
+date_game: Fri, Aug 8, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 76
+opp_pts: 80
+wins: 13
+losses: 17
+game_streak: L 4
+
+team: WAS
+season: 2025
+date_game: Sun, Aug 10, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 91
+opp_pts: 78
+wins: 14
+losses: 17
+game_streak: W 1
+
+team: CHI
+season: 2024
+date_game: Wed, May 15, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 79
+opp_pts: 87
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: CHI
+season: 2024
+date_game: Sat, May 18, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 83
+opp_pts: 74
+wins: 1
+losses: 1
+game_streak: W 1
+
+team: CHI
+season: 2024
+date_game: Thu, May 23, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: W
+pts: 90
+opp_pts: 81
+wins: 2
+losses: 1
+game_streak: W 2
+
+team: CHI
+season: 2024
+date_game: Sat, May 25, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 82
+opp_pts: 86
+wins: 2
+losses: 2
+game_streak: L 1
+
+team: CHI
+season: 2024
+date_game: Tue, May 28, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 68
+opp_pts: 77
+wins: 2
+losses: 3
+game_streak: L 2
+
+team: CHI
+season: 2024
+date_game: Thu, May 30, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 83
+opp_pts: 73
+wins: 3
+losses: 3
+game_streak: W 1
+
+team: CHI
+season: 2024
+date_game: Sat, Jun 1, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 70
+opp_pts: 71
+wins: 3
+losses: 4
+game_streak: L 1
+
+team: CHI
+season: 2024
+date_game: Tue, Jun 4, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 75
+opp_pts: 88
+wins: 3
+losses: 5
+game_streak: L 2
+
+team: CHI
+season: 2024
+date_game: Thu, Jun 6, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 79
+opp_pts: 71
+wins: 4
+losses: 5
+game_streak: W 1
+
+team: CHI
+season: 2024
+date_game: Sat, Jun 8, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 80
+opp_pts: 89
+wins: 4
+losses: 6
+game_streak: L 1
+
+team: CHI
+season: 2024
+date_game: Wed, Jun 12, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 75
+opp_pts: 83
+wins: 4
+losses: 7
+game_streak: L 2
+
+team: CHI
+season: 2024
+date_game: Fri, Jun 14, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 81
+opp_pts: 83
+wins: 4
+losses: 8
+game_streak: L 3
+
+team: CHI
+season: 2024
+date_game: Sun, Jun 16, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 83
+opp_pts: 91
+wins: 4
+losses: 9
+game_streak: L 4
+
+team: CHI
+season: 2024
+date_game: Thu, Jun 20, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 83
+opp_pts: 72
+wins: 5
+losses: 9
+game_streak: W 1
+
+team: CHI
+season: 2024
+date_game: Sun, Jun 23, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 88
+opp_pts: 87
+wins: 6
+losses: 9
+game_streak: W 2
+
+team: CHI
+season: 2024
+date_game: Thu, Jun 27, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 83
+opp_pts: 95
+wins: 6
+losses: 10
+game_streak: L 1
+
+team: CHI
+season: 2024
+date_game: Sun, Jun 30, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 62
+opp_pts: 70
+wins: 6
+losses: 11
+game_streak: L 2
+
+team: CHI
+season: 2024
+date_game: Tue, Jul 2, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 85
+opp_pts: 77
+wins: 7
+losses: 11
+game_streak: W 1
+
+team: CHI
+season: 2024
+date_game: Fri, Jul 5, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 88
+opp_pts: 84
+wins: 8
+losses: 11
+game_streak: W 2
+
+team: CHI
+season: 2024
+date_game: Sun, Jul 7, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 71
+opp_pts: 84
+wins: 8
+losses: 12
+game_streak: L 1
+
+team: CHI
+season: 2024
+date_game: Wed, Jul 10, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 78
+opp_pts: 69
+wins: 9
+losses: 12
+game_streak: W 1
+
+team: CHI
+season: 2024
+date_game: Thu, Jul 11, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 76
+opp_pts: 91
+wins: 9
+losses: 13
+game_streak: L 1
+
+team: CHI
+season: 2024
+date_game: Sat, Jul 13, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 67
+opp_pts: 81
+wins: 9
+losses: 14
+game_streak: L 2
+
+team: CHI
+season: 2024
+date_game: Tue, Jul 16, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: W
+pts: 93
+opp_pts: 85
+wins: 10
+losses: 14
+game_streak: W 1
+
+team: CHI
+season: 2024
+date_game: Thu, Aug 15, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 65
+opp_pts: 85
+wins: 10
+losses: 15
+game_streak: L 1
+
+team: CHI
+season: 2024
+date_game: Sat, Aug 17, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 90
+opp_pts: 86
+wins: 11
+losses: 15
+game_streak: W 1
+
+team: CHI
+season: 2024
+date_game: Sun, Aug 18, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 68
+opp_pts: 86
+wins: 11
+losses: 16
+game_streak: L 1
+
+team: CHI
+season: 2024
+date_game: Fri, Aug 23, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 80
+opp_pts: 82
+wins: 11
+losses: 17
+game_streak: L 2
+
+team: CHI
+season: 2024
+date_game: Sun, Aug 25, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 75
+opp_pts: 77
+wins: 11
+losses: 18
+game_streak: L 3
+
+team: CHI
+season: 2024
+date_game: Wed, Aug 28, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 70
+opp_pts: 74
+wins: 11
+losses: 19
+game_streak: L 4
+
+team: CHI
+season: 2024
+date_game: Fri, Aug 30, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 81
+opp_pts: 100
+wins: 11
+losses: 20
+game_streak: L 5
+
+team: CHI
+season: 2024
+date_game: Sun, Sep 1, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 74
+opp_pts: 79
+wins: 11
+losses: 21
+game_streak: L 6
+
+team: CHI
+season: 2024
+date_game: Tue, Sep 3, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 71
+opp_pts: 90
+wins: 11
+losses: 22
+game_streak: L 7
+
+team: CHI
+season: 2024
+date_game: Fri, Sep 6, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 92
+opp_pts: 78
+wins: 12
+losses: 22
+game_streak: W 1
+
+team: CHI
+season: 2024
+date_game: Sun, Sep 8, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 92
+opp_pts: 77
+wins: 13
+losses: 22
+game_streak: W 2
+
+team: CHI
+season: 2024
+date_game: Wed, Sep 11, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 58
+opp_pts: 89
+wins: 13
+losses: 23
+game_streak: L 1
+
+team: CHI
+season: 2024
+date_game: Fri, Sep 13, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 66
+opp_pts: 83
+wins: 13
+losses: 24
+game_streak: L 2
+
+team: CHI
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 88
+opp_pts: 93
+wins: 13
+losses: 25
+game_streak: L 3
+
+team: CHI
+season: 2024
+date_game: Tue, Sep 17, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 70
+opp_pts: 86
+wins: 13
+losses: 26
+game_streak: L 4
+
+team: CHI
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 54
+opp_pts: 87
+wins: 13
+losses: 27
+game_streak: L 5
+
+team: CHI
+season: 2025
+date_game: Sat, May 17, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 58
+opp_pts: 93
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: CHI
+season: 2025
+date_game: Thu, May 22, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 74
+opp_pts: 99
+wins: 0
+losses: 2
+game_streak: L 2
+
+team: CHI
+season: 2025
+date_game: Sun, May 25, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 78
+opp_pts: 91
+wins: 0
+losses: 3
+game_streak: L 3
+
+team: CHI
+season: 2025
+date_game: Tue, May 27, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 89
+opp_pts: 94
+wins: 0
+losses: 4
+game_streak: L 4
+
+team: CHI
+season: 2025
+date_game: Thu, May 29, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 97
+opp_pts: 92
+wins: 1
+losses: 4
+game_streak: W 1
+
+team: CHI
+season: 2025
+date_game: Sat, May 31, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 94
+opp_pts: 83
+wins: 2
+losses: 4
+game_streak: W 2
+
+team: CHI
+season: 2025
+date_game: Sat, Jun 7, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 52
+opp_pts: 79
+wins: 2
+losses: 5
+game_streak: L 1
+
+team: CHI
+season: 2025
+date_game: Tue, Jun 10, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 66
+opp_pts: 85
+wins: 2
+losses: 6
+game_streak: L 2
+
+team: CHI
+season: 2025
+date_game: Fri, Jun 13, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 70
+opp_pts: 88
+wins: 2
+losses: 7
+game_streak: L 3
+
+team: CHI
+season: 2025
+date_game: Sun, Jun 15, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 78
+opp_pts: 66
+wins: 3
+losses: 7
+game_streak: W 1
+
+team: CHI
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 72
+opp_pts: 79
+wins: 3
+losses: 8
+game_streak: L 1
+
+team: CHI
+season: 2025
+date_game: Sat, Jun 21, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 86
+opp_pts: 107
+wins: 3
+losses: 9
+game_streak: L 2
+
+team: CHI
+season: 2025
+date_game: Sun, Jun 22, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 80
+opp_pts: 93
+wins: 3
+losses: 10
+game_streak: L 3
+
+team: CHI
+season: 2025
+date_game: Tue, Jun 24, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 97
+opp_pts: 86
+wins: 4
+losses: 10
+game_streak: W 1
+
+team: CHI
+season: 2025
+date_game: Fri, Jun 27, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: L
+pts: 78
+opp_pts: 83
+wins: 4
+losses: 11
+game_streak: L 1
+
+team: CHI
+season: 2025
+date_game: Sun, Jun 29, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 92
+opp_pts: 85
+wins: 5
+losses: 11
+game_streak: W 1
+
+team: CHI
+season: 2025
+date_game: Sun, Jul 6, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 75
+opp_pts: 80
+wins: 5
+losses: 12
+game_streak: L 1
+
+team: CHI
+season: 2025
+date_game: Tue, Jul 8, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 79
+opp_pts: 81
+wins: 5
+losses: 13
+game_streak: L 2
+
+team: CHI
+season: 2025
+date_game: Wed, Jul 9, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 87
+opp_pts: 76
+wins: 6
+losses: 13
+game_streak: W 1
+
+team: CHI
+season: 2025
+date_game: Sat, Jul 12, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: W
+pts: 87
+opp_pts: 81
+wins: 7
+losses: 13
+game_streak: W 2
+
+team: CHI
+season: 2025
+date_game: Mon, Jul 14, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 78
+opp_pts: 91
+wins: 7
+losses: 14
+game_streak: L 1
+
+team: CHI
+season: 2025
+date_game: Wed, Jul 16, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 49
+opp_pts: 86
+wins: 7
+losses: 15
+game_streak: L 2
+
+team: CHI
+season: 2025
+date_game: Tue, Jul 22, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 68
+opp_pts: 91
+wins: 7
+losses: 16
+game_streak: L 3
+
+team: CHI
+season: 2025
+date_game: Thu, Jul 24, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 57
+opp_pts: 95
+wins: 7
+losses: 17
+game_streak: L 4
+
+team: CHI
+season: 2025
+date_game: Sun, Jul 27, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 78
+opp_pts: 93
+wins: 7
+losses: 18
+game_streak: L 5
+
+team: CHI
+season: 2025
+date_game: Tue, Jul 29, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 86
+opp_pts: 103
+wins: 7
+losses: 19
+game_streak: L 6
+
+team: CHI
+season: 2025
+date_game: Fri, Aug 1, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: L
+pts: 66
+opp_pts: 73
+wins: 7
+losses: 20
+game_streak: L 7
+
+team: CHI
+season: 2025
+date_game: Sun, Aug 3, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 67
+opp_pts: 83
+wins: 7
+losses: 21
+game_streak: L 8
+
+team: CHI
+season: 2025
+date_game: Tue, Aug 5, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 78
+opp_pts: 64
+wins: 8
+losses: 21
+game_streak: W 1
+
+team: CHI
+season: 2025
+date_game: Thu, Aug 7, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 65
+opp_pts: 86
+wins: 8
+losses: 22
+game_streak: L 1
+
+team: CHI
+season: 2025
+date_game: Sat, Aug 9, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 70
+opp_pts: 92
+wins: 8
+losses: 23
+game_streak: L 2
+
+team: DAL
+season: 2024
+date_game: Wed, May 15, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 87
+opp_pts: 79
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: DAL
+season: 2024
+date_game: Sat, May 18, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: L
+pts: 74
+opp_pts: 83
+wins: 1
+losses: 1
+game_streak: L 1
+
+team: DAL
+season: 2024
+date_game: Tue, May 21, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 78
+opp_pts: 83
+wins: 1
+losses: 2
+game_streak: L 2
+
+team: DAL
+season: 2024
+date_game: Sat, May 25, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 107
+opp_pts: 92
+wins: 2
+losses: 2
+game_streak: W 1
+
+team: DAL
+season: 2024
+date_game: Sun, May 26, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 84
+opp_pts: 83
+wins: 3
+losses: 2
+game_streak: W 2
+
+team: DAL
+season: 2024
+date_game: Fri, May 31, 2024
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 72
+opp_pts: 74
+wins: 3
+losses: 3
+game_streak: L 1
+
+team: DAL
+season: 2024
+date_game: Sun, Jun 2, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 76
+opp_pts: 87
+wins: 3
+losses: 4
+game_streak: L 2
+
+team: DAL
+season: 2024
+date_game: Wed, Jun 5, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 81
+opp_pts: 95
+wins: 3
+losses: 5
+game_streak: L 3
+
+team: DAL
+season: 2024
+date_game: Fri, Jun 7, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 72
+opp_pts: 81
+wins: 3
+losses: 6
+game_streak: L 4
+
+team: DAL
+season: 2024
+date_game: Sun, Jun 9, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 90
+opp_pts: 97
+wins: 3
+losses: 7
+game_streak: L 5
+
+team: DAL
+season: 2024
+date_game: Thu, Jun 13, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 84
+opp_pts: 92
+wins: 3
+losses: 8
+game_streak: L 6
+
+team: DAL
+season: 2024
+date_game: Sat, Jun 15, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 67
+opp_pts: 85
+wins: 3
+losses: 9
+game_streak: L 7
+
+team: DAL
+season: 2024
+date_game: Mon, Jun 17, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 78
+opp_pts: 90
+wins: 3
+losses: 10
+game_streak: L 8
+
+team: DAL
+season: 2024
+date_game: Thu, Jun 20, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 72
+opp_pts: 83
+wins: 3
+losses: 11
+game_streak: L 9
+
+team: DAL
+season: 2024
+date_game: Sat, Jun 22, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 69
+opp_pts: 97
+wins: 3
+losses: 12
+game_streak: L 10
+
+team: DAL
+season: 2024
+date_game: Sun, Jun 23, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 84
+opp_pts: 92
+wins: 3
+losses: 13
+game_streak: L 11
+
+team: DAL
+season: 2024
+date_game: Thu, Jun 27, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: W
+pts: 94
+opp_pts: 88
+wins: 4
+losses: 13
+game_streak: W 1
+
+team: DAL
+season: 2024
+date_game: Sat, Jun 29, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 76
+opp_pts: 97
+wins: 4
+losses: 14
+game_streak: L 1
+
+team: DAL
+season: 2024
+date_game: Mon, Jul 1, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 71
+opp_pts: 95
+wins: 4
+losses: 15
+game_streak: L 2
+
+team: DAL
+season: 2024
+date_game: Wed, Jul 3, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 96
+opp_pts: 104
+wins: 4
+losses: 16
+game_streak: L 3
+
+team: DAL
+season: 2024
+date_game: Fri, Jul 5, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 85
+opp_pts: 82
+wins: 5
+losses: 16
+game_streak: W 1
+
+team: DAL
+season: 2024
+date_game: Sun, Jul 7, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 85
+opp_pts: 104
+wins: 5
+losses: 17
+game_streak: L 1
+
+team: DAL
+season: 2024
+date_game: Wed, Jul 10, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 84
+opp_pts: 100
+wins: 5
+losses: 18
+game_streak: L 2
+
+team: DAL
+season: 2024
+date_game: Sat, Jul 13, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 81
+opp_pts: 87
+wins: 5
+losses: 19
+game_streak: L 3
+
+team: DAL
+season: 2024
+date_game: Wed, Jul 17, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 101
+opp_pts: 93
+wins: 6
+losses: 19
+game_streak: W 1
+
+team: DAL
+season: 2024
+date_game: Fri, Aug 16, 2024
+game_location: home
+opp_name: Connecticut Sun
+game_result: L
+pts: 91
+opp_pts: 109
+wins: 6
+losses: 20
+game_streak: L 1
+
+team: DAL
+season: 2024
+date_game: Tue, Aug 20, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 74
+opp_pts: 94
+wins: 6
+losses: 21
+game_streak: L 2
+
+team: DAL
+season: 2024
+date_game: Thu, Aug 22, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 71
+opp_pts: 79
+wins: 6
+losses: 22
+game_streak: L 3
+
+team: DAL
+season: 2024
+date_game: Sun, Aug 25, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 113
+opp_pts: 110
+wins: 7
+losses: 22
+game_streak: W 1
+
+team: DAL
+season: 2024
+date_game: Tue, Aug 27, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 93
+opp_pts: 90
+wins: 8
+losses: 22
+game_streak: W 2
+
+team: DAL
+season: 2024
+date_game: Fri, Aug 30, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: W
+pts: 94
+opp_pts: 76
+wins: 9
+losses: 22
+game_streak: W 3
+
+team: DAL
+season: 2024
+date_game: Sun, Sep 1, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 93
+opp_pts: 100
+wins: 9
+losses: 23
+game_streak: L 1
+
+team: DAL
+season: 2024
+date_game: Tue, Sep 3, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 86
+opp_pts: 90
+wins: 9
+losses: 24
+game_streak: L 2
+
+team: DAL
+season: 2024
+date_game: Fri, Sep 6, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 96
+opp_pts: 107
+wins: 9
+losses: 25
+game_streak: L 3
+
+team: DAL
+season: 2024
+date_game: Sun, Sep 8, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 77
+opp_pts: 92
+wins: 9
+losses: 26
+game_streak: L 4
+
+team: DAL
+season: 2024
+date_game: Tue, Sep 10, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 91
+opp_pts: 105
+wins: 9
+losses: 27
+game_streak: L 5
+
+team: DAL
+season: 2024
+date_game: Thu, Sep 12, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 67
+opp_pts: 99
+wins: 9
+losses: 28
+game_streak: L 6
+
+team: DAL
+season: 2024
+date_game: Fri, Sep 13, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 81
+opp_pts: 83
+wins: 9
+losses: 29
+game_streak: L 7
+
+team: DAL
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 109
+opp_pts: 110
+wins: 9
+losses: 30
+game_streak: L 8
+
+team: DAL
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 84
+opp_pts: 98
+wins: 9
+losses: 31
+game_streak: L 9
+
+team: DAL
+season: 2025
+date_game: Fri, May 16, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 84
+opp_pts: 99
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: DAL
+season: 2025
+date_game: Mon, May 19, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 71
+opp_pts: 79
+wins: 0
+losses: 2
+game_streak: L 2
+
+team: DAL
+season: 2025
+date_game: Wed, May 21, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 81
+opp_pts: 85
+wins: 0
+losses: 3
+game_streak: L 3
+
+team: DAL
+season: 2025
+date_game: Sat, May 24, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 75
+opp_pts: 83
+wins: 0
+losses: 4
+game_streak: L 4
+
+team: DAL
+season: 2025
+date_game: Tue, May 27, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 109
+opp_pts: 87
+wins: 1
+losses: 4
+game_streak: W 1
+
+team: DAL
+season: 2025
+date_game: Thu, May 29, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 92
+opp_pts: 97
+wins: 1
+losses: 5
+game_streak: L 1
+
+team: DAL
+season: 2025
+date_game: Sat, May 31, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: L
+pts: 83
+opp_pts: 94
+wins: 1
+losses: 6
+game_streak: L 2
+
+team: DAL
+season: 2025
+date_game: Tue, Jun 3, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 77
+opp_pts: 83
+wins: 1
+losses: 7
+game_streak: L 3
+
+team: DAL
+season: 2025
+date_game: Fri, Jun 6, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 79
+opp_pts: 93
+wins: 1
+losses: 8
+game_streak: L 4
+
+team: DAL
+season: 2025
+date_game: Sun, Jun 8, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 65
+opp_pts: 81
+wins: 1
+losses: 9
+game_streak: L 5
+
+team: DAL
+season: 2025
+date_game: Wed, Jun 11, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 80
+opp_pts: 93
+wins: 1
+losses: 10
+game_streak: L 6
+
+team: DAL
+season: 2025
+date_game: Fri, Jun 13, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 84
+opp_pts: 88
+wins: 1
+losses: 11
+game_streak: L 7
+
+team: DAL
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: W
+pts: 80
+opp_pts: 71
+wins: 2
+losses: 11
+game_streak: W 1
+
+team: DAL
+season: 2025
+date_game: Fri, Jun 20, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: W
+pts: 86
+opp_pts: 83
+wins: 3
+losses: 11
+game_streak: W 2
+
+team: DAL
+season: 2025
+date_game: Sun, Jun 22, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 88
+opp_pts: 91
+wins: 3
+losses: 12
+game_streak: L 1
+
+team: DAL
+season: 2025
+date_game: Tue, Jun 24, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 68
+opp_pts: 55
+wins: 4
+losses: 12
+game_streak: W 1
+
+team: DAL
+season: 2025
+date_game: Fri, Jun 27, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 86
+opp_pts: 94
+wins: 4
+losses: 13
+game_streak: L 1
+
+team: DAL
+season: 2025
+date_game: Sat, Jun 28, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 79
+opp_pts: 71
+wins: 5
+losses: 13
+game_streak: W 1
+
+team: DAL
+season: 2025
+date_game: Thu, Jul 3, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 98
+opp_pts: 89
+wins: 6
+losses: 13
+game_streak: W 2
+
+team: DAL
+season: 2025
+date_game: Mon, Jul 7, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 72
+opp_pts: 102
+wins: 6
+losses: 14
+game_streak: L 1
+
+team: DAL
+season: 2025
+date_game: Wed, Jul 9, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: L
+pts: 76
+opp_pts: 87
+wins: 6
+losses: 15
+game_streak: L 2
+
+team: DAL
+season: 2025
+date_game: Sun, Jul 13, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 83
+opp_pts: 102
+wins: 6
+losses: 16
+game_streak: L 3
+
+team: DAL
+season: 2025
+date_game: Wed, Jul 16, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 86
+opp_pts: 90
+wins: 6
+losses: 17
+game_streak: L 4
+
+team: DAL
+season: 2025
+date_game: Tue, Jul 22, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: W
+pts: 87
+opp_pts: 63
+wins: 7
+losses: 17
+game_streak: W 1
+
+team: DAL
+season: 2025
+date_game: Fri, Jul 25, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: L
+pts: 76
+opp_pts: 86
+wins: 7
+losses: 18
+game_streak: L 1
+
+team: DAL
+season: 2025
+date_game: Sun, Jul 27, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 80
+opp_pts: 106
+wins: 7
+losses: 19
+game_streak: L 2
+
+team: DAL
+season: 2025
+date_game: Mon, Jul 28, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 92
+opp_pts: 82
+wins: 8
+losses: 19
+game_streak: W 1
+
+team: DAL
+season: 2025
+date_game: Wed, Jul 30, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 85
+opp_pts: 88
+wins: 8
+losses: 20
+game_streak: L 1
+
+team: DAL
+season: 2025
+date_game: Fri, Aug 1, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 78
+opp_pts: 88
+wins: 8
+losses: 21
+game_streak: L 2
+
+team: DAL
+season: 2025
+date_game: Tue, Aug 5, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 76
+opp_pts: 85
+wins: 8
+losses: 22
+game_streak: L 3
+
+team: DAL
+season: 2025
+date_game: Fri, Aug 8, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 77
+opp_pts: 88
+wins: 8
+losses: 23
+game_streak: L 4
+
+team: DAL
+season: 2025
+date_game: Sun, Aug 10, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 78
+opp_pts: 91
+wins: 8
+losses: 24
+game_streak: L 5
+
+team: CON
+season: 2024
+date_game: Tue, May 14, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 92
+opp_pts: 71
+wins: 1
+losses: 0
+game_streak: W 1
+
+team: CON
+season: 2024
+date_game: Fri, May 17, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 84
+opp_pts: 77
+wins: 2
+losses: 0
+game_streak: W 2
+
+team: CON
+season: 2024
+date_game: Mon, May 20, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 88
+opp_pts: 84
+wins: 3
+losses: 0
+game_streak: W 3
+
+team: CON
+season: 2024
+date_game: Thu, May 23, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: W
+pts: 83
+opp_pts: 82
+wins: 4
+losses: 0
+game_streak: W 4
+
+team: CON
+season: 2024
+date_game: Sat, May 25, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 86
+opp_pts: 82
+wins: 5
+losses: 0
+game_streak: W 5
+
+team: CON
+season: 2024
+date_game: Tue, May 28, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 70
+opp_pts: 47
+wins: 6
+losses: 0
+game_streak: W 6
+
+team: CON
+season: 2024
+date_game: Fri, May 31, 2024
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 74
+opp_pts: 72
+wins: 7
+losses: 0
+game_streak: W 7
+
+team: CON
+season: 2024
+date_game: Sun, Jun 2, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 69
+opp_pts: 50
+wins: 8
+losses: 0
+game_streak: W 8
+
+team: CON
+season: 2024
+date_game: Tue, Jun 4, 2024
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 76
+opp_pts: 59
+wins: 9
+losses: 0
+game_streak: W 9
+
+team: CON
+season: 2024
+date_game: Sat, Jun 8, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 75
+opp_pts: 82
+wins: 9
+losses: 1
+game_streak: L 1
+
+team: CON
+season: 2024
+date_game: Mon, Jun 10, 2024
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 89
+opp_pts: 72
+wins: 10
+losses: 1
+game_streak: W 1
+
+team: CON
+season: 2024
+date_game: Wed, Jun 12, 2024
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 83
+opp_pts: 75
+wins: 11
+losses: 1
+game_streak: W 2
+
+team: CON
+season: 2024
+date_game: Sat, Jun 15, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 85
+opp_pts: 67
+wins: 12
+losses: 1
+game_streak: W 3
+
+team: CON
+season: 2024
+date_game: Tue, Jun 18, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 79
+opp_pts: 70
+wins: 13
+losses: 1
+game_streak: W 4
+
+team: CON
+season: 2024
+date_game: Fri, Jun 21, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 74
+opp_pts: 85
+wins: 13
+losses: 2
+game_streak: L 1
+
+team: CON
+season: 2024
+date_game: Sun, Jun 23, 2024
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 61
+opp_pts: 72
+wins: 13
+losses: 3
+game_streak: L 2
+
+team: CON
+season: 2024
+date_game: Thu, Jun 27, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 94
+opp_pts: 91
+wins: 14
+losses: 3
+game_streak: W 1
+
+team: CON
+season: 2024
+date_game: Fri, Jun 28, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: L
+pts: 74
+opp_pts: 78
+wins: 14
+losses: 4
+game_streak: L 1
+
+team: CON
+season: 2024
+date_game: Mon, Jul 1, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 83
+opp_pts: 72
+wins: 15
+losses: 4
+game_streak: W 1
+
+team: CON
+season: 2024
+date_game: Thu, Jul 4, 2024
+game_location: away
+opp_name: Minnesota Lynx
+game_result: W
+pts: 78
+opp_pts: 73
+wins: 16
+losses: 4
+game_streak: W 2
+
+team: CON
+season: 2024
+date_game: Sun, Jul 7, 2024
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 80
+opp_pts: 67
+wins: 17
+losses: 4
+game_streak: W 3
+
+team: CON
+season: 2024
+date_game: Wed, Jul 10, 2024
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 68
+opp_pts: 71
+wins: 17
+losses: 5
+game_streak: L 1
+
+team: CON
+season: 2024
+date_game: Sun, Jul 14, 2024
+game_location: home
+opp_name: Phoenix Mercury
+game_result: W
+pts: 96
+opp_pts: 69
+wins: 18
+losses: 5
+game_streak: W 1
+
+team: CON
+season: 2024
+date_game: Tue, Jul 16, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 74
+opp_pts: 82
+wins: 18
+losses: 6
+game_streak: L 1
+
+team: CON
+season: 2024
+date_game: Fri, Aug 16, 2024
+game_location: away
+opp_name: Dallas Wings
+game_result: W
+pts: 109
+opp_pts: 91
+wins: 19
+losses: 6
+game_streak: W 1
+
+team: CON
+season: 2024
+date_game: Sun, Aug 18, 2024
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 70
+opp_pts: 82
+wins: 19
+losses: 7
+game_streak: L 1
+
+team: CON
+season: 2024
+date_game: Tue, Aug 20, 2024
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 69
+opp_pts: 61
+wins: 20
+losses: 7
+game_streak: W 1
+
+team: CON
+season: 2024
+date_game: Fri, Aug 23, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 82
+opp_pts: 80
+wins: 21
+losses: 7
+game_streak: W 2
+
+team: CON
+season: 2024
+date_game: Sat, Aug 24, 2024
+game_location: away
+opp_name: New York Liberty
+game_result: W
+pts: 72
+opp_pts: 64
+wins: 22
+losses: 7
+game_streak: W 3
+
+team: CON
+season: 2024
+date_game: Wed, Aug 28, 2024
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 80
+opp_pts: 84
+wins: 22
+losses: 8
+game_streak: L 1
+
+team: CON
+season: 2024
+date_game: Sat, Aug 31, 2024
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 96
+opp_pts: 85
+wins: 23
+losses: 8
+game_streak: W 1
+
+team: CON
+season: 2024
+date_game: Sun, Sep 1, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 93
+opp_pts: 86
+wins: 24
+losses: 8
+game_streak: W 2
+
+team: CON
+season: 2024
+date_game: Tue, Sep 3, 2024
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 64
+opp_pts: 71
+wins: 24
+losses: 9
+game_streak: L 1
+
+team: CON
+season: 2024
+date_game: Fri, Sep 6, 2024
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 67
+opp_pts: 72
+wins: 24
+losses: 10
+game_streak: L 2
+
+team: CON
+season: 2024
+date_game: Sun, Sep 8, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 79
+opp_pts: 67
+wins: 25
+losses: 10
+game_streak: W 1
+
+team: CON
+season: 2024
+date_game: Tue, Sep 10, 2024
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 86
+opp_pts: 66
+wins: 26
+losses: 10
+game_streak: W 2
+
+team: CON
+season: 2024
+date_game: Fri, Sep 13, 2024
+game_location: away
+opp_name: Phoenix Mercury
+game_result: W
+pts: 88
+opp_pts: 69
+wins: 27
+losses: 10
+game_streak: W 3
+
+team: CON
+season: 2024
+date_game: Sun, Sep 15, 2024
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 71
+opp_pts: 84
+wins: 27
+losses: 11
+game_streak: L 1
+
+team: CON
+season: 2024
+date_game: Tue, Sep 17, 2024
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 76
+opp_pts: 78
+wins: 27
+losses: 12
+game_streak: L 2
+
+team: CON
+season: 2024
+date_game: Thu, Sep 19, 2024
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 87
+opp_pts: 54
+wins: 28
+losses: 12
+game_streak: W 1
+
+team: CON
+season: 2025
+date_game: Sun, May 18, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: L
+pts: 85
+opp_pts: 90
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: CON
+season: 2025
+date_game: Tue, May 20, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 62
+opp_pts: 87
+wins: 0
+losses: 2
+game_streak: L 2
+
+team: CON
+season: 2025
+date_game: Fri, May 23, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 70
+opp_pts: 76
+wins: 0
+losses: 3
+game_streak: L 3
+
+team: CON
+season: 2025
+date_game: Sun, May 25, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 55
+opp_pts: 79
+wins: 0
+losses: 4
+game_streak: L 4
+
+team: CON
+season: 2025
+date_game: Tue, May 27, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: L
+pts: 87
+opp_pts: 109
+wins: 0
+losses: 5
+game_streak: L 5
+
+team: CON
+season: 2025
+date_game: Fri, May 30, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 85
+opp_pts: 83
+wins: 1
+losses: 5
+game_streak: W 1
+
+team: CON
+season: 2025
+date_game: Sun, Jun 1, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 52
+opp_pts: 100
+wins: 1
+losses: 6
+game_streak: L 1
+
+team: CON
+season: 2025
+date_game: Fri, Jun 6, 2025
+game_location: home
+opp_name: Atlanta Dream
+game_result: W
+pts: 84
+opp_pts: 76
+wins: 2
+losses: 6
+game_streak: W 1
+
+team: CON
+season: 2025
+date_game: Sun, Jun 8, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: L
+pts: 67
+opp_pts: 104
+wins: 2
+losses: 7
+game_streak: L 1
+
+team: CON
+season: 2025
+date_game: Sun, Jun 15, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: L
+pts: 66
+opp_pts: 78
+wins: 2
+losses: 8
+game_streak: L 2
+
+team: CON
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: L
+pts: 71
+opp_pts: 88
+wins: 2
+losses: 9
+game_streak: L 3
+
+team: CON
+season: 2025
+date_game: Wed, Jun 18, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 75
+opp_pts: 83
+wins: 2
+losses: 10
+game_streak: L 4
+
+team: CON
+season: 2025
+date_game: Fri, Jun 20, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: L
+pts: 83
+opp_pts: 86
+wins: 2
+losses: 11
+game_streak: L 5
+
+team: CON
+season: 2025
+date_game: Sun, Jun 22, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: L
+pts: 63
+opp_pts: 87
+wins: 2
+losses: 12
+game_streak: L 6
+
+team: CON
+season: 2025
+date_game: Wed, Jun 25, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 59
+opp_pts: 85
+wins: 2
+losses: 13
+game_streak: L 7
+
+team: CON
+season: 2025
+date_game: Fri, Jun 27, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 81
+opp_pts: 97
+wins: 2
+losses: 14
+game_streak: L 8
+
+team: CON
+season: 2025
+date_game: Sun, Jun 29, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 63
+opp_pts: 102
+wins: 2
+losses: 15
+game_streak: L 9
+
+team: CON
+season: 2025
+date_game: Sun, Jul 6, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 68
+opp_pts: 86
+wins: 2
+losses: 16
+game_streak: L 10
+
+team: CON
+season: 2025
+date_game: Wed, Jul 9, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 93
+opp_pts: 83
+wins: 3
+losses: 16
+game_streak: W 1
+
+team: CON
+season: 2025
+date_game: Fri, Jul 11, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 65
+opp_pts: 79
+wins: 3
+losses: 17
+game_streak: L 1
+
+team: CON
+season: 2025
+date_game: Sun, Jul 13, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 88
+opp_pts: 92
+wins: 3
+losses: 18
+game_streak: L 2
+
+team: CON
+season: 2025
+date_game: Tue, Jul 15, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: L
+pts: 77
+opp_pts: 85
+wins: 3
+losses: 19
+game_streak: L 3
+
+team: CON
+season: 2025
+date_game: Thu, Jul 24, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 86
+opp_pts: 101
+wins: 3
+losses: 20
+game_streak: L 4
+
+team: CON
+season: 2025
+date_game: Sun, Jul 27, 2025
+game_location: home
+opp_name: Golden State Valkyries
+game_result: W
+pts: 95
+opp_pts: 64
+wins: 4
+losses: 20
+game_streak: W 1
+
+team: CON
+season: 2025
+date_game: Mon, Jul 28, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: L
+pts: 85
+opp_pts: 101
+wins: 4
+losses: 21
+game_streak: L 1
+
+team: CON
+season: 2025
+date_game: Fri, Aug 1, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: W
+pts: 78
+opp_pts: 62
+wins: 5
+losses: 21
+game_streak: W 1
+
+team: CON
+season: 2025
+date_game: Sun, Aug 3, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 78
+opp_pts: 87
+wins: 5
+losses: 22
+game_streak: L 1
+
+team: CON
+season: 2025
+date_game: Tue, Aug 5, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 66
+opp_pts: 82
+wins: 5
+losses: 23
+game_streak: L 2
+
+team: CON
+season: 2025
+date_game: Thu, Aug 7, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 91
+opp_pts: 102
+wins: 5
+losses: 24
+game_streak: L 3
+
+team: CON
+season: 2025
+date_game: Sun, Aug 10, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 86
+opp_pts: 94
+wins: 5
+losses: 25
+game_streak: L 4
+
+team: CON
+season: 2025
+date_game: Mon, Aug 11, 2025
+game_location: away
+opp_name: Golden State Valkyries
+game_result: L
+pts: 57
+opp_pts: 74
+wins: 5
+losses: 26
+game_streak: L 5
+
+team: GSV
+season: 2025
+date_game: Fri, May 16, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: L
+pts: 67
+opp_pts: 84
+wins: 0
+losses: 1
+game_streak: L 1
+
+team: GSV
+season: 2025
+date_game: Wed, May 21, 2025
+game_location: home
+opp_name: Washington Mystics
+game_result: W
+pts: 76
+opp_pts: 74
+wins: 1
+losses: 1
+game_streak: W 1
+
+team: GSV
+season: 2025
+date_game: Fri, May 23, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 82
+opp_pts: 73
+wins: 2
+losses: 1
+game_streak: W 2
+
+team: GSV
+season: 2025
+date_game: Tue, May 27, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 67
+opp_pts: 95
+wins: 2
+losses: 2
+game_streak: L 1
+
+team: GSV
+season: 2025
+date_game: Thu, May 29, 2025
+game_location: away
+opp_name: New York Liberty
+game_result: L
+pts: 77
+opp_pts: 82
+wins: 2
+losses: 3
+game_streak: L 2
+
+team: GSV
+season: 2025
+date_game: Sun, Jun 1, 2025
+game_location: home
+opp_name: Minnesota Lynx
+game_result: L
+pts: 75
+opp_pts: 86
+wins: 2
+losses: 4
+game_streak: L 3
+
+team: GSV
+season: 2025
+date_game: Thu, Jun 5, 2025
+game_location: away
+opp_name: Phoenix Mercury
+game_result: L
+pts: 77
+opp_pts: 86
+wins: 2
+losses: 5
+game_streak: L 4
+
+team: GSV
+season: 2025
+date_game: Sat, Jun 7, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: W
+pts: 95
+opp_pts: 68
+wins: 3
+losses: 5
+game_streak: W 1
+
+team: GSV
+season: 2025
+date_game: Mon, Jun 9, 2025
+game_location: away
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 89
+opp_pts: 81
+wins: 4
+losses: 5
+game_streak: W 2
+
+team: GSV
+season: 2025
+date_game: Sat, Jun 14, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 76
+opp_pts: 70
+wins: 5
+losses: 5
+game_streak: W 3
+
+team: GSV
+season: 2025
+date_game: Tue, Jun 17, 2025
+game_location: away
+opp_name: Dallas Wings
+game_result: L
+pts: 71
+opp_pts: 80
+wins: 5
+losses: 6
+game_streak: L 1
+
+team: GSV
+season: 2025
+date_game: Thu, Jun 19, 2025
+game_location: home
+opp_name: Indiana Fever
+game_result: W
+pts: 88
+opp_pts: 77
+wins: 6
+losses: 6
+game_streak: W 1
+
+team: GSV
+season: 2025
+date_game: Sun, Jun 22, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 87
+opp_pts: 63
+wins: 7
+losses: 6
+game_streak: W 2
+
+team: GSV
+season: 2025
+date_game: Wed, Jun 25, 2025
+game_location: home
+opp_name: New York Liberty
+game_result: L
+pts: 78
+opp_pts: 81
+wins: 7
+losses: 7
+game_streak: L 1
+
+team: GSV
+season: 2025
+date_game: Fri, Jun 27, 2025
+game_location: home
+opp_name: Chicago Sky
+game_result: W
+pts: 83
+opp_pts: 78
+wins: 8
+losses: 7
+game_streak: W 1
+
+team: GSV
+season: 2025
+date_game: Sun, Jun 29, 2025
+game_location: home
+opp_name: Seattle Storm
+game_result: W
+pts: 84
+opp_pts: 57
+wins: 9
+losses: 7
+game_streak: W 2
+
+team: GSV
+season: 2025
+date_game: Sat, Jul 5, 2025
+game_location: away
+opp_name: Minnesota Lynx
+game_result: L
+pts: 71
+opp_pts: 82
+wins: 9
+losses: 8
+game_streak: L 1
+
+team: GSV
+season: 2025
+date_game: Mon, Jul 7, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: L
+pts: 81
+opp_pts: 90
+wins: 9
+losses: 9
+game_streak: L 2
+
+team: GSV
+season: 2025
+date_game: Wed, Jul 9, 2025
+game_location: away
+opp_name: Indiana Fever
+game_result: W
+pts: 80
+opp_pts: 61
+wins: 10
+losses: 9
+game_streak: W 1
+
+team: GSV
+season: 2025
+date_game: Sat, Jul 12, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 102
+opp_pts: 104
+wins: 10
+losses: 10
+game_streak: L 1
+
+team: GSV
+season: 2025
+date_game: Mon, Jul 14, 2025
+game_location: home
+opp_name: Phoenix Mercury
+game_result: L
+pts: 77
+opp_pts: 78
+wins: 10
+losses: 11
+game_streak: L 2
+
+team: GSV
+season: 2025
+date_game: Wed, Jul 16, 2025
+game_location: away
+opp_name: Seattle Storm
+game_result: L
+pts: 58
+opp_pts: 67
+wins: 10
+losses: 12
+game_streak: L 3
+
+team: GSV
+season: 2025
+date_game: Fri, Jul 25, 2025
+game_location: home
+opp_name: Dallas Wings
+game_result: W
+pts: 86
+opp_pts: 76
+wins: 11
+losses: 12
+game_streak: W 1
+
+team: GSV
+season: 2025
+date_game: Sun, Jul 27, 2025
+game_location: away
+opp_name: Connecticut Sun
+game_result: L
+pts: 64
+opp_pts: 95
+wins: 11
+losses: 13
+game_streak: L 1
+
+team: GSV
+season: 2025
+date_game: Tue, Jul 29, 2025
+game_location: away
+opp_name: Atlanta Dream
+game_result: W
+pts: 77
+opp_pts: 75
+wins: 12
+losses: 13
+game_streak: W 1
+
+team: GSV
+season: 2025
+date_game: Thu, Jul 31, 2025
+game_location: away
+opp_name: Washington Mystics
+game_result: W
+pts: 68
+opp_pts: 67
+wins: 13
+losses: 13
+game_streak: W 2
+
+team: GSV
+season: 2025
+date_game: Fri, Aug 1, 2025
+game_location: away
+opp_name: Chicago Sky
+game_result: W
+pts: 73
+opp_pts: 66
+wins: 14
+losses: 13
+game_streak: W 3
+
+team: GSV
+season: 2025
+date_game: Sun, Aug 3, 2025
+game_location: away
+opp_name: Las Vegas Aces
+game_result: L
+pts: 77
+opp_pts: 101
+wins: 14
+losses: 14
+game_streak: L 1
+
+team: GSV
+season: 2025
+date_game: Wed, Aug 6, 2025
+game_location: home
+opp_name: Las Vegas Aces
+game_result: L
+pts: 72
+opp_pts: 78
+wins: 14
+losses: 15
+game_streak: L 2
+
+team: GSV
+season: 2025
+date_game: Sat, Aug 9, 2025
+game_location: home
+opp_name: Los Angeles Sparks
+game_result: W
+pts: 72
+opp_pts: 59
+wins: 15
+losses: 15
+game_streak: W 1
+
+team: GSV
+season: 2025
+date_game: Mon, Aug 11, 2025
+game_location: home
+opp_name: Connecticut Sun
+game_result: W
+pts: 74
+opp_pts: 57
+wins: 16
+losses: 15
+game_streak: W 2
+
