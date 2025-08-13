@@ -1,11 +1,11 @@
-from bs4 import BeautifulSoup
 import asyncio
+from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
+from sqlalchemy.orm import Session
+from db import SessionLocal
+from models import Stat, Game, Team
 
-filename1="test.txt"
-filename2="text.txt"
-
-async def url_builder():
+async def collect_info(db: Session, page):
     teams = ["MIN", "NYL", "ATL", "PHO", "IND", "LVA", 
              "SEA", "LAS", "WAS", "CHI", "DAL", "CON"]
     for team in teams:
@@ -13,15 +13,11 @@ async def url_builder():
         while season <= 2025:
             url_stats = f"https://www.basketball-reference.com/wnba/teams/{team}/{season}.html"
             url_team = f"https://www.basketball-reference.com/wnba/teams/{team}/{season}_games.html"
-            await get_stats(url_stats, team, season)
-            await get_info(url_team, team, season)
+            await get_stats(db, page, url_stats, team, season)
+            await get_info(db, page, url_team, team, season)
             season += 1
 
-async def get_info(link, team, season):
-
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
-            page = await browser.new_page()
+async def get_info(db: Session, page, link, team, season): 
             await page.goto(link)
             await asyncio.sleep(3) # crawl delay 
             await page.wait_for_selector('#teams_games')  
@@ -48,24 +44,36 @@ async def get_info(link, team, season):
                 if 'pts' in game and game['pts'] != '':
                     games.append(game)
 
-            with open(filename2, "a", encoding="utf-8") as f:
-                for game in games: 
-                    f.write(f"team: {team}\n")
-                    f.write(f"season: {season}\n")
-                    for key, value in game.items():
-                        f.write(f"{key}: {value}\n")
-                    f.write("\n")
-            
-            print(f"{team} games from {season} saved to {filename2}")
+            team_obj = db.query(Team).filter_by(abbreviation=team).first()
+                
+                        # Add games regardless of whether team existed or not
+            for game in games:
+                mapped_game = {
+                    "date": game.get("date_game"),
+                    "game_location": game.get("game_location"),
+                    "opponent": game.get("opp_name"),
+                    "result": game.get("game_result"),
+                    "points": int(game.get("pts")) if game.get("pts") else None,
+                    "opp_points": int(game.get("opp_pts")) if game.get("opp_pts") else None,
+                    "wins": int(game.get("wins")) if game.get("wins") else None,
+                    "losses": int(game.get("losses")) if game.get("losses") else None,
+                    "game_streak": game.get("game_streak")
+                    }
 
-            await browser.close()
+                db_game = Game(
+                    team_id=team_obj.id,
+                    season=season,
+                    **mapped_game
+                    )
+                db.add(db_game)
+
+            db.commit()
+
+            print(f"{team} games from {season} saved to DB")
+
             return games
 
-async def get_stats(link, team, season):
-        
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
-            page = await browser.new_page()
+async def get_stats(db: Session, page, link, team, season):
             await page.goto(link)
             await asyncio.sleep(3)  # crawl delay 
             await page.wait_for_selector('#div_team-stats')
@@ -76,7 +84,6 @@ async def get_stats(link, team, season):
 
             if not table or not table.tbody:
                 print("Table or tbody not found")
-                await browser.close()
                 return
 
             rows = table.tbody.find_all('tr')
@@ -99,21 +106,30 @@ async def get_stats(link, team, season):
                 cell = target_row.find("td", {"data-stat": stat})
                 stats[stat] = cell.text.strip() if cell else "None"
 
-                    # Save to text file
-            with open(filename1, "a", encoding="utf-8") as f:
-                f.write(f"team: {team}\n")
-                f.write(f"season: {season}\n")
-                for key, value in stats.items():
-                    f.write(f"{key}: {value}\n")
-                f.write("\n")
+            team_obj = db.query(Team).filter_by(abbreviation=team).first()
+            db_stats = Stat(
+                team_id=team_obj.id,
+                season=season,
+                **stats
+            )
+            db.add(db_stats)
+            db.commit()
 
-            print(f"{team} stats from {season} saved to {filename1}")
-            await browser.close()
+            print(f"{team} stats from {season} saved to DB")
         
 async def main():
-    await url_builder()
-    await get_stats("https://www.basketball-reference.com/wnba/teams/GSV/2025.html", "GSV", 2025)
-    await get_info("https://www.basketball-reference.com/wnba/teams/GSV/2025_games.html", "GSV", 2025)
+    db = SessionLocal()
+    try:
+        async with async_playwright() as p:
+            browser = await p.chromium.launch(headless=True)
+            page = await browser.new_page()
+            await collect_info(db, page)
+            await get_stats(db, page, "https://www.basketball-reference.com/wnba/teams/GSV/2025.html", "GSV", 2025)
+            await get_info(db, page, "https://www.basketball-reference.com/wnba/teams/GSV/2025_games.html","GSV", 2025)
+            await browser.close()
+    finally:
+        db.close()
+       
 
 if __name__ == "__main__":
     asyncio.run(main())
