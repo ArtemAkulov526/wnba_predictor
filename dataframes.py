@@ -5,7 +5,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, roc_auc_score, log_loss
 from sklearn.preprocessing import StandardScaler
 
-
 def load_data():
     db = SessionLocal()
     try:
@@ -16,7 +15,6 @@ def load_data():
         db.close()
     return teams, games, stats
 
-
 def preprocess_data(teams, games, stats):
     """Merge tables and create features for modeling."""
     team_name_to_id = dict(zip(teams.name, teams.id))
@@ -24,7 +22,7 @@ def preprocess_data(teams, games, stats):
 
     games_subset = games[[
         "team_id", "season", "date", "game_location", "opponent", "opponent_id",
-        "result"
+        "result", "points", "opp_points"
     ]]
 
     df = games_subset.merge(
@@ -41,18 +39,14 @@ def preprocess_data(teams, games, stats):
         suffixes=("", "_opp_stats")
     )
 
-    # =========================
-    # Feature engineering
-    # =========================
+    # Target variable
     df["target"] = df["result"].apply(lambda r: 1 if r == "W" else 0)
     df["home"] = df["game_location"].apply(lambda x: 1 if x == "home" else 0)
 
-    # Sort by team and date for rolling stats
+    # Sort for rolling stats
     df = df.sort_values(["team_id", "date"])
-
-    # Rolling averages for points
-    df["last_3_pts"] = df.groupby("team_id")["pts_per_g"].shift(1).rolling(3, min_periods=1).mean()
-    df["last_3_opp_pts"] = df.groupby("team_id")["pts_per_g_opp_stats"].shift(1).rolling(3, min_periods=1).mean()
+    df["last_3_pts"] = df.groupby("team_id")["points"].shift(1).rolling(3, min_periods=1).mean()
+    df["last_3_opp_pts"] = df.groupby("team_id")["opp_points"].shift(1).rolling(3, min_periods=1).mean()
 
     # Feature columns
     stat_cols = [
@@ -69,8 +63,7 @@ def preprocess_data(teams, games, stats):
     X = df[feature_cols].fillna(0)
     y = df["target"]
 
-    return df, X, y, feature_cols
-
+    return df, X, y, feature_cols, stat_cols
 
 def split_and_scale(df, X, y, feature_cols):
     train_df = df[df["season"] < 2024]
@@ -85,8 +78,7 @@ def split_and_scale(df, X, y, feature_cols):
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
 
-    return X_train_scaled, X_test_scaled, y_train, y_test
-
+    return X_train_scaled, X_test_scaled, y_train, y_test, scaler
 
 def train_and_evaluate(X_train, X_test, y_train, y_test):
     model = LogisticRegression(max_iter=500)
@@ -100,14 +92,53 @@ def train_and_evaluate(X_train, X_test, y_train, y_test):
     logloss = log_loss(y_test, y_proba)
     cv_acc = cross_val_score(model, X_train, y_train, cv=5, scoring="accuracy").mean()
 
-    return acc, cv_acc, roc_auc, logloss
+    return model, acc, cv_acc, roc_auc, logloss
 
+def predict_future_games(future_games_df, log_reg, scaler, feature_cols, past_games_df, stat_cols):
+    """
+    Predict WNBA game outcomes for future games.
+    """
+    past_games_df = past_games_df.sort_values(["team_id", "date"])
+
+    for col in stat_cols:
+        rolling_team = past_games_df.groupby("team_id")[col].rolling(3, min_periods=1).mean().shift(1)
+        past_games_df[f"last_3_{col}"] = rolling_team.reset_index(level=0, drop=True)
+
+    for col in stat_cols:
+        opp_col = col + "_opp_stats"
+        rolling_opp = past_games_df.groupby("team_id")[opp_col].rolling(3, min_periods=1).mean().shift(1)
+        past_games_df[f"last_3_{opp_col}"] = rolling_opp.reset_index(level=0, drop=True)
+
+    for col in stat_cols:
+        future_games_df = future_games_df.merge(
+            past_games_df[["team_id", f"last_3_{col}"]].drop_duplicates("team_id"),
+            on="team_id", how="left"
+        )
+        future_games_df = future_games_df.merge(
+            past_games_df[["team_id", f"last_3_{col}_opp_stats"]].drop_duplicates("team_id"),
+            left_on="opponent_id",
+            right_on="team_id",
+            how="left",
+            suffixes=("", "_opp")
+        )
+
+    for col in feature_cols:
+        if col not in future_games_df.columns:
+            future_games_df[col] = 0
+
+    X_future = future_games_df[feature_cols].fillna(0)
+    X_future_scaled = scaler.transform(X_future)
+
+    future_games_df["predicted_win"] = log_reg.predict(X_future_scaled)
+    future_games_df["win_probability"] = log_reg.predict_proba(X_future_scaled)[:, 1]
+
+    return future_games_df
 
 def main():
     teams, games, stats = load_data()
-    df, X, y, feature_cols = preprocess_data(teams, games, stats)
-    X_train_scaled, X_test_scaled, y_train, y_test = split_and_scale(df, X, y, feature_cols)
-    acc, cv_acc, roc_auc, logloss = train_and_evaluate(X_train_scaled, X_test_scaled, y_train, y_test)
+    df, X, y, feature_cols, stat_cols = preprocess_data(teams, games, stats)
+    X_train_scaled, X_test_scaled, y_train, y_test, scaler = split_and_scale(df, X, y, feature_cols)
+    log_reg, acc, cv_acc, roc_auc, logloss = train_and_evaluate(X_train_scaled, X_test_scaled, y_train, y_test)
 
     print("=== Logistic Regression ===")
     print("Accuracy:", acc)
@@ -115,12 +146,11 @@ def main():
     print("ROC-AUC:", roc_auc)
     print("Log Loss:", logloss)
 
-
 if __name__ == "__main__":
     main()
 
-# === Logistic Regression ===
-# Accuracy: 0.7583333333333333
-# Cross-validation Accuracy: 0.6657989116992333
-# ROC-AUC: 0.7975694444444444
-# Log Loss: 0.5588782762626046
+#=== Logistic Regression ===
+# Accuracy: 0.7416666666666667
+# Cross-validation Accuracy: 0.669001978728667
+# ROC-AUC: 0.7980729166666667
+# Log Loss: 0.5583388238690915
