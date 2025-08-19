@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ team.name }} Stats</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        th { background-color: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>{{ team.name }} - Stats</h1>
+
+    {% if stats %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Season</th>
+                    <th>G</th>
+                    <th>MP</th>
+                    <th>FG</th>
+                    <th>FGA</th>
+                    <th>FG%</th>
+                    <th>3P</th>
+                    <th>3PA</th>
+                    <th>3P%</th>
+                    <th>2P</th>
+                    <th>2PA</th>
+                    <th>2P%</th>
+                    <th>FT</th>
+                    <th>FTA</th>
+                    <th>FT%</th>
+                    <th>ORB</th>
+                    <th>DRB</th>
+                    <th>TRB</th>
+                    <th>AST</th>
+                    <th>STL</th>
+                    <th>BLK</th>
+                    <th>TOV</th>
+                    <th>PF</th>
+                    <th>PTS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stat in stats %}
+                <tr>
+                    <td>{{ stat.season }}</td>
+                    <td>{{ stat.g }}</td>
+                    <td>{{ stat.mp_per_g }}</td>
+                    <td>{{ stat.fg_per_g }}</td>
+                    <td>{{ stat.fga_per_g }}</td>
+                    <td>{{ stat.fg_pct }}</td>
+                    <td>{{ stat.fg3_per_g }}</td>
+                    <td>{{ stat.fg3a_per_g }}</td>
+                    <td>{{ stat.fg3_pct }}</td>
+                    <td>{{ stat.fg2_per_g }}</td>
+                    <td>{{ stat.fg2a_per_g }}</td>
+                    <td>{{ stat.fg2_pct }}</td>
+                    <td>{{ stat.ft_per_g }}</td>
+                    <td>{{ stat.fta_per_g }}</td>
+                    <td>{{ stat.ft_pct }}</td>
+                    <td>{{ stat.orb_per_g }}</td>
+                    <td>{{ stat.drb_per_g }}</td>
+                    <td>{{ stat.trb_per_g }}</td>
+                    <td>{{ stat.ast_per_g }}</td>
+                    <td>{{ stat.stl_per_g }}</td>
+                    <td>{{ stat.blk_per_g }}</td>
+                    <td>{{ stat.tov_per_g }}</td>
+                    <td>{{ stat.pf_per_g }}</td>
+                    <td>{{ stat.pts_per_g }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No stats available for this team.</p>
+    {% endif %}
+    <br>
+<h2>Filter by Season</h2>
+<div>
+    {% for year in range(2020, 2026) %}
+        <form style="display:inline;" method="get" action="/team/{{ team.id }}/games">
+            <input type="hidden" name="season" value="{{ year }}">
+            <button type="submit">{{ year }}</button>
+        </form>
+    {% endfor %}
+</div>
+<br>
+    <a href="/">⬅ Back to Teams</a>
+</body>
+</html>

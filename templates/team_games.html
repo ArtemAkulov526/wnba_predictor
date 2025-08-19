@@ -1,0 +1,37 @@
+<h1>{{ team.name }} - Games in {{ season }}</h1>
+
+{% if games %}
+<table border="1" style="border-collapse: collapse;">
+    <tr>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Opponent</th>
+        <th>Result</th>
+        <th>Points</th>
+        <th>Opponent Points</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Streak</th>
+    </tr>
+    {% for game in games %}
+    <tr>
+        <td>{{ game.date }}</td>
+        <td>{{ game.game_location }}</td>
+        <td>{{ game.opponent }}</td>
+        <td>{{ game.result }}</td>
+        <td>{{ game.points }}</td>
+        <td>{{ game.opp_points }}</td>
+        <td>{{ game.wins }}</td>
+        <td>{{ game.losses }}</td>
+        <td>{{ game.game_streak }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No games found for {{ season }}</p>
+{% endif %}
+
+<br>
+<a href="/team/{{ team.id }}">⬅ Back to Stats</a>
+<br>
+<a href="/">⬅ Back to Teams</a>

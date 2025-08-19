@@ -10,18 +10,18 @@
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">WNBA Teams</h1>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Abbreviation</th>
-        </tr>
-        {% for team in teams %}
-        <tr>
-            <td>{{ team.name }}</td>
-            <td>{{ team.abbreviation }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+<h1 style="text-align: center;">WNBA Teams</h1>
+<table border="1" style="margin:auto; border-collapse: collapse;">
+    <tr>
+        <th>Name</th>
+        <th>Abbreviation</th>
+    </tr>
+    {% for team in teams %}
+    <tr onclick="window.location='/team/{{ team.id }}'" style="cursor: pointer;">
+        <td>{{ team.name }}</td>
+        <td>{{ team.abbreviation }}</td>
+    </tr>
+    {% endfor %}
+</table>
 </body>
 </html>
