@@ -9,7 +9,7 @@ async def collect_info(db: Session, page):
     teams = ["MIN", "NYL", "ATL", "PHO", "IND", "LVA", 
              "SEA", "LAS", "WAS", "CHI", "DAL", "CON"]
     for team in teams:
-        season = 2020  
+        season = 2018  
         while season <= 2025:
             url_stats = f"https://www.basketball-reference.com/wnba/teams/{team}/{season}.html"
             url_team = f"https://www.basketball-reference.com/wnba/teams/{team}/{season}_games.html"
@@ -46,7 +46,6 @@ async def get_info(db: Session, page, link, team, season):
 
             team_obj = db.query(Team).filter_by(abbreviation=team).first()
                 
-                        # Add games regardless of whether team existed or not
             for game in games:
                 mapped_game = {
                     "date": game.get("date_game"),
@@ -76,11 +75,11 @@ async def get_info(db: Session, page, link, team, season):
 async def get_stats(db: Session, page, link, team, season):
             await page.goto(link)
             await asyncio.sleep(3)  # crawl delay 
-            await page.wait_for_selector('#div_team-stats')
+            await page.wait_for_selector('#div_team-stats', state="visible")
 
             content = await page.inner_html('#div_team-stats')
             soup = BeautifulSoup(content, 'html.parser')
-            table = soup.find('table')
+            table = soup.find('table', {'id': 'team-stats'})
 
             if not table or not table.tbody:
                 print("Table or tbody not found")
@@ -122,7 +121,15 @@ async def main():
     try:
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
-            page = await browser.new_page()
+            context = await browser.new_context(
+                extra_http_headers={
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                                  "Chrome/139.0.0.0 Safari/537.36"
+                }
+            )
+
+            page = await context.new_page()
             await collect_info(db, page)
             await get_stats(db, page, "https://www.basketball-reference.com/wnba/teams/GSV/2025.html", "GSV", 2025)
             await get_info(db, page, "https://www.basketball-reference.com/wnba/teams/GSV/2025_games.html","GSV", 2025)
