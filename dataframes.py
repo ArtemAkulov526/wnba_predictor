@@ -39,16 +39,13 @@ def preprocess_data(teams, games, stats):
         suffixes=("", "_opp_stats")
     )
 
-    # Target variable
     df["target"] = df["result"].apply(lambda r: 1 if r == "W" else 0)
     df["home"] = df["game_location"].apply(lambda x: 1 if x == "home" else 0)
 
-    # Sort for rolling stats
     df = df.sort_values(["team_id", "date"])
     df["last_3_pts"] = df.groupby("team_id")["points"].shift(1).rolling(3, min_periods=1).mean()
     df["last_3_opp_pts"] = df.groupby("team_id")["opp_points"].shift(1).rolling(3, min_periods=1).mean()
 
-    # Feature columns
     stat_cols = [
         "fg_per_g", "fga_per_g", "fg_pct", "fg3_per_g", "fg3a_per_g", "fg3_pct",
         "fg2_per_g", "fg2a_per_g", "fg2_pct", "ft_per_g", "fta_per_g", "ft_pct",
@@ -150,7 +147,7 @@ if __name__ == "__main__":
     main()
 
 #=== Logistic Regression ===
-# Accuracy: 0.7416666666666667
-# Cross-validation Accuracy: 0.669001978728667
-# ROC-AUC: 0.7980729166666667
-# Log Loss: 0.5583388238690915
+# Accuracy: 0.7479166666666667
+# Cross-validation Accuracy: 0.6603384410393071
+# ROC-AUC: 0.8036458333333334
+# Log Loss: 0.5497072508248722
