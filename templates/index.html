@@ -10,6 +10,50 @@
     </style>
 </head>
 <body>
+<h2>Predict Future Game</h2>
+<form id="predict-form" method="post" action="/predict-game">
+    <label for="team1">Team 1:</label>
+    <select name="team1" id="team1" required>
+        {% for team in teams %}
+            <option value="{{ team.id }}">{{ team.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="team2">Team 2:</label>
+    <select name="team2" id="team2" required>
+        {% for team in teams %}
+            <option value="{{ team.id }}">{{ team.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="home">Home Team:</label>
+    <select name="home" id="home" required>
+        <option value="1">Team 1</option>
+        <option value="0">Team 2</option>
+    </select>
+
+    <button type="submit">Run Prediction</button>
+</form>
+<div id="result"></div>
+<script>
+document.getElementById("predict-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const response = await fetch("/predict-game", { method: "POST", body: formData });
+    const data = await response.json();
+
+    if (data.error) {
+        document.getElementById("result").innerHTML = `<p style="color:red">${data.error}</p>`;
+    } else {
+        document.getElementById("result").innerHTML = `
+            <h3>Prediction Result</h3>
+            <p><strong>${data.team_name}</strong> vs <strong>${data.opponent_name}</strong></p>
+            Predicted Winner: <strong>${data.predicted_winner}</strong> 
+            <p>Win Probability: ${Math.round(data.win_probability * 100)}%</p>
+        `;
+    }
+});
+</script>
 <h1 style="text-align: center;">WNBA Teams</h1>
 <table border="1" style="margin:auto; border-collapse: collapse;">
     <tr>
