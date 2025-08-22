@@ -81,7 +81,7 @@
     <br>
 <h2>Filter by Season</h2>
 <div>
-    {% for year in range(2020, 2026) %}
+    {% for year in range(2018, 2026) %}
         <form style="display:inline;" method="get" action="/team/{{ team.id }}/games">
             <input type="hidden" name="season" value="{{ year }}">
             <button type="submit">{{ year }}</button>
