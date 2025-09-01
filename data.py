@@ -1,23 +1,26 @@
-import asyncio
+import asyncio, logging
 from bs4 import BeautifulSoup
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, Page
 from sqlalchemy.orm import Session
 from db import SessionLocal
 from models import Stat, Game, Team
+from typing import List, Dict, Optional
 
-async def collect_info(db: Session, page):
-    teams = ["MIN", "NYL", "ATL", "PHO", "IND", "LVA", 
+logger = logging.getLogger(__name__)
+
+async def collect_team_data(db: Session, page: Page) -> None:
+    TEAMS = ["MIN", "NYL", "ATL", "PHO", "IND", "LVA", 
              "SEA", "LAS", "WAS", "CHI", "DAL", "CON"]
-    for team in teams:
+    for team in TEAMS:
         season = 2018  
         while season <= 2025:
             url_stats = f"https://www.basketball-reference.com/wnba/teams/{team}/{season}.html"
-            url_team = f"https://www.basketball-reference.com/wnba/teams/{team}/{season}_games.html"
-            await get_stats(db, page, url_stats, team, season)
-            await get_info(db, page, url_team, team, season)
+            url_games = f"https://www.basketball-reference.com/wnba/teams/{team}/{season}_games.html"
+            await get_team_stats(db, page, url_stats, team, season)
+            await get_team_games(db, page, url_games, team, season)
             season += 1
 
-async def get_info(db: Session, page, link, team, season): 
+async def get_team_games(db: Session, page: Page, link: str, team: str, season: int) -> List[Dict[str, Optional[str]]]: 
             await page.goto(link)
             await asyncio.sleep(3) # crawl delay 
             await page.wait_for_selector('#teams_games')  
@@ -27,10 +30,10 @@ async def get_info(db: Session, page, link, team, season):
             soup = BeautifulSoup(tbody_html, 'html.parser')
             rows = soup.find_all('tr')
 
-            games = []
+            games: List[Dict[str, Optional[str]]] = []
             exclude_columns = ['overtimes', 'notes']
             for row in rows:
-                game = {}
+                game: Dict[str, Optional[str]] = {}
                 for td in row.find_all('td'):
                     key = td.get('data-stat')
                     if key and key not in exclude_columns:
@@ -46,6 +49,7 @@ async def get_info(db: Session, page, link, team, season):
 
             team_obj = db.query(Team).filter_by(abbreviation=team).first()
                 
+            db_games = []
             for game in games:
                 mapped_game = {
                     "date": game.get("date_game"),
@@ -57,22 +61,20 @@ async def get_info(db: Session, page, link, team, season):
                     "wins": int(game.get("wins")) if game.get("wins") else None,
                     "losses": int(game.get("losses")) if game.get("losses") else None,
                     "game_streak": game.get("game_streak")
-                    }
+                }
 
-                db_game = Game(
-                    team_id=team_obj.id,
-                    season=season,
-                    **mapped_game
-                    )
-                db.add(db_game)
+                db_games.append(Game(team_id=team_obj.id,season=season,**mapped_game))
 
-            db.commit()
+                try:
+                    with db.begin():
+                        db.add_all(db_games)
+                    logger.info(f"{team} games from {season} saved to DB")
+                except Exception as e:
+                    logger.error(f"Failed to save games for {team} {season}: {e}")
 
-            print(f"{team} games from {season} saved to DB")
+                return games
 
-            return games
-
-async def get_stats(db: Session, page, link, team, season):
+async def get_team_stats(db: Session, page: Page, link: str, team: str, season: int) -> None: 
             await page.goto(link)
             await asyncio.sleep(3)  # crawl delay 
             await page.wait_for_selector('#div_team-stats', state="visible")
@@ -82,12 +84,13 @@ async def get_stats(db: Session, page, link, team, season):
             table = soup.find('table', {'id': 'team-stats'})
 
             if not table or not table.tbody:
-                print("Table or tbody not found")
+                logger.error(f"Table or tbody not found for {team} season {season}")
                 return
 
             rows = table.tbody.find_all('tr')
 
             stats = {}
+            # row[1] = totals for season, we want per-game averages
             first_row = rows[1]  
             cell_g = first_row.find("td", {"data-stat": "g"})
             stats["g"] = cell_g.text.strip() if cell_g else "None"
@@ -100,6 +103,7 @@ async def get_stats(db: Session, page, link, team, season):
                 "pf_per_g", "pts_per_g"
             ]
 
+            # row[2] = per-game averages
             target_row = rows[2]  
             for stat in stats_to_extract:
                 cell = target_row.find("td", {"data-stat": stat})
@@ -111,10 +115,12 @@ async def get_stats(db: Session, page, link, team, season):
                 season=season,
                 **stats
             )
-            db.add(db_stats)
-            db.commit()
-
-            print(f"{team} stats from {season} saved to DB")
+            try:
+                with db.begin():
+                    db.add(db_stats)
+                logger.info(f"{team} stats from {season} saved to DB")
+            except Exception as e:
+                logger.error(f"Failed to save stats for {team} {season}: {e}")
         
 async def main():
     db = SessionLocal()
@@ -130,15 +136,12 @@ async def main():
             )
 
             page = await context.new_page()
-            await collect_info(db, page)
-            await get_stats(db, page, "https://www.basketball-reference.com/wnba/teams/GSV/2025.html", "GSV", 2025)
-            await get_info(db, page, "https://www.basketball-reference.com/wnba/teams/GSV/2025_games.html","GSV", 2025)
+            await collect_team_data(db, page)
+            await get_team_stats(db, page, "https://www.basketball-reference.com/wnba/teams/GSV/2025.html", "GSV", 2025)
+            await get_team_games(db, page, "https://www.basketball-reference.com/wnba/teams/GSV/2025_games.html","GSV", 2025)
             await browser.close()
     finally:
         db.close()
        
-
 if __name__ == "__main__":
     asyncio.run(main())
-
-

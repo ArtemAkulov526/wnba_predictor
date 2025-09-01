@@ -4,8 +4,9 @@ from sklearn.model_selection import cross_val_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, roc_auc_score, log_loss
 from sklearn.preprocessing import StandardScaler
+from typing import Tuple, List
 
-def load_data():
+def load_data() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     db = SessionLocal()
     try:
         teams = pd.read_sql("SELECT * FROM teams", db.bind)
@@ -15,8 +16,20 @@ def load_data():
         db.close()
     return teams, games, stats
 
-def preprocess_data(teams, games, stats):
-    """Merge tables and create features for modeling."""
+def preprocess_data(
+        teams: pd.DataFrame, 
+        games: pd.DataFrame, 
+        stats: pd.DataFrame
+        ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, List[str], List[str]]:
+    """
+    Merge tables and create features for modeling.
+    Returns:
+        df: Merged dataframe with features
+        X: Feature matrix
+        y: Target vector
+        feature_cols: List of feature column names
+        stat_cols: List of statistic columns
+    """
     team_name_to_id = dict(zip(teams.name, teams.id))
     games["opponent_id"] = games["opponent"].map(team_name_to_id)
 
@@ -62,7 +75,15 @@ def preprocess_data(teams, games, stats):
 
     return df, X, y, feature_cols, stat_cols
 
-def split_and_scale(df, X, y, feature_cols):
+def split_and_scale(
+        df: pd.DataFrame, 
+        X: pd.DataFrame, 
+        y:pd.Series, 
+        feature_cols: List[str]
+        )-> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series, StandardScaler]:
+    """
+    Split data into train/test sets and scale features.
+    """
     train_df = df[df["season"] < 2024]
     test_df = df[df["season"] == 2024]
 
@@ -77,7 +98,16 @@ def split_and_scale(df, X, y, feature_cols):
 
     return X_train_scaled, X_test_scaled, y_train, y_test, scaler
 
-def train_and_evaluate(X_train, X_test, y_train, y_test):
+def train_and_evaluate(
+        X_train: pd.DataFrame, 
+        X_test: pd.DataFrame, 
+        y_train: pd.Series, 
+        y_test: pd.Series
+        )-> Tuple[LogisticRegression, float, float, float, float]:
+    """
+    Train logistic regression and evaluate metrics.
+    Returns model, accuracy, CV accuracy, ROC-AUC, log loss.
+    """
     model = LogisticRegression(max_iter=500)
     model.fit(X_train, y_train)
 
@@ -91,9 +121,18 @@ def train_and_evaluate(X_train, X_test, y_train, y_test):
 
     return model, acc, cv_acc, roc_auc, logloss
 
-def predict_future_games(future_games_df, log_reg, scaler, feature_cols, past_games_df, stat_cols):
+def predict_future_games(future_games_df: pd.DataFrame,
+    log_reg: LogisticRegression,
+    scaler: StandardScaler,
+    feature_cols: List[str],
+    past_games_df: pd.DataFrame,
+    stat_cols: List[str]
+) -> pd.DataFrame:
     """
-    Predict WNBA game outcomes for future games.
+    Predict outcomes for future WNBA games.
+    
+    Returns the future_games_df with additional columns:
+    'predicted_win' and 'win_probability'.
     """
     past_games_df = past_games_df.sort_values(["team_id", "date"])
 
