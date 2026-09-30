@@ -1,4 +1,14 @@
-<h1>{{ team.name }} - Games in {{ season }}</h1>
+<h1>{{ team.name }} - Games in {{ season or 'all seasons' }}</h1>
+
+<div>
+    {% for year in available_seasons %}
+        <form style="display:inline;" method="get" action="/team/{{ team.id }}/games">
+            <input type="hidden" name="season" value="{{ year }}">
+            <button type="submit"{% if year == season %} disabled{% endif %}>{{ year }}</button>
+        </form>
+    {% endfor %}
+</div>
+<br>
 
 {% if games %}
 <table border="1" style="border-collapse: collapse;">
@@ -12,6 +22,7 @@
         <th>Wins</th>
         <th>Losses</th>
         <th>Streak</th>
+        <th>Type</th>
     </tr>
     {% for game in games %}
     <tr>
@@ -24,6 +35,7 @@
         <td>{{ game.wins }}</td>
         <td>{{ game.losses }}</td>
         <td>{{ game.game_streak }}</td>
+        <td>{% if game.is_playoff %}Playoff{% else %}Regular{% endif %}</td>
     </tr>
     {% endfor %}
 </table>

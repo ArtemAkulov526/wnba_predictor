@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional
 
 class TeamBase(BaseModel):
@@ -11,8 +11,7 @@ class TeamCreate(TeamBase):
 class TeamOut(TeamBase):
     id: int
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class GameBase(BaseModel):
@@ -34,8 +33,7 @@ class GameOut(GameBase):
     id: int
     team_id: int
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class StatBase(BaseModel):
@@ -71,5 +69,4 @@ class StatOut(StatBase):
     id: int
     team_id: int
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

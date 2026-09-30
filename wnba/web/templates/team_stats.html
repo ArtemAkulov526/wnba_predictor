@@ -79,13 +79,15 @@
         <p>No stats available for this team.</p>
     {% endif %}
     <br>
-<h2>Filter by Season</h2>
+<h2>Games by Season</h2>
 <div>
-    {% for year in range(2018, 2026) %}
+    {% for year in seasons %}
         <form style="display:inline;" method="get" action="/team/{{ team.id }}/games">
             <input type="hidden" name="season" value="{{ year }}">
             <button type="submit">{{ year }}</button>
         </form>
+    {% else %}
+        <p>No seasons recorded for this team.</p>
     {% endfor %}
 </div>
 <br>

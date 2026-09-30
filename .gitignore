@@ -1,4 +1,11 @@
-db.py
-/__pycache__
-add_teams.py
-predict.py
+__pycache__/
+*.pyc
+.venv/
+.env
+.idea/
+models/
+.pytest_cache/
+
+# local data (scraped archives, odds snapshots, betting logs); only samples are tracked
+data/*
+!data/samples/

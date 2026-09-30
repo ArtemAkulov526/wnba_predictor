@@ -1,0 +1,12 @@
+# Optional: only needed to (re)load player box scores.
+#
+#   pip install -r requirements-ingest.txt
+#   python -m wnba.scraping.player_logs
+#
+# Roughly 600 MB of transitive dependencies (xgboost, polars, pyarrow,
+# matplotlib). Once player_game_logs is populated in Postgres, none of this
+# is needed again -- you can safely `pip uninstall sportsdataverse` and the
+# model will still train and predict.
+-r requirements.txt
+sportsdataverse==0.1.4
+# claude --resume 5a74f547-4373-4ca8-86d3-9cb958912d33

@@ -1,0 +1,36 @@
+# WNBA predictor -- Python 3.11+
+#
+#   python -m venv .venv
+#   .venv\Scripts\pip install -r requirements.txt
+#   .venv\Scripts\playwright install chromium
+
+# --- web app ---
+fastapi==0.141.1
+uvicorn[standard]==0.53.0
+jinja2==3.1.6
+python-multipart==0.0.32      # FastAPI needs this for Form(...) parsing
+
+# --- database ---
+SQLAlchemy==2.0.54
+psycopg2-binary==2.9.13
+
+# --- scraping ---
+playwright==1.63.0
+beautifulsoup4==4.15.0
+pdfplumber==0.11.10               # official WNBA injury report PDFs
+
+# --- data / ML ---
+pandas==3.0.6
+scikit-learn==1.9.1
+numpy==2.4.6
+joblib==1.6.0                 # model persistence
+
+# --- tests ---
+pytest==9.1.1
+httpx2==2.13.0                # required by fastapi.testclient
+
+# Player box scores need `sportsdataverse`, which drags in xgboost, polars,
+# pyarrow and matplotlib -- about 600 MB for a one-time ingestion. It is a
+# lazy import inside wnba/scraping/player_logs.py, so training, prediction
+# and the web app all run without it. Install only when refreshing player
+# data:  pip install -r requirements-ingest.txt
