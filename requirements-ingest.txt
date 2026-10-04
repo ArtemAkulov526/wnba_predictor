@@ -9,4 +9,3 @@
 # model will still train and predict.
 -r requirements.txt
 sportsdataverse==0.1.4
-# claude --resume 5a74f547-4373-4ca8-86d3-9cb958912d33
