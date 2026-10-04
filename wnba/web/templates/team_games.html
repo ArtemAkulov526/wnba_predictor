@@ -1,49 +1,35 @@
-<h1>{{ team.name }} - Games in {{ season or 'all seasons' }}</h1>
+{% extends "base.html" %}
+{% block title %}{{ team.name }} {{ season }}{% endblock %}
+{% block content %}
+<h1>{{ team.name }} — {{ season or "no games" }}</h1>
+<p><a href="/team/{{ team.id }}">⬅ Season summary</a></p>
 
-<div>
+<div class="seasons">
     {% for year in available_seasons %}
-        <form style="display:inline;" method="get" action="/team/{{ team.id }}/games">
-            <input type="hidden" name="season" value="{{ year }}">
-            <button type="submit"{% if year == season %} disabled{% endif %}>{{ year }}</button>
-        </form>
+        <a href="/team/{{ team.id }}/games?season={{ year }}"
+           {% if year == season %}class="current"{% endif %}>{{ year }}</a>
     {% endfor %}
 </div>
-<br>
 
 {% if games %}
-<table border="1" style="border-collapse: collapse;">
+<div class="table-scroll">
+<table>
+    <tr><th>Date</th><th>Type</th><th></th><th>Opponent</th><th>Result</th>
+        <th class="num">Score</th><th class="num">Record</th></tr>
+    {% for g in games %}
     <tr>
-        <th>Date</th>
-        <th>Location</th>
-        <th>Opponent</th>
-        <th>Result</th>
-        <th>Points</th>
-        <th>Opponent Points</th>
-        <th>Wins</th>
-        <th>Losses</th>
-        <th>Streak</th>
-        <th>Type</th>
-    </tr>
-    {% for game in games %}
-    <tr>
-        <td>{{ game.date }}</td>
-        <td>{{ game.game_location }}</td>
-        <td>{{ game.opponent }}</td>
-        <td>{{ game.result }}</td>
-        <td>{{ game.points }}</td>
-        <td>{{ game.opp_points }}</td>
-        <td>{{ game.wins }}</td>
-        <td>{{ game.losses }}</td>
-        <td>{{ game.game_streak }}</td>
-        <td>{% if game.is_playoff %}Playoff{% else %}Regular{% endif %}</td>
+        <td>{{ g.date }}</td>
+        <td>{{ "Playoff" if g.is_playoff else "Regular" }}</td>
+        <td>{{ "vs" if g.is_home else "@" }}</td>
+        <td><a href="/team/{{ g.opponent_id }}">{{ g.opponent }}</a></td>
+        <td class="{{ 'win' if g.won else 'loss' }}">{{ "W" if g.won else "L" }}</td>
+        <td class="num">{{ g.pts }}–{{ g.opp_pts }}</td>
+        <td class="num">{{ g.record }}</td>
     </tr>
     {% endfor %}
 </table>
+</div>
 {% else %}
-<p>No games found for {{ season }}</p>
+<p>No games found for {{ season }}.</p>
 {% endif %}
-
-<br>
-<a href="/team/{{ team.id }}">⬅ Back to Stats</a>
-<br>
-<a href="/">⬅ Back to Teams</a>
+{% endblock %}

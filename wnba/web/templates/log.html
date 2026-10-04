@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Prediction log{% endblock %}
+{% block content %}
+<h1>Prediction log</h1>
+{% if not rows %}
+<p>No predictions logged yet. Log one with
+   <code>python -m wnba.ml.tracking log --home NYL --away ATL --pick NYL --confidence 0.55</code>.</p>
+{% else %}
+<p class="muted">{{ summary.logged }} games logged, {{ summary.graded }} graded.
+   Winner picked correctly — model: <strong>{{ summary.model }}</strong>,
+   you: <strong>{{ summary.user }}</strong>.
+   Full report with betting and closing line value:
+   <code>python -m wnba.ml.tracking report</code></p>
+<div class="table-scroll">
+<table>
+    <tr><th>Date</th><th>Game</th><th class="num">Model (home)</th><th>Your pick</th>
+        <th class="num">Your %</th><th class="num">Odds taken</th><th class="num">Close (home)</th>
+        <th class="num">Score</th><th>Model</th><th>You</th><th>Tags</th></tr>
+    {% for r in rows %}
+    <tr>
+        <td>{{ r.game_date }}</td>
+        <td>{{ r.away }} @ {{ r.home }}</td>
+        <td class="num">{{ r.model }}</td>
+        <td>{{ r.pick }}</td>
+        <td class="num">{{ r.conf }}</td>
+        <td class="num">{{ r.odds }}</td>
+        <td class="num">{{ r.close }}</td>
+        <td class="num">{{ r.score }}</td>
+        <td class="{{ r.model_cls }}">{{ r.model_ok }}</td>
+        <td class="{{ r.user_cls }}">{{ r.user_ok }}</td>
+        <td class="muted">{{ r.tags }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endif %}
+{% endblock %}

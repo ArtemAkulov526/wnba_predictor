@@ -21,11 +21,14 @@ from __future__ import annotations
 
 import argparse
 import difflib
+import logging
+import pandas as pd
 import re
 from datetime import date
 from pathlib import Path
-import pandas as pd
 from bs4 import BeautifulSoup
+
+logger = logging.getLogger(__name__)
 
 # market title (lower-case fragment) -> our stat key
 MARKETS = {"очки": "pts", "підбирання": "reb", "асист": "ast", "ассист": "ast",
@@ -167,6 +170,7 @@ def match_names(props: pd.DataFrame, home: str, away: str) -> pd.DataFrame:
 
 
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     ap = argparse.ArgumentParser(description="Read prop lines from a saved bookmaker page.")
     ap.add_argument("html", type=Path)
     ap.add_argument("--home", required=True)
@@ -186,7 +190,7 @@ def main() -> None:
     if props.empty:
         raise SystemExit("no player props found in that page")
     m = match_names(props, args.home.upper(), args.away.upper())
-    print(f"{len(m)} props found\n")
+    logger.info("%d props found", len(m))
     names = m.drop_duplicates("name_ua")
     print(f"{'bookmaker name':26} {'-> roster':22} {'match':>5}  props")
     for r in names.itertuples():
@@ -199,19 +203,19 @@ def main() -> None:
     keep = ~ladder | m["over_odds"].between(lo, hi)
     good = m[(m["match"] >= args.min_match) & keep]
     if ladder.any():
-        print(f"\nladder rungs kept: {int((ladder & keep).sum())} of {int(ladder.sum())} "
-              f"(odds {lo:.2f}-{hi:.2f})")
+        logger.info("ladder rungs kept: %d of %d (odds %.2f-%.2f)",
+                    int((ladder & keep).sum()), int(ladder.sum()), lo, hi)
     suffix = "_closing" if args.closing else ""
     csv = args.html.with_name(f"props_{args.date}_{args.away.upper()}@{args.home.upper()}{suffix}.csv")
     pd.DataFrame({"home": args.home.upper(), "away": args.away.upper(), "date": args.date.isoformat(),
                   "player": good["player"], "stat": good["stat"], "line": good["line"],
                   "over_odds": good["over_odds"], "under_odds": good["under_odds"]}).to_csv(csv, index=False)
-    print(f"\n{len(good)} written to {csv}")
+    logger.info("%d written to %s", len(good), csv)
     if args.closing:
         from wnba.ml import props_log
         done, skipped = props_log.closing_file(csv)
-        print(f"closing odds stored for {done} logged props; {skipped} not in the log "
-              f"(new, or the line moved)")
+        logger.info("closing odds stored for %d logged props; %d not in the log "
+                    "(new, or the line moved)", done, skipped)
     elif args.log:
         from wnba.ml import props_log
         props_log.add_file(csv)

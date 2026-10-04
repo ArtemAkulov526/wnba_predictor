@@ -57,7 +57,7 @@ python scripts/migrate.py        # tables + constraints; safe to re-run
 **4. Load the data** (first run takes a while; later runs only fill gaps)
 
 ```bash
-python -m wnba.scraping.basketball_reference     # team box scores, schedules, stats (3 s crawl delay)
+python -m wnba.scraping.basketball_reference     # team box scores incl. playoffs (3 s crawl delay)
 python -m wnba.scraping.player_logs              # per-player box scores 2018–now
 python -m wnba.scraping.official_injuries        # latest official injury report
 python -m wnba.scraping.teamrankings             # current-season closing spreads/totals
@@ -73,5 +73,5 @@ python -m wnba.ml.predict --home MIN --away LVA  # one prediction
 **6. Run the web app**
 
 ```bash
-uvicorn wnba.web.app:app --reload                # http://127.0.0.1:8000
+uvicorn wnba.web.app:app --reload                # http://127.0.0.1:8000 (predictor, team pages, /log)
 ```

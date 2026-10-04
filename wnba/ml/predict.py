@@ -267,7 +267,7 @@ def format_scenarios(s: dict) -> str:
 def build_predictor(db: Session) -> Predictor:
     import joblib
     if not MODEL_PATH.exists():
-        raise SystemExit(f"no trained model at {MODEL_PATH} -- run: python train.py")
+        raise SystemExit(f"no trained model at {MODEL_PATH} -- run: python -m wnba.ml.train")
     bundle = joblib.load(MODEL_PATH)
     form, ratings = features.team_form_snapshot(db)
     return Predictor(bundle, form, ratings, features.load_teams(db))

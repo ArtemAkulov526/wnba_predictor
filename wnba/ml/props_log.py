@@ -33,6 +33,7 @@ at line N - 0.5 with no under odds; their market % includes the margin.
 from __future__ import annotations
 
 import argparse
+import logging
 import math
 import os
 import time
@@ -44,6 +45,8 @@ import pandas as pd
 
 from wnba.ml.tracking import expected_value, market_probability
 from wnba.paths import DATA_DIR
+
+logger = logging.getLogger(__name__)
 
 LOG_PATH = DATA_DIR / "props_log.csv"
 STAT_ALIASES = {"pts": "pts", "points": "pts", "reb": "reb", "rebounds": "reb",
@@ -209,6 +212,9 @@ def add_prop(home: str, away: str, game_date: date, player: str, stat: str, line
         for k, v in row.items():
             if k in ("user_side", "user_prob", "tags", "note") and v is None:
                 continue                        # keep an existing pick when re-adding
+            if k in ("closing_over_odds", "closing_under_odds", "actual", "result",
+                     "graded_at") and v is None:
+                continue                        # keep stored closing odds / grading
             if (k in ("over_odds", "under_odds", "odds_at") and pick is None
                     and df.at[i, "user_side"] is not None):
                 continue                        # keep the odds the user's pick was taken at
@@ -302,6 +308,65 @@ def grade(path: Path = LOG_PATH) -> Tuple[int, int]:
         df.at[i, "result"] = settle(actual, df.at[i, "line"])
         df.at[i, "graded_at"] = _now()
         graded += 1
+    write_log(df, path)
+    return graded, len(pending) - graded
+
+
+ESPN_API = "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba"
+
+
+def espn_box(game_date: str) -> Tuple[Dict[Tuple[str, str], Optional[dict]], set]:
+    """Player lines straight from ESPN for one US date, for when the
+    sportsdataverse files (player_game_logs) have not caught up yet.
+    Returns ({(home team, lower name): stats or None if DNP}, {completed home teams})."""
+    import time
+    import requests
+    from wnba.scraping.player_logs import ABBR_ALIASES
+    code = lambda a: ABBR_ALIASES.get(a, a)
+    out: Dict[Tuple[str, str], Optional[dict]] = {}
+    done = set()
+    board = requests.get(f"{ESPN_API}/scoreboard", params={"dates": game_date.replace("-", "")},
+                         timeout=20).json()
+    for e in board.get("events", []):
+        comp = e["competitions"][0]
+        if not comp["status"]["type"]["completed"]:
+            continue
+        home = code(next(c["team"]["abbreviation"] for c in comp["competitors"] if c["homeAway"] == "home"))
+        time.sleep(1)
+        summary = requests.get(f"{ESPN_API}/summary", params={"event": e["id"]}, timeout=20).json()
+        for team in summary["boxscore"]["players"]:
+            st = team["statistics"][0]
+            for a in st["athletes"]:
+                name = a["athlete"]["displayName"].lower()
+                vals = a.get("stats") or []
+                if a.get("didNotPlay") or not vals or vals[0] in ("0", "--", ""):
+                    out[(home, name)] = None
+                    continue
+                g = dict(zip(st["labels"], vals))
+                pts, reb, ast = int(g["PTS"]), int(g["REB"]), int(g["AST"])
+                out[(home, name)] = {"pts": pts, "reb": reb, "ast": ast, "pra": pts + reb + ast,
+                                     "fg3m": int(g["3PT"].split("-")[0])}
+        done.add(home)
+    return out, done
+
+
+def grade_espn(path: Path = LOG_PATH) -> Tuple[int, int]:
+    """Grade pending props from ESPN box scores (see espn_box)."""
+    df = read_log(path)
+    pending = df.index[df["result"].isna()]
+    graded = 0
+    for d in sorted(set(df.loc[pending, "game_date"])):
+        box, done = espn_box(d)
+        for i in pending[df.loc[pending, "game_date"] == d]:
+            home = df.at[i, "home"]
+            if home not in done:
+                continue                              # game not finished
+            b = box.get((home, df.at[i, "player"].lower()))
+            actual = None if b is None else float(b[df.at[i, "stat"]])
+            df.at[i, "actual"] = actual
+            df.at[i, "result"] = settle(actual, df.at[i, "line"])
+            df.at[i, "graded_at"] = _now()
+            graded += 1
     write_log(df, path)
     return graded, len(pending) - graded
 
@@ -412,6 +477,7 @@ def list_log(path: Path = LOG_PATH) -> None:
 
 
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     ap = argparse.ArgumentParser(description="Player-prop log.")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
@@ -447,7 +513,10 @@ def main() -> None:
     r.add_argument("--line", type=float, required=True)
     r.add_argument("--actual", type=float)
 
-    for name in ("grade", "rank", "report", "list"):
+    gr = sub.add_parser("grade")
+    gr.add_argument("--espn", action="store_true",
+                    help="use ESPN box scores directly (before player_game_logs catches up)")
+    for name in ("rank", "report", "list"):
         sub.add_parser(name)
     args = ap.parse_args()
 
@@ -456,19 +525,20 @@ def main() -> None:
                        args.line, args.over_odds, args.under_odds, args.pick, args.confidence,
                        args.tags, args.note, args.auto_injuries)
         side, ev = _ev(row["model_p_over"], row["over_odds"], row["under_odds"])
-        print(f"logged {row['player']} {row['stat']} {row['line']}: model projects {row['model_mean']:.1f}, "
-              f"P(over) {row['model_p_over']:.1%}; best side {side} EV {ev:+.1%}")
+        logger.info("logged %s %s %s: model projects %.1f, P(over) %.1f%%; best side %s EV %+.1f%%",
+                    row["player"], row["stat"], row["line"], row["model_mean"],
+                    100 * row["model_p_over"], side, 100 * ev)
     elif args.cmd == "add-file":
-        print(f"logged {add_file(args.csv, args.auto_injuries)} props")
+        logger.info("logged %d props", add_file(args.csv, args.auto_injuries))
         rank_pending()
     elif args.cmd == "closing":
         record_closing(args.date, args.player, args.stat, args.line, args.over_odds, args.under_odds)
-        print("closing odds stored")
+        logger.info("closing odds stored")
     elif args.cmd == "result":
-        print("result:", record_result(args.date, args.player, args.stat, args.line, args.actual))
+        logger.info("result: %s", record_result(args.date, args.player, args.stat, args.line, args.actual))
     elif args.cmd == "grade":
-        g, p = grade()
-        print(f"graded {g}, still pending {p}")
+        g, p = grade_espn() if args.espn else grade()
+        logger.info("graded %d, still pending %d", g, p)
     elif args.cmd == "rank":
         rank_pending()
     elif args.cmd == "report":

@@ -1,69 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WNBA Predictor</title>
-    <style>
-        :root { --border: #d4d4d8; --muted: #6b7280; --bg: #ffffff; --fg: #18181b;
-                --accent: #1d4ed8; --panel: #f7f7f8; }
-        @media (prefers-color-scheme: dark) {
-            :root { --border: #3f3f46; --muted: #a1a1aa; --bg: #18181b; --fg: #f4f4f5;
-                    --accent: #60a5fa; --panel: #232327; }
-        }
-        body { font-family: system-ui, -apple-system, Arial, sans-serif;
-               background: var(--bg); color: var(--fg); margin: 0;
-               padding: 24px 16px; line-height: 1.5; }
-        .wrap { max-width: 760px; margin: 0 auto; }
-        h1, h2 { font-weight: 600; }
-        form { background: var(--panel); border: 1px solid var(--border);
-               border-radius: 8px; padding: 16px; display: grid; gap: 12px; }
-        label { font-size: .875rem; color: var(--muted); display: block;
-                margin-bottom: 4px; }
-        select, button { font: inherit; padding: 8px; border-radius: 6px;
-                         border: 1px solid var(--border); background: var(--bg);
-                         color: var(--fg); width: 100%; box-sizing: border-box; }
-        button { background: var(--accent); color: #fff; border: none;
-                 cursor: pointer; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin-top: 12px; }
-        th, td { border: 1px solid var(--border); padding: 8px; text-align: left; }
-        th { background: var(--panel); }
-        tr.clickable { cursor: pointer; }
-        tr.clickable:hover td { background: var(--panel); }
-        .result { border: 1px solid var(--border); border-radius: 8px;
-                  padding: 16px; margin-top: 16px; }
-        .bar { height: 26px; border-radius: 4px; overflow: hidden; display: flex;
-               border: 1px solid var(--border); margin: 10px 0; }
-        .bar span { display: flex; align-items: center; justify-content: center;
-                    font-size: .8rem; color: #fff; white-space: nowrap; }
-        .home-fill { background: var(--accent); }
-        .away-fill { background: #9ca3af; }
-        .muted { color: var(--muted); font-size: .85rem; }
-        .warn { border-left: 3px solid #d97706; padding-left: 12px; }
-        code { font-family: ui-monospace, Consolas, monospace; font-size: .85rem; }
-    </style>
-</head>
-<body>
-<div class="wrap">
-    <h1>WNBA Predictor</h1>
+{% extends "base.html" %}
+{% block content %}
+<h1>WNBA Predictor</h1>
 
-    {% if not model_ready %}
-        <p class="warn">No trained model loaded. Run
-           <code>python train.py</code> first.<br>
-           <span class="muted">{{ model_error }}</span></p>
-    {% elif metadata %}
-        <p class="muted">
-            Model: <strong>{{ metadata.feature_set }}</strong>
-            ({{ metadata.feature_cols | length }} features,
-            {{ metadata.trained_games }} games).
-            Walk-forward log loss
-            <strong>{{ "%.4f"|format(metadata.walk_forward.log_loss) }}</strong>,
-            accuracy {{ "%.1f"|format(metadata.walk_forward.accuracy * 100) }}%.
-        </p>
-    {% endif %}
+{% if not model_ready %}
+    <p class="warn">No trained model loaded. Run
+       <code>python -m wnba.ml.train</code> first.<br>
+       <span class="muted">{{ model_error }}</span></p>
+{% elif metadata %}
+    <p class="muted">
+        Model: <strong>{{ metadata.feature_set }}</strong>
+        ({{ metadata.feature_cols | length }} features,
+        {{ metadata.trained_games }} games).
+        Walk-forward log loss
+        <strong>{{ "%.4f"|format(metadata.walk_forward.log_loss) }}</strong>,
+        accuracy {{ "%.1f"|format(metadata.walk_forward.accuracy * 100) }}%.
+    </p>
+{% endif %}
 
-    <h2>Predict a game</h2>
-    <form id="predict-form" method="post" action="/predict-game">
+<h2>Predict a game</h2>
+<form id="predict-form" class="panel" method="post" action="/predict-game">
+    <div class="grid2">
         <div>
             <label for="team1">Team 1</label>
             <select name="team1" id="team1" required>
@@ -81,76 +37,101 @@
                 {% endfor %}
             </select>
         </div>
+    </div>
+    <div>
+        <label for="home">Home court</label>
+        <select name="home" id="home" required>
+            <option value="1">Team 1 hosts</option>
+            <option value="0">Team 2 hosts</option>
+            <option value="-1">Neutral site</option>
+        </select>
+    </div>
+    <div class="grid2">
         <div>
-            <label for="home">Home court</label>
-            <select name="home" id="home" required>
-                <option value="1">Team 1 hosts</option>
-                <option value="0">Team 2 hosts</option>
-                <option value="-1">Neutral site</option>
-            </select>
+            <label for="team1_out">Team 1 players out (comma-separated)</label>
+            <input type="text" name="team1_out" id="team1_out" placeholder="e.g. Collier, McBride">
         </div>
-        <button type="submit">Run prediction</button>
-    </form>
+        <div>
+            <label for="team2_out">Team 2 players out (comma-separated)</label>
+            <input type="text" name="team2_out" id="team2_out" placeholder="e.g. Stewart">
+        </div>
+    </div>
+    <label class="inline"><input type="checkbox" name="auto_injuries" value="1">
+        Use the latest injury report (official, else ESPN) instead</label>
+    <button type="submit">Run prediction</button>
+</form>
 
-    <div id="result"></div>
+<div id="result"></div>
 
-    <h2>Teams</h2>
-    <table>
-        <tr><th>Name</th><th>Abbreviation</th></tr>
-        {% for team in teams %}
-        <tr class="clickable" onclick="window.location='/team/{{ team.id }}'">
-            <td>{{ team.name }}</td>
-            <td>{{ team.abbreviation }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
+<h2>Teams</h2>
+<table>
+    <tr><th>Name</th><th>Abbreviation</th></tr>
+    {% for team in teams %}
+    <tr class="clickable" onclick="window.location='/team/{{ team.id }}'">
+        <td>{{ team.name }}</td>
+        <td>{{ team.abbreviation }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
 
+{% block scripts %}
 <script>
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pct = p => (p * 100).toFixed(1) + "%";
+
 document.getElementById("predict-form").addEventListener("submit", async function (e) {
     e.preventDefault();
     const target = document.getElementById("result");
     target.innerHTML = "<p class='muted'>Predicting…</p>";
 
-    const response = await fetch("/predict-game", {
-        method: "POST", body: new FormData(this)
-    });
+    const response = await fetch("/predict-game", { method: "POST", body: new FormData(this) });
     const data = await response.json();
-
     if (data.error) {
-        target.innerHTML = `<p class="warn">${data.error}</p>`;
+        target.innerHTML = `<p class="warn">${esc(data.error)}</p>`;
         return;
     }
 
-    const homePct = (data.home_win_probability * 100);
-    const awayPct = (data.away_win_probability * 100);
-    const site = data.neutral_site
-        ? "Neutral site"
-        : `${data.away_team} @ ${data.home_team}`;
+    const homePct = data.home_win_probability * 100;
+    const awayPct = data.away_win_probability * 100;
+    const site = data.neutral_site ? "Neutral site" : `${esc(data.away_team)} @ ${esc(data.home_team)}`;
 
     const drivers = Object.entries(data.drivers || {})
-        .map(([k, v]) => `<tr><td>${k}</td><td>${v > 0 ? "+" : ""}${v.toFixed(3)}</td></tr>`)
+        .map(([k, v]) => `<tr><td>${esc(k)}</td><td class="num">${v > 0 ? "+" : ""}${v.toFixed(3)}</td></tr>`)
         .join("");
+
+    let missing = "";
+    if (data.missing && data.missing.length) {
+        const rows = data.missing.map(m => `<tr><td>${esc(m.team)}</td><td>${esc(m.player)}</td>
+            <td>${esc(m.status || "out")}</td><td class="num">${(m.share * 100).toFixed(1)}%</td></tr>`).join("");
+        missing = `<table><tr><th>Team</th><th>Player</th><th>Status</th>
+            <th class="num">Share of team minutes</th></tr>${rows}</table>`;
+    }
+    let range = "";
+    if (data.healthy !== undefined) {
+        range = `<p class="muted">${esc(data.home_team)}: full strength ${pct(data.healthy)},
+            range ${pct(data.low)} – ${pct(data.high)} depending on who plays.</p>`;
+    }
 
     target.innerHTML = `
         <div class="result">
             <strong>${site}</strong>
             <div class="bar">
                 <span class="home-fill" style="width:${homePct}%">
-                    ${homePct >= 18 ? data.home_team + " " + homePct.toFixed(1) + "%" : ""}</span>
+                    ${homePct >= 18 ? esc(data.home_team) + " " + homePct.toFixed(1) + "%" : ""}</span>
                 <span class="away-fill" style="width:${awayPct}%">
-                    ${awayPct >= 18 ? data.away_team + " " + awayPct.toFixed(1) + "%" : ""}</span>
+                    ${awayPct >= 18 ? esc(data.away_team) + " " + awayPct.toFixed(1) + "%" : ""}</span>
             </div>
-            <p>Predicted winner: <strong>${data.predicted_winner}</strong></p>
-            <p class="muted">${data.home_team} ${homePct.toFixed(1)}% ·
-               ${data.away_team} ${awayPct.toFixed(1)}%</p>
+            <p>Predicted winner: <strong>${esc(data.predicted_winner)}</strong></p>
+            <p class="muted">${esc(data.home_team)} ${homePct.toFixed(1)}% ·
+               ${esc(data.away_team)} ${awayPct.toFixed(1)}%</p>
+            ${range}${missing}
             <details>
                 <summary class="muted">What drove this</summary>
-                <table><tr><th>Feature</th><th>Log-odds</th></tr>${drivers}</table>
+                <table><tr><th>Feature</th><th class="num">Log-odds</th></tr>${drivers}</table>
                 <p class="muted">Positive values favour the home team.</p>
             </details>
         </div>`;
 });
 </script>
-</body>
-</html>
+{% endblock %}

@@ -20,6 +20,7 @@ Usage:
 """
 from __future__ import annotations
 
+import logging
 import os
 import re
 import time
@@ -32,6 +33,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 
 from wnba.paths import DATA_DIR
+
+logger = logging.getLogger(__name__)
 
 BASE = "https://www.teamrankings.com"
 CRAWL_DELAY = 10
@@ -118,7 +121,7 @@ def collect(season: int) -> pd.DataFrame:
             time.sleep(CRAWL_DELAY)
         frames.append(parse_team_page(
             fetch(f"{BASE}/wnba/team/{slug}/ats-results"), abbr, season))
-        print(f"  {abbr}: {len(frames[-1])} games")
+        logger.info("%s: %d games", abbr, len(frames[-1]))
     return pd.concat(frames, ignore_index=True)
 
 
@@ -216,8 +219,8 @@ def to_totals_games(team_rows: pd.DataFrame) -> pd.DataFrame:
         # team pages disagree. Neither can be trusted, so drop those games
         # rather than guess -- and rather than abort the whole collection.
         for r in m[mismatch].itertuples(index=False):
-            print(f"  dropped {r.game_date} {r.opp}@{r.team}: totals disagree "
-                  f"({r.total} vs {r.total_other})")
+            logger.warning("dropped %s %s@%s: totals disagree (%s vs %s)",
+                           r.game_date, r.opp, r.team, r.total, r.total_other)
         m = m[~mismatch]
     return pd.DataFrame({
         "game_date": m["game_date"], "home": m["team"], "away": m["opp"],
@@ -235,11 +238,12 @@ def collect_totals(season: int) -> pd.DataFrame:
             time.sleep(CRAWL_DELAY)
         frames.append(parse_totals_page(
             fetch(f"{BASE}/wnba/team/{slug}/over-under-results"), abbr, season))
-        print(f"  {abbr}: {len(frames[-1])} games")
+        logger.info("%s: %d games", abbr, len(frames[-1]))
     return pd.concat(frames, ignore_index=True)
 
 
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     import argparse
     parser = argparse.ArgumentParser(description="TeamRankings closing lines.")
     parser.add_argument("--market", choices=["spreads", "totals", "both"], default="both")
@@ -247,19 +251,19 @@ def main() -> None:
     season = date.today().year
 
     if args.market in ("spreads", "both"):
-        print(f"collecting {season} closing spreads ({CRAWL_DELAY}s between requests)")
+        logger.info("collecting %s closing spreads (%ss between requests)", season, CRAWL_DELAY)
         games = to_games(collect(season))
         n = save(games)
-        print(f"{n} games with lines -> {LINES_PATH}  "
-              f"({int(games['home_spread'].isna().sum())} without a posted line)")
+        logger.info("%d games with lines -> %s (%d without a posted line)",
+                    n, LINES_PATH, int(games["home_spread"].isna().sum()))
     if args.market in ("totals", "both"):
         if args.market == "both":
             time.sleep(CRAWL_DELAY)
-        print(f"collecting {season} closing totals ({CRAWL_DELAY}s between requests)")
+        logger.info("collecting %s closing totals (%ss between requests)", season, CRAWL_DELAY)
         totals = to_totals_games(collect_totals(season))
         n = save(totals, TOTALS_PATH)
-        print(f"{n} games with totals -> {TOTALS_PATH}  "
-              f"({int(totals['total'].isna().sum())} without a posted total)")
+        logger.info("%d games with totals -> %s (%d without a posted total)",
+                    n, TOTALS_PATH, int(totals["total"].isna().sum()))
 
 
 if __name__ == "__main__":

@@ -21,10 +21,14 @@ python -m wnba.ml.tracking grade                                # results from s
 python -m wnba.ml.tracking report                               # model vs you vs market
 ```
 
-**Player props (VBET)**
+**Player props**
+
+Prop lines come from a bookmaker's page, collected in your own browser with
+the in-browser collector in `wnba/scraping/` (it is written for one page
+layout and must be adapted for another bookmaker), or typed in by hand.
 
 ```bash
-# lines collected in Chrome with wnba/scraping/vbet_collect.js, saved as data/vbet_<date>_<AWAY>@<HOME>.txt
+# read collected lines (text file) and add them to the props log; --closing stores them as closing odds
 python -m wnba.scraping.saved_lines data/vbet_2026-09-30_ATL@WAS.txt --home WAS --away ATL --date 2026-09-30 --log
 python -m wnba.scraping.saved_lines data/vbet_2026-09-30_ATL@WAS_close.txt --home WAS --away ATL --date 2026-09-30 --closing
 
@@ -38,6 +42,18 @@ python -m wnba.ml.props --home NYL --away ATL --auto-injuries   # projections fo
 python -m wnba.ml.props --backtest
 ```
 
+**Parlays and live bets** (parlays are built from logged picks and compared with the same legs as singles)
+
+```bash
+python -m wnba.ml.parlays add --date 2026-09-30                     # all your picks that day
+python -m wnba.ml.parlays add --date 2026-09-30 --games-only
+python -m wnba.ml.parlays add --date 2026-10-04 --name "ATL same game" --leg "NYL@ATL:ATL" --leg "Angel Reese:reb"
+python -m wnba.ml.parlays report
+
+python -m wnba.ml.live_bets add --home ATL --away NYL --date 2026-10-04 --pick NYL --odds 1.94 --state "HT NYL 40-37"
+python -m wnba.ml.live_bets report
+```
+
 **Playoffs**
 
 ```bash
@@ -48,10 +64,11 @@ python -m wnba.ml.series --seeds MIN,GSV,LVA,ATL,WAS,IND,DAL,NYL \
 **Data refresh**
 
 ```bash
-python -m wnba.scraping.basketball_reference --what gamelog --from-season 2026 --to-season 2026
+python -m wnba.scraping.basketball_reference --from-season 2026   # team box scores incl. playoffs
 python -m wnba.scraping.player_logs --from-season 2026
 python -m wnba.scraping.official_injuries          # latest official report (PDF)
 python -m wnba.scraping.injuries --team PHO        # ESPN report (fallback)
+python -m wnba.scraping.espn_odds                  # game odds (ESPN/DraftKings): open, current, close
 python -m wnba.scraping.teamrankings               # current-season closing spreads + totals
 ```
 
@@ -67,16 +84,17 @@ python -m wnba.ml.totals --backtest                # totals model vs closing tot
 
 ## Current performance
 
-Walk-forward over 2022–2026 (1,284 games): to score a season the model only
+Walk-forward over 2022–2026 (1,398 games, retrained 2026-10-01 with the full
+regular season and the first playoff games): to score a season the model only
 ever sees the seasons before it.
 
 | Model | Accuracy | Log loss | Brier | ROC-AUC |
 |---|---|---|---|---|
-| Always pick the home team | 0.539 | 0.6905 | 0.2487 | 0.500 |
-| Elo + home court only | 0.667 | 0.6170 | 0.2138 | 0.725 |
-| All 16 box-score features | 0.668 | 0.6125 | 0.2121 | 0.723 |
-| Lean (5 features) | 0.671 | 0.6100 | 0.2109 | 0.725 |
-| **Lean + availability** | **0.673** | **0.6048** | **0.2087** | **0.732** |
+| Always pick the home team | 0.547 | 0.6890 | 0.2479 | 0.500 |
+| Elo + home court only | 0.664 | 0.6134 | 0.2122 | 0.726 |
+| All box-score features | 0.673 | 0.6099 | 0.2109 | 0.726 |
+| Lean (5 features) | 0.677 | 0.6069 | 0.2096 | 0.728 |
+| **Lean + availability** | **0.677** | **0.6024** | **0.2077** | **0.734** |
 
 **Log loss is the headline number, not accuracy.** A well-calibrated 60% model
 is useful for betting; an overconfident 65% model is not. Calibration gaps are
@@ -84,7 +102,7 @@ within ±0.06 across probability buckets.
 
 Most of the signal is Elo. All box-score feature engineering together is worth
 about 0.005 log loss; the most valuable single addition was **player
-availability**, which helps most in evenly matched games:
+availability**, which helps most in evenly matched games (2026-09-20 run):
 
 | Elo gap | Games | Lean | + availability | Delta |
 |---|---|---|---|---|

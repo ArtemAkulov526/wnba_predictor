@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -27,6 +28,8 @@ from sklearn.preprocessing import StandardScaler
 from wnba.ml import features
 from wnba.db import SessionLocal
 from wnba.paths import MODELS_DIR
+
+logger = logging.getLogger(__name__)
 
 MODEL_DIR = MODELS_DIR
 MODEL_PATH = MODEL_DIR / "model.joblib"
@@ -183,6 +186,7 @@ def betting_evaluation(preds: pd.DataFrame, edge: float = 0.03) -> Optional[dict
 
 # --------------------------------------------------------------------------
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="Train the WNBA model.")
     parser.add_argument("--test-seasons", type=int, nargs="+",
                         default=[2022, 2023, 2024, 2025, 2026])
@@ -246,7 +250,7 @@ def main() -> None:
 
         bet = betting_evaluation(preds)
         print("\nBETTING", bet if bet else
-              "no odds loaded -- see load_external.py to add closing lines")
+              "no odds loaded -- see python -m wnba.scraping.external --odds")
 
         final = make_pipeline(best["C"])
         final.fit(games[cols], games["target"])
@@ -271,7 +275,7 @@ def main() -> None:
             "trained_games": int(len(games)),
             "seasons": [int(s) for s in seasons_present],
         }, indent=2), encoding="utf-8")
-        print(f"\nsaved -> {MODEL_PATH}")
+        logger.info("saved -> %s", MODEL_PATH)
     finally:
         db.close()
 

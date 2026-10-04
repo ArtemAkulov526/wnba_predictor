@@ -12,40 +12,8 @@ class Team(Base):
     name = Column(String, unique=True, nullable=False)
     abbreviation = Column(String, unique=True, nullable=False)
 
-    games = relationship("Game", back_populates="team")
-    stats = relationship("Stat", back_populates="team")
     game_logs = relationship("GameLog", back_populates="team",
                              foreign_keys="GameLog.team_id")
-
-
-class Game(Base):
-    """Schedule-level row scraped from the team's /_games.html page.
-
-    Kept for the existing UI; the model now trains off GameLog instead.
-    """
-    __tablename__ = "games"
-
-    id = Column(Integer, primary_key=True, index=True)
-    team_id = Column(Integer, ForeignKey("teams.id"))
-    season = Column(Integer, nullable=False)
-    date = Column(String, nullable=True)
-    game_location = Column(String, nullable=True)
-    opponent = Column(String, nullable=True)
-    result = Column(String, nullable=True)
-    points = Column(Integer, nullable=True)
-    opp_points = Column(Integer, nullable=True)
-    wins = Column(Integer, nullable=True)
-    losses = Column(Integer, nullable=True)
-    game_streak = Column(String, nullable=True)
-    # The _games.html page has a separate "Playoffs Table"; see GameLog.is_playoff.
-    is_playoff = Column(Boolean, nullable=False, server_default="false")
-
-    team = relationship("Team", back_populates="games")
-
-    __table_args__ = (
-        UniqueConstraint("team_id", "season", "date", "opponent",
-                         name="uq_game_team_date_opp"),
-    )
 
 
 class GameLog(Base):
@@ -144,76 +112,8 @@ class PlayerGameLog(Base):
     )
 
 
-class Stat(Base):
-    """Season-aggregate team stats. Retained for the UI only.
-
-    Deliberately NOT used as model features: a season average includes the
-    game being predicted, which leaks the outcome backwards in time.
-    """
-    __tablename__ = "stats"
-
-    id = Column(Integer, primary_key=True, index=True)
-    team_id = Column(Integer, ForeignKey("teams.id"))
-    season = Column(Integer, nullable=False)
-
-    g = Column(Integer, nullable=True)
-    mp_per_g = Column(Float, nullable=True)
-    fg_per_g = Column(Float, nullable=True)
-    fga_per_g = Column(Float, nullable=True)
-    fg_pct = Column(Float, nullable=True)
-    fg3_per_g = Column(Float, nullable=True)
-    fg3a_per_g = Column(Float, nullable=True)
-    fg3_pct = Column(Float, nullable=True)
-    fg2_per_g = Column(Float, nullable=True)
-    fg2a_per_g = Column(Float, nullable=True)
-    fg2_pct = Column(Float, nullable=True)
-    ft_per_g = Column(Float, nullable=True)
-    fta_per_g = Column(Float, nullable=True)
-    ft_pct = Column(Float, nullable=True)
-    orb_per_g = Column(Float, nullable=True)
-    drb_per_g = Column(Float, nullable=True)
-    trb_per_g = Column(Float, nullable=True)
-    ast_per_g = Column(Float, nullable=True)
-    stl_per_g = Column(Float, nullable=True)
-    blk_per_g = Column(Float, nullable=True)
-    tov_per_g = Column(Float, nullable=True)
-    pf_per_g = Column(Float, nullable=True)
-    pts_per_g = Column(Float, nullable=True)
-
-    team = relationship("Team", back_populates="stats")
-
-    __table_args__ = (
-        UniqueConstraint("team_id", "season", name="uq_stat_team_season"),
-    )
-
-
-class Injury(Base):
-    """Player availability. Populated from CSV via `load_external.py`.
-
-    Features read this when rows exist and fall back to neutral when empty,
-    so the pipeline runs with or without it.
-    """
-    __tablename__ = "injuries"
-
-    id = Column(Integer, primary_key=True, index=True)
-    team_id = Column(Integer, ForeignKey("teams.id"), nullable=False)
-    date = Column(Date, nullable=False)
-    player = Column(String, nullable=False)
-    status = Column(String, nullable=True)     # out / doubtful / questionable / probable
-    # Share of the team's minutes this player normally takes (0-1). Drives the
-    # "weight of who is missing" feature; 1 row per player per date.
-    minutes_share = Column(Float, nullable=True)
-
-    team = relationship("Team")
-
-    __table_args__ = (
-        UniqueConstraint("team_id", "date", "player", name="uq_injury"),
-        Index("ix_injury_team_date", "team_id", "date"),
-    )
-
-
 class Odds(Base):
-    """Closing market line for a game. Populated from CSV via `load_external.py`.
+    """Closing market line for a game. Populated from CSV via `wnba.scraping.external --odds`.
 
     Used as an evaluation benchmark and, optionally, as a feature.
     """

@@ -26,8 +26,9 @@ from __future__ import annotations
 
 import argparse
 import io
-import re
+import logging
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -39,6 +40,8 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 from wnba.paths import DATA_DIR
+
+logger = logging.getLogger(__name__)
 
 BASE_URL = "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_{}.pdf"
 ARCHIVE_PATH = DATA_DIR / "official_injury_reports.csv"
@@ -231,7 +234,7 @@ def backfill(start: date, end: date, slot_time: str = "12_00PM") -> None:
                 found += 1
                 break
         day += timedelta(days=1)
-    print(f"backfill {start}..{end}: {found} daily reports, {added} new rows -> {ARCHIVE_PATH}")
+    logger.info("backfill %s..%s: %d daily reports, %d new rows -> %s", start, end, found, added, ARCHIVE_PATH)
 
 
 # --------------------------------------------------------------------------
@@ -331,6 +334,7 @@ def combined_report(db, game_date: date) -> pd.DataFrame:
 
 
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="Official WNBA injury report (PDF).")
     parser.add_argument("--backfill", nargs=2, type=date.fromisoformat,
                         metavar=("START", "END"))
@@ -342,12 +346,12 @@ def main() -> None:
 
     hit = latest_report()
     if hit is None:
-        print("no report published in the last 6 hours")
+        logger.warning("no report published in the last 6 hours")
         return
     slot, body = hit
     df = parse_pdf(body, slot)
     added = archive(df)
-    print(f"report {slot}: {len(df)} rows, {added} new archived")
+    logger.info("report %s: %d rows, %d new archived", slot, len(df), added)
     for (gd, mu), sub in df.groupby(["game_date", "matchup"], sort=False):
         print(f"\n{gd}  {mu}")
         for r in sub.itertuples(index=False):

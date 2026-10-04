@@ -53,19 +53,6 @@ def load_teams(db: Session) -> pd.DataFrame:
     return pd.read_sql("SELECT id, name, abbreviation FROM teams", db.bind)
 
 
-def load_injuries(db: Session) -> pd.DataFrame:
-    try:
-        df = pd.read_sql(
-            "SELECT team_id, date, player, status, minutes_share FROM injuries",
-            db.bind)
-    except Exception:
-        return pd.DataFrame(columns=["team_id", "date", "player", "status",
-                                     "minutes_share"])
-    if not df.empty:
-        df["date"] = pd.to_datetime(df["date"])
-    return df
-
-
 def load_odds(db: Session) -> pd.DataFrame:
     try:
         df = pd.read_sql(
@@ -378,7 +365,7 @@ FEATURE_SETS: Dict[str, List[str]] = {
              "d_orb_pct", "d_drb_pct", "d_ft_rate", "d_opp_ft_rate",
              "home_court", "d_rest_days", "d_is_b2b", "d_games_last_7"],
 }
-# Injury difference joins any set once injury rows exist.
+# Availability difference (share of normal minutes missing, home minus away).
 INJURY_FEATURE = "d_out_share"
 
 
@@ -415,7 +402,7 @@ def build_dataset(
     """
     logs = load_game_logs(db)
     if logs.empty:
-        raise SystemExit("game_logs is empty -- run: python data.py --what gamelog")
+        raise SystemExit("game_logs is empty -- run: python -m wnba.scraping.basketball_reference")
 
     logs = add_efficiency_metrics(logs)
     logs = add_rolling_features(logs)
@@ -429,13 +416,10 @@ def build_dataset(
     games = games.merge(ratings, on="game_key", how="left")
 
     if include_injuries:
-        # Training ALWAYS uses availability reconstructed from box scores:
-        # it is the only source with history (all nine seasons). Injury
-        # reports carry current status only, so they feed live predictions
-        # (predict.missing_share), never training. An earlier version let a
-        # non-empty `injuries` table replace this, which would have zeroed
-        # the feature for every historical game the day one report was
-        # loaded.
+        # Training uses availability reconstructed from box scores: it is the
+        # only source with history (all nine seasons). Injury reports carry
+        # current status only, so they feed live predictions
+        # (predict.missing_share), never training.
         games = add_availability_features(
             games, compute_availability(load_player_logs(db)))
     games = add_market_probability(games, load_odds(db))

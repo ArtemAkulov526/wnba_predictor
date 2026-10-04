@@ -1,96 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ team.name }} Stats</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 5px;
-        }
-        th { background-color: #f0f0f0; }
-    </style>
-</head>
-<body>
-    <h1>{{ team.name }} - Stats</h1>
+{% extends "base.html" %}
+{% block title %}{{ team.name }}{% endblock %}
+{% block content %}
+<h1>{{ team.name }} <span class="muted">{{ team.abbreviation }}</span></h1>
 
-    {% if stats %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Season</th>
-                    <th>G</th>
-                    <th>MP</th>
-                    <th>FG</th>
-                    <th>FGA</th>
-                    <th>FG%</th>
-                    <th>3P</th>
-                    <th>3PA</th>
-                    <th>3P%</th>
-                    <th>2P</th>
-                    <th>2PA</th>
-                    <th>2P%</th>
-                    <th>FT</th>
-                    <th>FTA</th>
-                    <th>FT%</th>
-                    <th>ORB</th>
-                    <th>DRB</th>
-                    <th>TRB</th>
-                    <th>AST</th>
-                    <th>STL</th>
-                    <th>BLK</th>
-                    <th>TOV</th>
-                    <th>PF</th>
-                    <th>PTS</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for stat in stats %}
-                <tr>
-                    <td>{{ stat.season }}</td>
-                    <td>{{ stat.g }}</td>
-                    <td>{{ stat.mp_per_g }}</td>
-                    <td>{{ stat.fg_per_g }}</td>
-                    <td>{{ stat.fga_per_g }}</td>
-                    <td>{{ stat.fg_pct }}</td>
-                    <td>{{ stat.fg3_per_g }}</td>
-                    <td>{{ stat.fg3a_per_g }}</td>
-                    <td>{{ stat.fg3_pct }}</td>
-                    <td>{{ stat.fg2_per_g }}</td>
-                    <td>{{ stat.fg2a_per_g }}</td>
-                    <td>{{ stat.fg2_pct }}</td>
-                    <td>{{ stat.ft_per_g }}</td>
-                    <td>{{ stat.fta_per_g }}</td>
-                    <td>{{ stat.ft_pct }}</td>
-                    <td>{{ stat.orb_per_g }}</td>
-                    <td>{{ stat.drb_per_g }}</td>
-                    <td>{{ stat.trb_per_g }}</td>
-                    <td>{{ stat.ast_per_g }}</td>
-                    <td>{{ stat.stl_per_g }}</td>
-                    <td>{{ stat.blk_per_g }}</td>
-                    <td>{{ stat.tov_per_g }}</td>
-                    <td>{{ stat.pf_per_g }}</td>
-                    <td>{{ stat.pts_per_g }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No stats available for this team.</p>
-    {% endif %}
-    <br>
-<h2>Games by Season</h2>
-<div>
-    {% for year in seasons %}
-        <form style="display:inline;" method="get" action="/team/{{ team.id }}/games">
-            <input type="hidden" name="season" value="{{ year }}">
-            <button type="submit">{{ year }}</button>
-        </form>
-    {% else %}
-        <p>No seasons recorded for this team.</p>
+{% if seasons %}
+<h2>Season by season</h2>
+<p class="muted">From the per-game box scores. Ratings are points per 100 possessions
+   (possessions = FGA − ORB + TOV + 0.44·FTA).</p>
+<div class="table-scroll">
+<table>
+    <tr>
+        <th>Season</th><th class="num">G</th><th class="num">W-L</th><th class="num">Playoffs</th>
+        <th class="num">PTS</th><th class="num">OPP</th><th class="num">Margin</th>
+        <th class="num">Off rtg</th><th class="num">Def rtg</th><th class="num">Net</th>
+        <th class="num">FG%</th><th class="num">3P%</th><th class="num">FT%</th>
+        <th class="num">REB</th><th class="num">AST</th><th class="num">TOV</th>
+    </tr>
+    {% for s in seasons %}
+    <tr class="clickable" onclick="window.location='/team/{{ team.id }}/games?season={{ s.season }}'">
+        <td>{{ s.season }}</td>
+        <td class="num">{{ s.g }}</td>
+        <td class="num">{{ s.w }}-{{ s.l }}</td>
+        <td class="num">{% if s.po_g %}{{ s.po_w }}-{{ s.po_l }}{% else %}—{% endif %}</td>
+        <td class="num">{{ "%.1f"|format(s.pts) }}</td>
+        <td class="num">{{ "%.1f"|format(s.opp_pts) }}</td>
+        <td class="num">{{ "%+.1f"|format(s.margin) }}</td>
+        <td class="num">{{ "%.1f"|format(s.off_rtg) }}</td>
+        <td class="num">{{ "%.1f"|format(s.def_rtg) }}</td>
+        <td class="num">{{ "%+.1f"|format(s.off_rtg - s.def_rtg) }}</td>
+        <td class="num">{{ "%.1f"|format(s.fg_pct * 100) }}</td>
+        <td class="num">{{ "%.1f"|format(s.fg3_pct * 100) }}</td>
+        <td class="num">{{ "%.1f"|format(s.ft_pct * 100) }}</td>
+        <td class="num">{{ "%.1f"|format(s.trb) }}</td>
+        <td class="num">{{ "%.1f"|format(s.ast) }}</td>
+        <td class="num">{{ "%.1f"|format(s.tov) }}</td>
+    </tr>
     {% endfor %}
+</table>
 </div>
-<br>
-    <a href="/">⬅ Back to Teams</a>
-</body>
-</html>
+<p class="muted">Regular season only in the per-game columns; click a season for its games.</p>
+{% else %}
+<p>No games recorded for this team yet.</p>
+{% endif %}
+{% endblock %}

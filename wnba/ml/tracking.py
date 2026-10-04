@@ -29,10 +29,11 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import logging
 import math
 import os
 from dataclasses import dataclass
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence
 
@@ -41,6 +42,8 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from wnba.paths import DATA_DIR
+
+logger = logging.getLogger(__name__)
 
 LOG_PATH = DATA_DIR / "prediction_log.csv"
 EPS = 1e-6
@@ -316,8 +319,11 @@ def log_prediction(
         model_feature_set = predictor.feature_set
 
     if backfilled is None:
-        # Logged after game day is not a clean pre-game prediction.
-        backfilled = game_date < date.today()
+        # Logged after game day is not a clean pre-game prediction. Game dates
+        # are US dates, so compare with the US date (UTC-5), not the local one:
+        # a Europe-based user is already on the next day before tip-off.
+        us_today = (datetime.now(timezone.utc) - timedelta(hours=5)).date()
+        backfilled = game_date < us_today
 
     row = {
         "game_date": game_date.isoformat(), "away": away, "home": home,
@@ -566,6 +572,72 @@ def _grade_frame(df: pd.DataFrame, who: str) -> Grade:
     return grade(picks, probs, won)
 
 
+CAL_EDGES = [0.50, 0.55, 0.60, 0.65, 0.70, 0.80, 1.00001]
+CAL_MIN_BUCKET = 10   # below this a bucket's hit rate is mostly luck
+
+
+def calibration_rows(probs: Sequence[float], hits: Sequence[bool],
+                     edges: Sequence[float] = CAL_EDGES) -> List[dict]:
+    """Group picks by stated probability; compare it with how often they won.
+
+    `probs` is the probability given to the side that was picked (>= 0.5) and
+    `hits` whether that side won. A well-calibrated "60%" wins about 60%.
+    """
+    rows = []
+    for lo, hi in zip(edges[:-1], edges[1:]):
+        sel = [(p, h) for p, h in zip(probs, hits) if lo <= p < hi]
+        if not sel:
+            continue
+        stated = sum(p for p, _ in sel) / len(sel)
+        actual = sum(h for _, h in sel) / len(sel)
+        rows.append({"bucket": f"{lo:.0%}-{min(hi, 1):.0%}", "n": len(sel),
+                     "stated": stated, "actual": actual, "gap": actual - stated})
+    return rows
+
+
+def _pick_probs(done: pd.DataFrame, who: str) -> tuple[list, list]:
+    """(probability given to the picked side, did it win) per graded game."""
+    probs, hits = [], []
+    for r in done.itertuples():
+        won_home = bool(r.home_won)
+        if who == "model":
+            p = r.model_home_prob
+            probs.append(max(p, 1 - p))
+            hits.append((p >= 0.5) == won_home)
+        elif who == "user":
+            if r.user_pick is None or pd.isna(r.user_home_prob):
+                continue
+            home = r.user_pick == r.home
+            probs.append(r.user_home_prob if home else 1 - r.user_home_prob)
+            hits.append(home == won_home)
+        elif who == "market":
+            if pd.isna(r.home_odds):
+                continue
+            p = market_probability(r.home_odds, r.away_odds)
+            probs.append(max(p, 1 - p))
+            hits.append((p >= 0.5) == won_home)
+    return probs, hits
+
+
+def print_calibration(done: pd.DataFrame) -> None:
+    print("\nCALIBRATION (does a stated 60% win about 60%?)")
+    for who, label in (("model", "model"), ("user", "you"), ("market", "market")):
+        probs, hits = _pick_probs(done, who)
+        if not probs:
+            continue
+        print(f"  {label}  ({len(probs)} games)")
+        for r in calibration_rows(probs, hits):
+            flag = "   (too few)" if r["n"] < CAL_MIN_BUCKET else ""
+            print(f"    {r['bucket']:>9}  n={r['n']:3d}   said {r['stated']:5.1%}   "
+                  f"won {r['actual']:5.1%}   gap {r['gap']:+6.1%}{flag}")
+        stated = sum(probs) / len(probs)
+        actual = sum(hits) / len(hits)
+        print(f"    {'overall':>9}  n={len(probs):3d}   said {stated:5.1%}   won {actual:5.1%}   "
+              f"gap {actual - stated:+6.1%}  "
+              f"({'under' if actual > stated else 'over'}confident on average)")
+    print(f"  buckets under {CAL_MIN_BUCKET} games are noise; read the overall line first.")
+
+
 def report(db: Optional[Session] = None, clean_only: bool = False,
            path: Path = LOG_PATH) -> None:
     df = load_log(path)
@@ -612,6 +684,8 @@ def report(db: Optional[Session] = None, clean_only: bool = False,
             print(f"  closing line value   {b['mean_clv']:+.1%} avg on {b['n_clv']} bets "
                   "(positive = the market moved your way)")
 
+    print_calibration(done)
+
     both = done[done["user_pick"].notna()]
     disagree = both[both["user_pick"] != both["model_pick"]]
     if not disagree.empty:
@@ -634,8 +708,8 @@ def report(db: Optional[Session] = None, clean_only: bool = False,
     if db is not None:
         conflicts = scraped_conflicts(db, df)
         if not conflicts.empty:
-            print("\nWARNING: logged scores disagree with scraped game_logs:")
-            print(conflicts.to_string(index=False))
+            logger.warning("logged scores disagree with scraped game_logs:\n%s",
+                           conflicts.to_string(index=False))
 
     if len(done) < SMALL_SAMPLE:
         print(f"\nnote: {len(done)} graded games. Below ~{SMALL_SAMPLE}, "
@@ -678,6 +752,7 @@ def _live_report(db: Session, game_date: date) -> pd.DataFrame:
 
 # --------------------------------------------------------------------------
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="Prediction log.")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
@@ -724,13 +799,13 @@ def main() -> None:
     if args.cmd == "result":
         row = record_result(args.home.upper(), args.away.upper(), args.date,
                             args.home_pts, args.away_pts)
-        print(f"graded: {row['home'] if row['home_won'] else row['away']} won")
+        logger.info("graded: %s won", row["home"] if row["home_won"] else row["away"])
         attach_closing_lines()
         return
     if args.cmd == "closing":
         r = record_closing_odds(args.home.upper(), args.away.upper(), args.date,
                                 args.home_odds, args.away_odds)
-        print(f"closing line stored: P({r['home']}) {r['closing_home_prob']:.1%}")
+        logger.info("closing line stored: P(%s) %.1f%%", r["home"], 100 * r["closing_home_prob"])
         return
     if args.cmd == "list":
         list_log()
@@ -751,13 +826,13 @@ def main() -> None:
                 home_odds=args.home_odds, away_odds=args.away_odds)
             p = row["model_home_prob"]
             pick = row["home"] if p >= 0.5 else row["away"]
-            print(f"logged {row['away']}@{row['home']} {row['game_date']}: "
-                  f"model {pick} {max(p, 1 - p):.1%}"
-                  + (" [backfilled: logged after game day]" if row["backfilled"] else ""))
+            logger.info("logged %s@%s %s: model %s %.1f%%%s", row["away"], row["home"], row["game_date"],
+                        pick, 100 * max(p, 1 - p),
+                        " [backfilled: logged after game day]" if row["backfilled"] else "")
         elif args.cmd == "grade":
             graded, pending = grade_pending(db)
             closing = attach_closing_lines()
-            print(f"graded {graded}, still pending {pending}; closing lines attached to {closing}")
+            logger.info("graded %d, still pending %d; closing lines attached to %d", graded, pending, closing)
         elif args.cmd == "report":
             report(db, clean_only=args.clean_only)
     finally:

@@ -1,5 +1,6 @@
 """Seed the teams table. Idempotent: safe to re-run after expansion."""
 
+import logging
 import sys
 from pathlib import Path
 
@@ -9,6 +10,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from sqlalchemy.orm import Session
 from wnba.db import SessionLocal
 from wnba.models import Team
+
+logger = logging.getLogger(__name__)
 
 # Basketball-Reference abbreviations. LVA/DAL resolve correctly even though
 # BBRef's canonical franchise codes are SAS (Las Vegas) and TUL (Dallas) --
@@ -38,11 +41,12 @@ def seed(db: Session) -> None:
     for team in added:
         db.add(Team(**team))
     db.commit()
-    print(f"teams: {len(existing)} existing, {len(added)} added "
-          f"({', '.join(t['abbreviation'] for t in added) or 'none'})")
+    logger.info("teams: %d existing, %d added (%s)", len(existing), len(added),
+                ", ".join(t["abbreviation"] for t in added) or "none")
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     db = SessionLocal()
     try:
         seed(db)

@@ -33,6 +33,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import logging
 import math
 from dataclasses import dataclass
 from typing import Optional
@@ -44,6 +45,8 @@ from sklearn.linear_model import LinearRegression
 from wnba.db import SessionLocal
 from wnba.ml import features
 from wnba.paths import DATA_DIR
+
+logger = logging.getLogger(__name__)
 
 LEAGUE_WINDOW_DAYS = 25        # game days in the league-environment average
 TOTALS_PATH = DATA_DIR / "closing_totals.csv"
@@ -173,7 +176,8 @@ def backtest(season: int = 2026) -> None:
           f"{(naive - games['total']).abs().mean():5.2f}   bias {(naive - games['total']).mean():+5.2f}")
 
     if not TOTALS_PATH.exists():
-        print(f"\n(no {TOTALS_PATH.name} yet -- run: python -m wnba.scraping.teamrankings --market totals)")
+        logger.warning("no %s yet -- run: python -m wnba.scraping.teamrankings --market totals",
+                       TOTALS_PATH.name)
         return
     lines = pd.read_csv(TOTALS_PATH)
     key = ["game_date", "home", "away"]
@@ -251,6 +255,7 @@ def predict_game(home: str, away: str, line: Optional[float] = None,
 
 
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="Game totals model.")
     parser.add_argument("--backtest", action="store_true")
     parser.add_argument("--season", type=int, default=2026)
