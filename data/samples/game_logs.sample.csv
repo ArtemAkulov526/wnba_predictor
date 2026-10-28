@@ -1,0 +1,3 @@
+team_id,opponent_id,season,date,game_num,is_home,won,pts,opp_pts,fg,fga,fg3,fg3a,ft,fta,orb,trb,ast,stl,blk,tov,pf,opp_fg,opp_fga,opp_fg3,opp_fg3a,opp_ft,opp_fta,opp_orb,opp_trb,opp_ast,opp_stl,opp_blk,opp_tov,opp_pf,is_playoff
+3,13,2026,2026-10-17,6,False,False,64,68,21,64,4,25,18,21,7,35,15,5,5,12,14,25,78,7,33,11,16,12,41,15,7,10,8,13,True
+13,3,2026,2026-10-17,7,True,True,68,64,25,78,7,33,11,16,12,41,15,7,10,8,13,21,64,4,25,18,21,7,35,15,5,5,12,14,True

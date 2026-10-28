@@ -44,10 +44,13 @@ python -m venv .venv
 **2. Configure the database**
 
 ```powershell
+createdb wnba               # the project's own database
 copy .env.example .env      # then set your Postgres password / WNBA_DB_URL
 ```
 
-`.env` is gitignored.
+`.env` is gitignored. `data/samples/` shows the table formats: one game
+(2026 Finals Game 1) as `game_logs` and `player_game_logs` rows, the `teams`
+table, and the odds CSV that `wnba.scraping.external` reads.
 
 **3. Create the tables**
 
