@@ -33,8 +33,9 @@ class GameLog(Base):
     game_num = Column(Integer, nullable=True)
     is_home = Column(Boolean, nullable=False)
     won = Column(Boolean, nullable=False)
-    # True for postseason. basketball-reference's team gamelog page is regular
-    # season only, so playoff rows are rebuilt from player box scores.
+    # True for postseason. basketball-reference's gamelog page has the playoffs
+    # in a separate table, read by the scraper; wnba.scraping.playoffs can also
+    # rebuild them from player box scores as a cross-check.
     is_playoff = Column(Boolean, nullable=False, server_default="false")
 
     pts = Column(Integer)
@@ -115,7 +116,8 @@ class PlayerGameLog(Base):
 class Odds(Base):
     """Closing market line for a game. Populated from CSV via `wnba.scraping.external --odds`.
 
-    Used as an evaluation benchmark and, optionally, as a feature.
+    Used as an evaluation benchmark only -- never as a model feature (a model
+    fed the closing line learns to copy it).
     """
     __tablename__ = "odds"
 

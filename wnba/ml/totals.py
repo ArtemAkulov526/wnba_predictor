@@ -27,7 +27,7 @@ like the winner model. P(over line) treats the final total as Normal(prediction,
 sigma), sigma taken from the training residuals.
 
 Usage:
-    python -m wnba.ml.totals --backtest            # 2026 vs closing totals
+    python -m wnba.ml.totals --backtest            # current season vs closing totals
     python -m wnba.ml.totals --home LVA --away LAS --line 165.5
 """
 from __future__ import annotations
@@ -45,6 +45,7 @@ from sklearn.linear_model import LinearRegression
 from wnba.db import SessionLocal
 from wnba.ml import features
 from wnba.paths import DATA_DIR
+from wnba.dates import current_season
 
 logger = logging.getLogger(__name__)
 
@@ -151,7 +152,8 @@ def walk_forward(df: pd.DataFrame, season: int) -> tuple[pd.DataFrame, TotalsMod
 # --------------------------------------------------------------------------
 # backtest against the market
 # --------------------------------------------------------------------------
-def backtest(season: int = 2026) -> None:
+def backtest(season: int | None = None) -> None:
+    season = season or current_season()
     db = SessionLocal()
     try:
         df = build_team_games(db)
@@ -212,8 +214,7 @@ def backtest(season: int = 2026) -> None:
 # --------------------------------------------------------------------------
 # prediction for an upcoming game
 # --------------------------------------------------------------------------
-def predict_game(home: str, away: str, line: Optional[float] = None,
-                 season: Optional[int] = None) -> dict:
+def predict_game(home: str, away: str, line: Optional[float] = None) -> dict:
     """Points for each team and P(over) for a matchup, using current form."""
     db = SessionLocal()
     try:
@@ -232,11 +233,11 @@ def predict_game(home: str, away: str, line: Optional[float] = None,
         tail = g.tail(features.LONG_WINDOW)
         form[tid] = {"off": tail["off_rtg"].mean(), "def": tail["def_rtg"].mean(),
                      "pace": tail["pace"].mean()}
-    env = league_environment(logs)
+    # NOTE: a plain 60-day window, not league_environment()'s trailing 25 game
+    # days used in training -- audit 1.8, to align after the season.
     recent = logs[logs["date"] > logs["date"].max() - pd.Timedelta(days=60)]
     lg_pace = recent["possessions"].mean()
     lg_rtg = 100.0 * recent["pts"].sum() / recent["possessions"].sum()
-    del env
 
     def structural(team, opp):
         t, o = form[ids[team]], form[ids[opp]]
@@ -258,7 +259,7 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="Game totals model.")
     parser.add_argument("--backtest", action="store_true")
-    parser.add_argument("--season", type=int, default=2026)
+    parser.add_argument("--season", type=int, default=current_season())
     parser.add_argument("--home")
     parser.add_argument("--away")
     parser.add_argument("--line", type=float)

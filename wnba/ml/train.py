@@ -14,7 +14,6 @@ import argparse
 import json
 import logging
 from dataclasses import dataclass, asdict
-from pathlib import Path
 from typing import Dict, List, Optional
 
 import numpy as np
@@ -28,6 +27,7 @@ from sklearn.preprocessing import StandardScaler
 from wnba.ml import features
 from wnba.db import SessionLocal
 from wnba.paths import MODELS_DIR
+from wnba.dates import current_season
 
 logger = logging.getLogger(__name__)
 
@@ -189,7 +189,7 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="Train the WNBA model.")
     parser.add_argument("--test-seasons", type=int, nargs="+",
-                        default=[2022, 2023, 2024, 2025, 2026])
+                        default=list(range(current_season() - 4, current_season() + 1)))
     parser.add_argument("--feature-set", default=None,
                         help="force one of: " + ", ".join(features.FEATURE_SETS))
     args = parser.parse_args()

@@ -13,7 +13,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import logging
-from datetime import date, datetime
+from datetime import datetime
 from typing import Dict, Iterable, List, Optional
 
 from bs4 import BeautifulSoup
@@ -22,10 +22,10 @@ from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 
+from wnba.dates import current_season
 from wnba.db import SessionLocal
 from wnba.models import GameLog, Team
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
 BASE = "https://www.basketball-reference.com/wnba/teams"
@@ -153,9 +153,10 @@ async def collect(db: Session, page: Page, seasons: Iterable[int]) -> None:
 
 
 async def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="Scrape WNBA team game logs into Postgres.")
     parser.add_argument("--from-season", type=int, default=2018)
-    parser.add_argument("--to-season", type=int, default=date.today().year)
+    parser.add_argument("--to-season", type=int, default=current_season())
     args = parser.parse_args()
 
     seasons = range(args.from_season, args.to_season + 1)

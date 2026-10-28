@@ -16,17 +16,16 @@ from __future__ import annotations
 
 import argparse
 import logging
-from datetime import date
 from typing import Dict, List
 
 import pandas as pd
 from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert
 
+from wnba.dates import current_season
 from wnba.db import SessionLocal
 from wnba.models import PlayerGameLog, Team
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
 # sportsdataverse/ESPN abbreviations -> the codes used in the teams table.
@@ -151,9 +150,10 @@ def load_season(db, season: int, team_ids: Dict[str, int]) -> int:
 
 
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="Load WNBA player box scores.")
     parser.add_argument("--from-season", type=int, default=2018)
-    parser.add_argument("--to-season", type=int, default=date.today().year)
+    parser.add_argument("--to-season", type=int, default=current_season())
     args = parser.parse_args()
 
     db = SessionLocal()

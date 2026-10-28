@@ -35,8 +35,6 @@ from __future__ import annotations
 import argparse
 import logging
 import math
-import os
-import time
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Dict, Optional, Tuple
@@ -45,6 +43,8 @@ import pandas as pd
 
 from wnba.ml.tracking import expected_value, market_probability
 from wnba.paths import DATA_DIR
+from wnba.dates import us_today
+from wnba.csvio import write_csv
 
 logger = logging.getLogger(__name__)
 
@@ -93,20 +93,7 @@ def read_log(path: Path = LOG_PATH) -> pd.DataFrame:
 
 
 def write_log(df: pd.DataFrame, path: Path = LOG_PATH) -> None:
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    df = df[COLUMNS].sort_values(["game_date", "player", "stat"], kind="stable")
-    tmp = path.with_name(path.name + ".tmp")
-    df.to_csv(tmp, index=False)
-    # OneDrive (or an editor) briefly locks the file while syncing it; retry
-    for attempt in range(20):
-        try:
-            os.replace(tmp, path)
-            return
-        except PermissionError:
-            if attempt == 19:
-                raise
-            time.sleep(0.5)
+    write_csv(df[COLUMNS].sort_values(["game_date", "player", "stat"], kind="stable"), path)
 
 
 def _find(df: pd.DataFrame, game_date: str, player: str, stat: str, line: float,
@@ -237,9 +224,12 @@ def add_file(csv_path: Path, auto_injuries: bool = False, path: Path = LOG_PATH)
 
 
 def record_closing(game_date: date, player: str, stat: str, line: float,
-                   over_odds: float, under_odds: float, path: Path = LOG_PATH) -> None:
+                   over_odds: float, under_odds: Optional[float], ladder: bool = False,
+                   path: Path = LOG_PATH) -> None:
+    """ladder=True targets the one-sided rung ("5+ rebounds" = over 4.5), not the
+    over/under at the same line."""
     df = read_log(path)
-    i = _find(df, game_date.isoformat(), player, norm_stat(stat), line)
+    i = _find(df, game_date.isoformat(), player, norm_stat(stat), line, ladder=ladder)
     if i is None:
         raise ValueError("no such prop in the log")
     df.at[i, "closing_over_odds"], df.at[i, "closing_under_odds"] = over_odds, under_odds
@@ -276,7 +266,13 @@ def settle(actual: Optional[float], line: float) -> str:
 
 
 def grade(path: Path = LOG_PATH) -> Tuple[int, int]:
-    """Fill results from player_game_logs. A player with no minutes -> void."""
+    """Fill results from player_game_logs. A player with no minutes -> void.
+
+    A prop is graded only once box scores for *its game* are loaded (both
+    teams present on that date). Checking the date alone would void props on
+    the late game of a night whose early game is already in, and graded props
+    are locked. Players are matched by team as well as name.
+    """
     from wnba.db import SessionLocal
     df = read_log(path)
     pending = df.index[df["result"].isna()]
@@ -284,23 +280,27 @@ def grade(path: Path = LOG_PATH) -> Tuple[int, int]:
         return 0, 0
     db = SessionLocal()
     try:
-        box = pd.read_sql("""SELECT to_char(date,'YYYY-MM-DD') game_date, lower(athlete_name) player,
-                                    minutes, pts, reb, ast, fg3m, pts + reb + ast AS pra
-                             FROM player_game_logs WHERE date >= %(d)s""", db.bind,
+        box = pd.read_sql("""SELECT to_char(p.date,'YYYY-MM-DD') game_date, t.abbreviation team,
+                                    lower(p.athlete_name) player,
+                                    p.minutes, p.pts, p.reb, p.ast, p.fg3m,
+                                    p.pts + p.reb + p.ast AS pra
+                             FROM player_game_logs p JOIN teams t ON t.id = p.team_id
+                             WHERE p.date >= %(d)s""", db.bind,
                           params={"d": df.loc[pending, "game_date"].min()})
-        played_dates = set(pd.read_sql("SELECT DISTINCT to_char(date,'YYYY-MM-DD') d "
-                                       "FROM player_game_logs", db.bind)["d"])
     finally:
         db.close()
-    box = box.set_index(["game_date", "player"])
+    teams_in = set(zip(box["game_date"], box["team"]))     # (date, team) with box scores
+    box = box.set_index(["game_date", "team", "player"])
     graded = 0
     for i in pending:
-        d, p, stat = df.at[i, "game_date"], df.at[i, "player"].lower(), df.at[i, "stat"]
-        if d not in played_dates:
-            continue                                  # box scores not posted yet
+        d, stat = df.at[i, "game_date"], df.at[i, "stat"]
+        home, away = df.at[i, "home"], df.at[i, "away"]
+        if (d, home) not in teams_in or (d, away) not in teams_in:
+            continue                                  # this game's box scores not posted yet
+        key = (d, df.at[i, "team"], df.at[i, "player"].lower())
         actual = None
-        if (d, p) in box.index:
-            b = box.loc[(d, p)]
+        if key in box.index:
+            b = box.loc[key]
             b = b.iloc[0] if isinstance(b, pd.DataFrame) else b
             if pd.notna(b["minutes"]) and b["minutes"] > 0:
                 actual = float(b[stat])
@@ -372,10 +372,10 @@ def grade_espn(path: Path = LOG_PATH) -> Tuple[int, int]:
 
 
 def record_result(game_date: date, player: str, stat: str, line: float,
-                  actual: Optional[float], path: Path = LOG_PATH) -> str:
+                  actual: Optional[float], ladder: bool = False, path: Path = LOG_PATH) -> str:
     """Grade by hand; actual=None means the player did not play (void)."""
     df = read_log(path)
-    i = _find(df, game_date.isoformat(), player, norm_stat(stat), line)
+    i = _find(df, game_date.isoformat(), player, norm_stat(stat), line, ladder=ladder)
     if i is None:
         raise ValueError("no such prop in the log")
     df.at[i, "actual"] = actual
@@ -484,7 +484,7 @@ def main() -> None:
     a = sub.add_parser("add")
     for k in ("--home", "--away", "--player", "--stat"):
         a.add_argument(k, required=True)
-    a.add_argument("--date", type=date.fromisoformat, default=date.today())
+    a.add_argument("--date", type=date.fromisoformat, default=us_today())
     a.add_argument("--line", type=float, required=True)
     a.add_argument("--over-odds", type=float, required=True)
     a.add_argument("--under-odds", type=float, help="omit for a one-sided ladder market")
@@ -504,7 +504,8 @@ def main() -> None:
     c.add_argument("--stat", required=True)
     c.add_argument("--line", type=float, required=True)
     c.add_argument("--over-odds", type=float, required=True)
-    c.add_argument("--under-odds", type=float, required=True)
+    c.add_argument("--under-odds", type=float, help="omit for a ladder rung (with --ladder)")
+    c.add_argument("--ladder", action="store_true", help="the one-sided rung, not the over/under")
 
     r = sub.add_parser("result", help="grade by hand; omit --actual if the player sat")
     r.add_argument("--date", type=date.fromisoformat, required=True)
@@ -512,6 +513,7 @@ def main() -> None:
     r.add_argument("--stat", required=True)
     r.add_argument("--line", type=float, required=True)
     r.add_argument("--actual", type=float)
+    r.add_argument("--ladder", action="store_true", help="the one-sided rung, not the over/under")
 
     gr = sub.add_parser("grade")
     gr.add_argument("--espn", action="store_true",
@@ -532,10 +534,14 @@ def main() -> None:
         logger.info("logged %d props", add_file(args.csv, args.auto_injuries))
         rank_pending()
     elif args.cmd == "closing":
-        record_closing(args.date, args.player, args.stat, args.line, args.over_odds, args.under_odds)
+        if args.under_odds is None and not args.ladder:
+            raise SystemExit("--under-odds is required unless --ladder")
+        record_closing(args.date, args.player, args.stat, args.line, args.over_odds,
+                       args.under_odds, ladder=args.ladder)
         logger.info("closing odds stored")
     elif args.cmd == "result":
-        logger.info("result: %s", record_result(args.date, args.player, args.stat, args.line, args.actual))
+        logger.info("result: %s", record_result(args.date, args.player, args.stat, args.line,
+                                                args.actual, ladder=args.ladder))
     elif args.cmd == "grade":
         g, p = grade_espn() if args.espn else grade()
         logger.info("graded %d, still pending %d", g, p)

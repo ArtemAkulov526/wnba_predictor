@@ -1,29 +1,31 @@
 """Predict a single matchup from the trained model.
 
-Loads the model once (see `get_predictor`) rather than refitting per request,
+Loads the model once (see `get_predictor`, refreshed when the model or the
+game data changes) rather than refitting per request,
 and builds the same difference features the model was trained on from each
 team's current form and Elo.
 
 CLI:
-    python predict.py --home MIN --away LVA
-    python predict.py --home MIN --away LVA --neutral
+    python -m wnba.ml.predict --home MIN --away LVA
+    python -m wnba.ml.predict --home MIN --away LVA --neutral
 """
 from __future__ import annotations
 
 import argparse
 from datetime import date
 from dataclasses import dataclass
-from functools import lru_cache
 from typing import Dict, List, Optional
 
 import numpy as np
 import pandas as pd
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from wnba.ml import elo
 from wnba.ml import features
 from wnba.db import SessionLocal
 from wnba.ml.train import MODEL_PATH
+from wnba.dates import us_today
 
 
 @dataclass
@@ -273,12 +275,24 @@ def build_predictor(db: Session) -> Predictor:
     return Predictor(bundle, form, ratings, features.load_teams(db))
 
 
-@lru_cache(maxsize=1)
+_CACHE: Dict[str, object] = {}
+
+
 def get_predictor() -> Predictor:
-    """Cached singleton so the web app does not refit or reload per request."""
+    """Cached predictor, rebuilt when the saved model or the game data changes.
+
+    The web app runs for a long time; a plain cache would keep serving the old
+    model, Elo and team form after a retrain or a scrape until a restart. The
+    cache key is the model file's timestamp plus the latest game date.
+    """
     db = SessionLocal()
     try:
-        return build_predictor(db)
+        key = (MODEL_PATH.stat().st_mtime if MODEL_PATH.exists() else None,
+               db.execute(text("SELECT max(date) FROM game_logs")).scalar())
+        if _CACHE.get("key") != key:
+            _CACHE["predictor"] = build_predictor(db)
+            _CACHE["key"] = key
+        return _CACHE["predictor"]
     finally:
         db.close()
 
@@ -292,8 +306,8 @@ def main() -> None:
     parser.add_argument("--home-rest", type=float, default=None)
     parser.add_argument("--away-rest", type=float, default=None)
     parser.add_argument("--auto-injuries", action="store_true",
-                        help="apply ESPN's current injury report (see wnba.scraping.injuries)")
-    parser.add_argument("--date", type=date.fromisoformat, default=date.today(),
+                        help="apply the latest injury report (official PDF, ESPN fallback)")
+    parser.add_argument("--date", type=date.fromisoformat, default=us_today(),
                         help="game date, used to judge stale injury listings")
     args = parser.parse_args()
 
@@ -302,10 +316,14 @@ def main() -> None:
         predictor = build_predictor(db)
         result = predictor.predict(args.home, args.away, args.neutral,
                                    args.home_rest, args.away_rest)
+        # --home/--away accept a name or id too; the report is keyed by abbreviation
+        abbr = {v: k for k, v in predictor.by_abbr.items()}
+        home_abbr = abbr[predictor.resolve(args.home)]
+        away_abbr = abbr[predictor.resolve(args.away)]
         if args.auto_injuries:
             from wnba.scraping.official_injuries import combined_report, measure_play_rates
             report = combined_report(db, args.date)
-            s = injury_scenarios(db, predictor, args.home.upper(), args.away.upper(),
+            s = injury_scenarios(db, predictor, home_abbr, away_abbr,
                                  report, args.neutral, rates=measure_play_rates(db))
     finally:
         db.close()
@@ -313,7 +331,7 @@ def main() -> None:
     if args.auto_injuries:
         print(f"\ninjury report for {args.date} (official where filed, else ESPN):")
         print(format_scenarios(s))
-        print(f"\n  P({args.home.upper()} wins)  full strength {s['healthy']:.1%}   "
+        print(f"\n  P({home_abbr} wins)  full strength {s['healthy']:.1%}   "
               f"range {s['low']:.1%} - {s['high']:.1%}")
         print(f"  headline (expected availability): {s['headline']:.1%}")
 

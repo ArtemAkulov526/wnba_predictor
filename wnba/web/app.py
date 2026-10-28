@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import json
 from contextlib import asynccontextmanager
-from datetime import date
 from typing import List, Optional
 
 import pandas as pd
@@ -19,24 +18,29 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 
 from wnba import models
-from wnba.db import Base, SessionLocal, engine
+from wnba.db import SessionLocal
 from wnba.paths import TEMPLATES_DIR
 from wnba.ml import tracking
 from wnba.ml.predict import get_predictor, injury_scenarios, missing_share
 from wnba.ml.train import METADATA_PATH
+from wnba.dates import us_today
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    Base.metadata.create_all(bind=engine)
-    try:
-        get_predictor()          # warm the cache so the first request is fast
-        app.state.model_ready = True
-        app.state.model_error = None
-    except Exception as exc:     # app still serves the browsing pages
-        app.state.model_ready = False
-        app.state.model_error = str(exc)
+    # Tables are created by scripts/migrate.py (setup step 3), not here.
+    _model_status()              # warm the cache so the first request is fast
     yield
+
+
+def _model_status() -> tuple:
+    """(ready, error) -- checked per page load, so a model trained after the app
+    started is picked up without a restart."""
+    try:
+        get_predictor()
+        return True, None
+    except (Exception, SystemExit) as exc:   # the browsing pages still work
+        return False, str(exc)
 
 
 app = FastAPI(title="WNBA Predictor", lifespan=lifespan)
@@ -52,16 +56,14 @@ def get_db():
 
 
 @app.get("/", response_class=HTMLResponse)
-async def read_root(request: Request, db: Session = Depends(get_db)):
+def read_root(request: Request, db: Session = Depends(get_db)):
     teams = db.query(models.Team).order_by(models.Team.name).all()
     metadata = {}
     if METADATA_PATH.exists():
         metadata = json.loads(METADATA_PATH.read_text(encoding="utf-8"))
+    ready, error = _model_status()
     return templates.TemplateResponse(request, "index.html", {
-        "teams": teams,
-        "model_ready": getattr(app.state, "model_ready", False),
-        "model_error": getattr(app.state, "model_error", None),
-        "metadata": metadata,
+        "teams": teams, "model_ready": ready, "model_error": error, "metadata": metadata,
     })
 
 
@@ -97,7 +99,7 @@ def _season_summary(db: Session, team_id: int) -> List[dict]:
 
 
 @app.get("/team/{team_id}", response_class=HTMLResponse)
-async def get_team_stats(request: Request, team_id: int,
+def get_team_stats(request: Request, team_id: int,
                          db: Session = Depends(get_db)):
     team = db.get(models.Team, team_id)
     if not team:
@@ -108,7 +110,7 @@ async def get_team_stats(request: Request, team_id: int,
 
 
 @app.get("/team/{team_id}/games", response_class=HTMLResponse)
-async def get_team_games(request: Request, team_id: int,
+def get_team_games(request: Request, team_id: int,
                          season: Optional[int] = None,
                          db: Session = Depends(get_db)):
     team = db.get(models.Team, team_id)
@@ -181,13 +183,18 @@ def predict_game(
     else:
         home_id, away_id, home_names, away_names = team2, team1, team2_out, team1_out
     abbr = {v: k for k, v in predictor.by_abbr.items()}
+    if home_id not in abbr or away_id not in abbr:
+        return JSONResponse({"error": "Unknown team."}, status_code=400)
     home_abbr, away_abbr = abbr[home_id], abbr[away_id]
 
     extra, missing = {}, []
+    if auto_injuries and (_names(home_names) or _names(away_names)):
+        extra["note"] = ("The names you typed were not used: the latest injury report "
+                         "replaces them when that box is ticked.")
     try:
         if auto_injuries:
             from wnba.scraping.official_injuries import combined_report, measure_play_rates
-            report = combined_report(db, date.today())
+            report = combined_report(db, us_today())
             s = injury_scenarios(db, predictor, home_abbr, away_abbr, report, neutral,
                                  rates=measure_play_rates(db))
             result = predictor.predict(home_id, away_id, neutral=neutral,
@@ -211,6 +218,10 @@ def predict_game(
                                        home_out=outs["home"], away_out=outs["away"])
     except ValueError as exc:
         return JSONResponse({"error": str(exc)}, status_code=400)
+    except Exception as exc:     # injury sources: network, PDF, Playwright timeouts
+        return JSONResponse({"error": f"Could not get the injury report: {type(exc).__name__}: {exc}. "
+                                      "Try again, or untick the box and type the missing players."},
+                            status_code=502)
 
     return {
         "home_team": result.home_team,
@@ -230,7 +241,7 @@ def _fmt(value, spec: str) -> str:
 
 
 @app.get("/log", response_class=HTMLResponse)
-async def prediction_log(request: Request):
+def prediction_log(request: Request):
     """The prediction log (data/prediction_log.csv), newest first."""
     df = tracking.read_log()
     rows = []
@@ -273,7 +284,7 @@ async def prediction_log(request: Request):
 
 
 @app.get("/api/model")
-async def model_info():
+def model_info():
     """What the currently loaded model is and how it scored."""
     if not METADATA_PATH.exists():
         return JSONResponse({"error": "no trained model"}, status_code=404)

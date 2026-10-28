@@ -27,7 +27,6 @@ from __future__ import annotations
 import argparse
 import io
 import logging
-import os
 import re
 import time
 import urllib.error
@@ -40,23 +39,18 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 from wnba.paths import DATA_DIR
+from wnba.csvio import write_csv
 
 logger = logging.getLogger(__name__)
 
 BASE_URL = "https://ak-static.cms.nba.com/referee/wnba_injury/Injury-Report_{}.pdf"
 ARCHIVE_PATH = DATA_DIR / "official_injury_reports.csv"
-ET = ZoneInfo("America/New_York")
+ET = ZoneInfo("America/New_York")      # same zone as wnba.dates
 CRAWL_DELAY = 1.0          # robots.txt Crawl-Delay on ak-static.cms.nba.com
 USER_AGENT = "Mozilla/5.0 (wnba_predictor; personal research)"
 
 COLUMNS = ["report_time", "game_date", "game_time", "matchup", "team_name",
            "player", "status", "reason"]
-# Status -> how predictions treat it. Doubtful players mostly sit but not
-# always, so they stay a scenario like Questionable until the archive can
-# measure the real rates (see played_rates()).
-AVAILABILITY = {"out": "out", "doubtful": "questionable",
-                "questionable": "questionable", "probable": "probable",
-                "available": "available"}
 
 
 # --------------------------------------------------------------------------
@@ -190,10 +184,6 @@ def parse_pdf(body: bytes, report_time: str = "") -> pd.DataFrame:
     return df
 
 
-def availability(status: str) -> str:
-    return AVAILABILITY.get((status or "").strip().lower(), "unknown")
-
-
 # --------------------------------------------------------------------------
 # archive
 # --------------------------------------------------------------------------
@@ -210,11 +200,7 @@ def archive(df: pd.DataFrame, path: Path = ARCHIVE_PATH) -> int:
     new = new[[tuple(r) not in seen for r in new[key].values.tolist()]]
     if new.empty:
         return 0
-    out = pd.concat([old, new], ignore_index=True)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_name(path.name + ".tmp")
-    out.to_csv(tmp, index=False)
-    os.replace(tmp, path)
+    write_csv(pd.concat([old, new], ignore_index=True), path)
     return len(new)
 
 
@@ -279,6 +265,10 @@ def measure_play_rates(db, path: Path = ARCHIVE_PATH) -> dict:
     m = rep.merge(logs.rename(columns={"athlete_name": "player"})[
         ["game_date", "team_id", "player", "played"]],
         on=["game_date", "team_id", "player"], how="left")
+    # Known bias (audit 6.5, fix after the season -- it changes predictions): a
+    # listed name that matches no one on the roster for that game is a spelling
+    # mismatch, not proof she sat, but it is counted as "did not play" here.
+    # Excluding those listings moves Questionable from ~43% to ~53%.
     m["played"] = m["played"].fillna(False).astype(bool)
 
     rates = dict(DEFAULT_PLAY_RATES)
@@ -322,6 +312,10 @@ def combined_report(db, game_date: date) -> pd.DataFrame:
             rows.append({"team": team, "player": r.player, "status": r.status,
                          "source": "official"})
 
+    # A team that filed with nobody injured is absent from the official report,
+    # so it falls back to ESPN here -- which can add players ESPN still lists
+    # (e.g. GSV / Iliana Rupert through the 2026 playoffs). Whether to trust the
+    # clean official filing instead is audit 6.2, decided after the season.
     live = espn.fetch_report(db)
     espn.archive(live)
     live = espn.with_availability(live, game_date)

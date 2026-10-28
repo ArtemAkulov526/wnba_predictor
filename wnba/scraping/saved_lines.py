@@ -13,9 +13,8 @@ player_game_logs; every match is printed with a similarity score so a wrong
 match is visible before anything is logged.
 
 Usage:
-    python -m wnba.scraping.saved_lines data/bokks.html --home NYL --away MIN --date 2026-09-29
-    python -m wnba.scraping.saved_lines data/bokks.html --home NYL --away MIN --date 2026-09-29 --log
-    python -m wnba.scraping.saved_lines data/vbet_2026-09-30_ATL@WAS.txt --home WAS --away ATL --date 2026-09-30 --log
+    python -m wnba.scraping.saved_lines data/vbet_2026-09-29_LVA@IND_pts.html --home IND --away LVA --date 2026-09-29
+    python -m wnba.scraping.saved_lines data/vbet_2026-09-30_ATL@WAS.txt --home WAS --away ATL --date 2026-09-30 --log --auto-injuries
 """
 from __future__ import annotations
 
@@ -160,12 +159,13 @@ def match_names(props: pd.DataFrame, home: str, away: str) -> pd.DataFrame:
                          for k, n in zip(keys, names)), reverse=True)
         score, best = scored[0] if scored else (0.0, None)
         runner_up = scored[1][0] if len(scored) > 1 else 0.0
-        if score >= 0.45 and score - runner_up >= 0.2:
-            score = max(score, 0.6)         # weak spelling match, but no rival name close
+        weak = False
+        if 0.45 <= score < 0.6 and score - runner_up >= 0.2:
+            score, weak = 0.6, True         # weak spelling match, but no rival name close
         if r.name_ua in ALIASES and ALIASES[r.name_ua] in names:
-            score, best = 1.0, ALIASES[r.name_ua]
+            score, best, weak = 1.0, ALIASES[r.name_ua], False
         out.append({**r._asdict(), "player": best, "match": round(score, 2),
-                    "translit": t})
+                    "weak": weak, "translit": t})
     return pd.DataFrame(out)
 
 
@@ -182,6 +182,8 @@ def main() -> None:
                     metavar=("MIN", "MAX"),
                     help="keep ladder rungs priced in this range (default 1.30 5.00)")
     ap.add_argument("--log", action="store_true", help="add the props to the props log")
+    ap.add_argument("--auto-injuries", action="store_true",
+                    help="project with the latest injury report (official, ESPN fallback)")
     ap.add_argument("--closing", action="store_true",
                     help="store these prices as closing odds for props already logged")
     args = ap.parse_args()
@@ -191,10 +193,14 @@ def main() -> None:
         raise SystemExit("no player props found in that page")
     m = match_names(props, args.home.upper(), args.away.upper())
     logger.info("%d props found", len(m))
+    if m["weak"].any():
+        logger.warning("weak name matches (check the table): %s",
+                       ", ".join(sorted(set(m.loc[m["weak"], "name_ua"]))))
     names = m.drop_duplicates("name_ua")
     print(f"{'bookmaker name':26} {'-> roster':22} {'match':>5}  props")
     for r in names.itertuples():
-        flag = "" if r.match >= args.min_match else "   <- SKIPPED, check"
+        flag = ("   <- SKIPPED, check" if r.match < args.min_match
+                else "   <- weak match, check" if r.weak else "")
         n = int((m["name_ua"] == r.name_ua).sum())
         print(f"{r.name_ua[:26]:26} {str(r.player)[:22]:22} {r.match:5.2f}  {n:5d}{flag}")
 
@@ -218,7 +224,7 @@ def main() -> None:
                     "(new, or the line moved)", done, skipped)
     elif args.log:
         from wnba.ml import props_log
-        props_log.add_file(csv)
+        props_log.add_file(csv, auto_injuries=args.auto_injuries)
         print()
         props_log.rank_pending()
 

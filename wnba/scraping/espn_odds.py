@@ -18,7 +18,6 @@ from __future__ import annotations
 
 import argparse
 import logging
-import os
 import time
 from datetime import date, datetime, timedelta, timezone
 from typing import List, Optional
@@ -28,6 +27,8 @@ import requests
 
 from wnba.paths import DATA_DIR
 from wnba.scraping.player_logs import ABBR_ALIASES
+from wnba.dates import us_today
+from wnba.csvio import write_csv
 
 logger = logging.getLogger(__name__)
 
@@ -129,25 +130,16 @@ def save(rows: List[dict]) -> int:
     df = (df.sort_values(["_rank", "fetched_at"])
             .drop_duplicates(["game_date", "home", "away"], keep="last")
             .drop(columns="_rank").sort_values(["game_date", "home"]))
-    tmp = ODDS_PATH.with_name(ODDS_PATH.name + ".tmp")
-    df[COLUMNS].to_csv(tmp, index=False)
-    for attempt in range(20):                  # OneDrive may briefly lock the file
-        try:
-            os.replace(tmp, ODDS_PATH)
-            break
-        except PermissionError:
-            if attempt == 19:
-                raise
-            time.sleep(0.5)
+    write_csv(df[COLUMNS], ODDS_PATH)
     return len(rows)
 
 
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     ap = argparse.ArgumentParser(description="ESPN (DraftKings) game odds.")
-    us_today = (datetime.now(timezone.utc) - timedelta(hours=5)).date()
-    ap.add_argument("--from", dest="start", type=date.fromisoformat, default=us_today - timedelta(days=1))
-    ap.add_argument("--to", dest="end", type=date.fromisoformat, default=us_today + timedelta(days=3))
+    today = us_today()
+    ap.add_argument("--from", dest="start", type=date.fromisoformat, default=today - timedelta(days=1))
+    ap.add_argument("--to", dest="end", type=date.fromisoformat, default=today + timedelta(days=3))
     args = ap.parse_args()
     session = requests.Session()
     n, day = 0, args.start

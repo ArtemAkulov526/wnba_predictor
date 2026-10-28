@@ -1,9 +1,9 @@
 """Snapshot ESPN's WNBA injury report, archive it, and feed it to predictions.
 
 Source: https://www.espn.com/wnba/injuries -- allowed by ESPN's robots.txt
-(checked 2026-09-21). The official wnba.com report is NOT used: it answers
-automated requests with `403 Access Denied` from the NBA's bot protection, and
-this project does not try to get around that.
+(checked 2026-09-21). This is the FALLBACK source: the official league report
+(wnba.scraping.official_injuries, read from the PDFs it links to) is used first
+for every team that has filed, and ESPN fills in teams that have not.
 
 The report is CURRENT STATUS ONLY. It is for live prediction, never training
 (see features.build_dataset): the model learned what missing minutes are worth
@@ -21,7 +21,6 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import os
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -30,6 +29,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 
 from wnba.paths import DATA_DIR
+from wnba.dates import us_today
+from wnba.csvio import write_csv
 
 ESPN_URL = "https://www.espn.com/wnba/injuries"
 ARCHIVE_PATH = DATA_DIR / "injury_reports.csv"
@@ -73,6 +74,10 @@ def classify(status: str, comment: str | None = None,
       4. otherwise out.
     """
     c = (comment or "").lower()
+    # Known issues (audit 6.3/6.4, fix after the season -- they change
+    # predictions): "doubtful" is treated as questionable (plays ~43% instead of
+    # ~5%), "probable" is a substring match, and "ruled out" later in a comment
+    # does not override an earlier "probable".
     if "probable" in c:
         return "probable"
     if any(w in c for w in ("questionable", "doubtful", "game-time", "game time")):
@@ -111,7 +116,7 @@ def parse_injuries(html: str) -> pd.DataFrame:
     df = pd.DataFrame(rows, columns=["team_name", "player", "position",
                                      "est_return", "status", "availability",
                                      "comment"])
-    return with_availability(df, date.today())
+    return with_availability(df, us_today())
 
 
 def with_availability(report: pd.DataFrame, game_date: date) -> pd.DataFrame:
@@ -174,11 +179,7 @@ def archive(report: pd.DataFrame, path: Path = ARCHIVE_PATH,
     if new.empty:
         return 0
 
-    out = pd.concat([old, new], ignore_index=True)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_name(path.name + ".tmp")
-    out.to_csv(tmp, index=False)
-    os.replace(tmp, path)
+    write_csv(pd.concat([old, new], ignore_index=True), path)
     return len(new)
 
 

@@ -26,6 +26,7 @@ from datetime import date
 from typing import Optional
 
 import pandas as pd
+from wnba.dates import us_today
 
 RECENT_TEAM_GAMES = 10
 PLAYOFF_MIN_GAMES = 3
@@ -47,7 +48,7 @@ def is_postseason(game_date: Optional[date] = None,
                   player_logs: Optional[pd.DataFrame] = None) -> bool:
     """True for a game after its season's last regular-season day, or once
     postseason games of the latest season appear in the data."""
-    d = game_date or date.today()
+    d = game_date or us_today()
     end = REGULAR_SEASON_END.get(d.year)
     if end is not None and d > end:
         return True

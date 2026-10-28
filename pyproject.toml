@@ -1,7 +1,7 @@
 [project]
 name = "wnba-predictor"
 version = "0.2.0"
-description = "WNBA game outcome prediction from scraped box scores"
+description = "WNBA game and player-prop predictions, injury reports and bet tracking"
 requires-python = ">=3.11"
 
 [tool.pytest.ini_options]

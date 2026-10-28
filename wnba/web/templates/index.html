@@ -85,8 +85,16 @@ document.getElementById("predict-form").addEventListener("submit", async functio
     const target = document.getElementById("result");
     target.innerHTML = "<p class='muted'>Predicting…</p>";
 
-    const response = await fetch("/predict-game", { method: "POST", body: new FormData(this) });
-    const data = await response.json();
+    let data;
+    try {
+        const response = await fetch("/predict-game", { method: "POST", body: new FormData(this) });
+        try { data = await response.json(); } catch { data = {}; }
+        if (!response.ok && !data.error) {
+            data.error = data.detail ? JSON.stringify(data.detail) : `Server error (${response.status})`;
+        }
+    } catch (err) {
+        data = { error: `Could not reach the server: ${err}` };
+    }
     if (data.error) {
         target.innerHTML = `<p class="warn">${esc(data.error)}</p>`;
         return;
@@ -125,7 +133,7 @@ document.getElementById("predict-form").addEventListener("submit", async functio
             <p>Predicted winner: <strong>${esc(data.predicted_winner)}</strong></p>
             <p class="muted">${esc(data.home_team)} ${homePct.toFixed(1)}% ·
                ${esc(data.away_team)} ${awayPct.toFixed(1)}%</p>
-            ${range}${missing}
+            ${data.note ? `<p class="warn">${esc(data.note)}</p>` : ""}${range}${missing}
             <details>
                 <summary class="muted">What drove this</summary>
                 <table><tr><th>Feature</th><th class="num">Log-odds</th></tr>${drivers}</table>

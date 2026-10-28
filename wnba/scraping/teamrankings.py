@@ -5,7 +5,8 @@ per team with the closing line for every game of the CURRENT season. Allowed
 by robots.txt, which asks for a 10-second Crawl-delay (respected below).
 
 Limits found while building this (2026-09-21):
-  * spreads only -- there is no moneyline table;
+  * spreads and totals only (`--market spreads|totals|both`) -- there is no
+    moneyline table (moneylines come from wnba.scraping.espn_odds);
   * current season only -- the `?season=` parameter is ignored, and older
     seasons sit behind /ajax/, which robots.txt disallows.
 So each season has to be captured while it is live. Lines are written to
@@ -21,7 +22,6 @@ Usage:
 from __future__ import annotations
 
 import logging
-import os
 import re
 import time
 import urllib.request
@@ -33,6 +33,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 
 from wnba.paths import DATA_DIR
+from wnba.dates import current_season
+from wnba.csvio import write_csv
 
 logger = logging.getLogger(__name__)
 
@@ -159,11 +161,7 @@ def save(games: pd.DataFrame, path: Path = LINES_PATH) -> int:
     old = pd.read_csv(path) if path.exists() else pd.DataFrame(columns=COLUMNS)
     key = ["game_date", "home", "away"]
     old = old[~old.set_index(key).index.isin(games.set_index(key).index)]
-    out = pd.concat([old, games], ignore_index=True).sort_values(key)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_name(path.name + ".tmp")
-    out.to_csv(tmp, index=False)
-    os.replace(tmp, path)
+    write_csv(pd.concat([old, games], ignore_index=True).sort_values(key), path)
     return len(games)
 
 
@@ -248,7 +246,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="TeamRankings closing lines.")
     parser.add_argument("--market", choices=["spreads", "totals", "both"], default="both")
     args = parser.parse_args()
-    season = date.today().year
+    season = current_season()
 
     if args.market in ("spreads", "both"):
         logger.info("collecting %s closing spreads (%ss between requests)", season, CRAWL_DELAY)

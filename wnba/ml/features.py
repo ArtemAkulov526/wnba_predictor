@@ -14,7 +14,7 @@ Design rules, all of which the previous version broke:
 """
 from __future__ import annotations
 
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 
 import numpy as np
 import pandas as pd
@@ -154,12 +154,6 @@ def add_rest_features(logs: pd.DataFrame) -> pd.DataFrame:
     # First game of a season: treat as fully rested rather than missing.
     df["rest_days"] = rest.clip(upper=7).fillna(7)
     df["is_b2b"] = (rest <= 1).fillna(False).astype(int)
-
-    def games_last_7(group: pd.DataFrame) -> pd.Series:
-        dates = group.set_index("date")["pts"]
-        # Count prior games only: rolling on a shifted series of ones.
-        ones = pd.Series(1, index=dates.index)
-        return ones.shift(1).rolling("7D").sum()
 
     counts = []
     for _, group in df.groupby("team_id", sort=False):
@@ -452,9 +446,8 @@ def team_form_snapshot(db: Session) -> Tuple[pd.DataFrame, Dict[int, float]]:
         "game_key", "date", "season", "home_team_id", "away_team_id",
         "home_pts", "away_pts", "home_won"]])
 
-    # The rolling columns on a team's most recent row already exclude that
-    # game, so roll them forward one game to include it.
-    cols = [f"r_{m}" for m in ROLL_METRICS] + ["r_net_rtg_short"]
+    # The rolling columns on a team's most recent row exclude that game, so
+    # recompute them over the last games including it.
     latest = []
     for team_id, group in logs.groupby("team_id"):
         group = group.sort_values("date")

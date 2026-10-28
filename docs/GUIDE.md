@@ -19,6 +19,7 @@ python -m wnba.ml.tracking closing --home PHO --away DAL --date 2026-09-21 --hom
 python -m wnba.ml.tracking result --home PHO --away DAL --date 2026-09-21 --home-pts 90 --away-pts 85
 python -m wnba.ml.tracking grade                                # results from scraped box scores
 python -m wnba.ml.tracking report                               # model vs you vs market
+python -m wnba.ml.tracking amend --home PHO --away DAL --date 2026-09-21 --confidence 0.55   # backfilled rows only
 ```
 
 **Player props**
@@ -29,13 +30,14 @@ layout and must be adapted for another bookmaker), or typed in by hand.
 
 ```bash
 # read collected lines (text file) and add them to the props log; --closing stores them as closing odds
-python -m wnba.scraping.saved_lines data/vbet_2026-09-30_ATL@WAS.txt --home WAS --away ATL --date 2026-09-30 --log
+python -m wnba.scraping.saved_lines data/vbet_2026-09-30_ATL@WAS.txt --home WAS --away ATL --date 2026-09-30 --log --auto-injuries
 python -m wnba.scraping.saved_lines data/vbet_2026-09-30_ATL@WAS_close.txt --home WAS --away ATL --date 2026-09-30 --closing
 
 python -m wnba.ml.props_log add --home WAS --away ATL --date 2026-09-30 --player "Lauren Betts" \
        --stat pts --line 4.5 --over-odds 1.74 --under-odds 1.96 --pick over
 python -m wnba.ml.props_log rank        # pending props by model expected value
-python -m wnba.ml.props_log grade       # results from player box scores
+python -m wnba.ml.props_log grade       # results from player box scores (per game)
+python -m wnba.ml.props_log grade --espn   # straight from ESPN, before player_game_logs catches up
 python -m wnba.ml.props_log report
 
 python -m wnba.ml.props --home NYL --away ATL --auto-injuries   # projections for one game
@@ -77,6 +79,7 @@ python -m wnba.scraping.teamrankings               # current-season closing spre
 ```bash
 python -m wnba.ml.train                            # walk-forward evaluation + model selection
 python -m wnba.ml.market                           # model vs closing spread
+python -m wnba.ml.market --moneyline               # model vs DraftKings closing moneylines
 python -m wnba.ml.totals --backtest                # totals model vs closing totals
 ```
 
@@ -173,7 +176,8 @@ projection = expected minutes × per-minute rate × pace/defence adjustment
 
 - **Minutes** (`rotation.py`): averaged over games a player actually played,
   weighted by how often she appears; scaled so the available players fill 200
-  team minutes. In the playoffs, the top 6 get more minutes and the bench less
+  team minutes. In the playoffs, the top 5 get more minutes, the 6th the same
+  and the bench less
   (measured on 64 playoff runs), until a team has 3 playoff games of its own.
 - **Rates**: minutes-weighted recent and season-to-date per-minute rates.
 - **Pace/defence**: from the totals model's possessions and opponent defence.

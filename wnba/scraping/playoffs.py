@@ -1,9 +1,9 @@
 """Rebuild playoff team box scores from player box scores.
 
-basketball-reference's team gamelog page (`/{TEAM}/{season}/gamelog/`) covers
-the REGULAR SEASON ONLY. Every playoff game was therefore missing from
-`game_logs`, which meant the model had never seen one -- not in training, not
-in validation -- and Elo ratings never updated for postseason results.
+Now a CROSS-CHECK. It was written when playoff games were missing from
+`game_logs`; the real cause turned out to be the scraper reading only the first
+table on basketball-reference's gamelog page (playoffs sit in a separate
+table), which is fixed. This module stays as an independent check.
 
 The ESPN player box scores already loaded into `player_game_logs` do include
 the playoffs (`season_type = 3`). Summing a team's player lines reconstructs
@@ -19,18 +19,17 @@ from __future__ import annotations
 
 import argparse
 import logging
-from datetime import date
 from typing import Dict, List
 
 import pandas as pd
 from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert
 
+from wnba.dates import current_season
 from wnba.db import SessionLocal
 from wnba.models import GameLog, Team
-from wnba.scraping.player_logs import ABBR_ALIASES, _nullable_int, _resolve
+from wnba.scraping.player_logs import _nullable_int, _resolve
 
-logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
 PLAYOFF_SEASON_TYPE = 3
@@ -107,9 +106,10 @@ def build_playoff_rows(season: int, team_ids: Dict[str, int]) -> List[dict]:
 
 
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description="Backfill playoff games into game_logs.")
     parser.add_argument("--from-season", type=int, default=2018)
-    parser.add_argument("--to-season", type=int, default=date.today().year)
+    parser.add_argument("--to-season", type=int, default=current_season())
     args = parser.parse_args()
 
     db = SessionLocal()

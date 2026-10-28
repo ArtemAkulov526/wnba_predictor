@@ -25,6 +25,7 @@ import argparse
 from datetime import date
 from functools import lru_cache
 from typing import Callable, Dict, List, Optional, Sequence, Tuple
+from wnba.dates import us_today
 
 # True = higher seed at home for that game number.
 FORMATS = {
@@ -141,7 +142,10 @@ def bracket_odds(seeds: List[str], game_prob: Callable[[str, str], Tuple[float, 
 # wiring to the winner model
 # --------------------------------------------------------------------------
 def model_game_prob(auto_injuries: bool = False, game_date: Optional[date] = None):
-    """game_prob(high, low) backed by the trained model (+ current injuries)."""
+    """game_prob(high, low) backed by the trained model (+ current injuries).
+
+    The returned function keeps a database session open for its lookups; call
+    its .close() when done."""
     from wnba.db import SessionLocal
     from wnba.ml import predict
 
@@ -150,7 +154,7 @@ def model_game_prob(auto_injuries: bool = False, game_date: Optional[date] = Non
     report = rates = None
     if auto_injuries:
         from wnba.scraping.official_injuries import combined_report, measure_play_rates
-        report, rates = combined_report(db, game_date or date.today()), measure_play_rates(db)
+        report, rates = combined_report(db, game_date or us_today()), measure_play_rates(db)
 
     @lru_cache(maxsize=None)
     def prob(high: str, low: str) -> Tuple[float, float]:
@@ -162,6 +166,7 @@ def model_game_prob(auto_injuries: bool = False, game_date: Optional[date] = Non
             away = 1 - predictor.predict(low, high).home_win_probability
         return at_home, away
 
+    prob.close = db.close
     return prob
 
 
@@ -181,14 +186,20 @@ def main() -> None:
     parser.add_argument("--seeds", required=True, help="8 team codes, seed 1 first")
     parser.add_argument("--state", nargs="*", help="in-progress series, e.g. MIN-NYL:1-0")
     parser.add_argument("--auto-injuries", action="store_true")
-    parser.add_argument("--date", type=date.fromisoformat, default=date.today())
+    parser.add_argument("--date", type=date.fromisoformat, default=us_today())
     args = parser.parse_args()
 
     seeds = [s.strip().upper() for s in args.seeds.split(",")]
     if len(seeds) != 8 or len(set(seeds)) != 8:
         parser.error("--seeds needs 8 different team codes")
     prob = model_game_prob(args.auto_injuries, args.date)
-    states = parse_states(args.state)
+    try:
+        _print_bracket(seeds, prob, parse_states(args.state))
+    finally:
+        prob.close()
+
+
+def _print_bracket(seeds, prob, states) -> None:
 
     print("FIRST ROUND (best-of-3, 1-1-1)")
     for pair_a, pair_b in BRACKET:

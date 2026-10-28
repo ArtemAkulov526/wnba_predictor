@@ -20,14 +20,14 @@ selection advantage. The ATS sample is also one season: treat ROI as a signal,
 not a result.
 
 Usage:
-    python -m wnba.ml.market                  # 2026
+    python -m wnba.ml.market                  # current season
+    python -m wnba.ml.market --moneyline      # vs DraftKings closing moneylines
     python -m wnba.ml.market --season 2026
 """
 from __future__ import annotations
 
 import argparse
 import json
-import math
 
 import numpy as np
 import pandas as pd
@@ -35,8 +35,9 @@ from scipy.stats import norm
 
 from wnba.db import SessionLocal
 from wnba.ml import features, train
-from wnba.paths import MODELS_DIR
+from wnba.paths import DATA_DIR, MODELS_DIR
 from wnba.scraping.teamrankings import LINES_PATH
+from wnba.dates import current_season
 
 WIN, LOSE = 100 / 110, -1.0          # -110 pricing
 BREAK_EVEN = 110 / 210               # 52.38%
@@ -123,10 +124,47 @@ def ats_backtest(df: pd.DataFrame, sigma: float, thresholds=(0, 1, 2, 3, 4, 5)) 
     return pd.DataFrame(rows)
 
 
+def moneyline_benchmark(season: int) -> None:
+    """Model vs DraftKings closing moneylines (data/espn_odds.csv, 2026 onward),
+    plus betting every side the model rates +EV at the closing price."""
+    preds = load_predictions(season)
+    o = pd.read_csv(DATA_DIR / "espn_odds.csv", dtype={"game_date": str})
+    o = o[(o["status"] == "close") & o["home_ml"].notna() & o["away_ml"].notna()].copy()
+    o["mkt"] = (1 / o["home_ml"]) / (1 / o["home_ml"] + 1 / o["away_ml"])
+    o["vig"] = 1 / o["home_ml"] + 1 / o["away_ml"] - 1
+    m = preds.merge(o[["game_date", "home", "away", "mkt", "vig", "home_ml", "away_ml"]],
+                    on=["game_date", "home", "away"])
+    if m.empty:
+        print(f"{season}: no games with both a prediction and an ESPN closing moneyline")
+        return
+    y = m["target"].to_numpy()
+    print(f"{season}: {len(m)} games; DraftKings average margin {m['vig'].mean():.1%}\n")
+    print(f"{'':22} {'log loss':>9} {'brier':>8} {'accuracy':>9}")
+    for name, p in (("model", m["prob"]), ("DraftKings close", m["mkt"]),
+                    ("50/50 blend", (m["prob"] + m["mkt"]) / 2)):
+        s = scores(y, p.to_numpy())
+        print(f"  {name:20} {s['log_loss']:9.4f} {s['brier']:8.4f} {s['accuracy']:9.1%}")
+    ev_home = m["prob"] * m["home_ml"] - 1
+    ev_away = (1 - m["prob"]) * m["away_ml"] - 1
+    print("\nBET THE MODEL'S +EV SIDE AT THE CLOSE (1 unit)")
+    for th in (0.0, 0.03, 0.05, 0.10):
+        bh, ba = (ev_home > th).to_numpy(), (ev_away > th).to_numpy()
+        units = (np.where(bh, np.where(y == 1, m["home_ml"] - 1, -1), 0)
+                 + np.where(ba, np.where(y == 0, m["away_ml"] - 1, -1), 0))
+        n = int(bh.sum() + ba.sum())
+        print(f"  edge > {th:4.0%}: {n:4d} bets  {units.sum():+7.2f} units  "
+              f"({units.sum() / max(n, 1):+.1%} per bet)")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Model vs closing spreads.")
-    parser.add_argument("--season", type=int, default=2026)
+    parser.add_argument("--season", type=int, default=current_season())
+    parser.add_argument("--moneyline", action="store_true",
+                        help="benchmark against DraftKings closing moneylines (ESPN) instead")
     args = parser.parse_args()
+    if args.moneyline:
+        moneyline_benchmark(args.season)
+        return
 
     df = attach_lines(load_predictions(args.season))
     y = df["target"].to_numpy()

@@ -21,8 +21,6 @@ from __future__ import annotations
 import argparse
 import logging
 import math
-import os
-import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Optional
@@ -31,6 +29,7 @@ import pandas as pd
 
 from wnba.ml import props_log, tracking
 from wnba.paths import DATA_DIR
+from wnba.csvio import write_csv
 
 logger = logging.getLogger(__name__)
 
@@ -39,8 +38,10 @@ COLUMNS = ["parlay_id", "name", "dates", "legs", "created_at"]
 
 
 def user_legs(dates: List[str], games_only: bool = False) -> pd.DataFrame:
-    """Every logged pick on these US dates: odds taken, model probability, outcome
-    (True won, False lost, None void or not settled yet)."""
+    """Every logged pick on these US dates: odds taken, model probability,
+    outcome (True won, False lost, None not settled yet) and `void` (a prop
+    whose player did not play, or a push: the leg is dropped from a parlay
+    and its single stake is returned)."""
     rows = []
     g = tracking.read_log()
     g = g[g["game_date"].astype(str).isin(dates) & g["user_pick"].notna() & g["home_odds"].notna()]
@@ -51,18 +52,19 @@ def user_legs(dates: List[str], games_only: bool = False) -> pd.DataFrame:
                      "label": f"{r.user_pick} win ({r.away}@{r.home})",
                      "odds": r.home_odds if home else r.away_odds,
                      "model_p": r.model_home_prob if home else 1 - r.model_home_prob,
-                     "won": won})
+                     "won": won, "void": False})
     if not games_only:
         p = props_log.read_log()
         p = p[p["game_date"].isin(dates) & p["user_side"].notna()]
         for r in p.itertuples():
             over = r.user_side == "over"
-            won = None if r.result in (None, "void", "push") else r.result == r.user_side
+            void = r.result in ("void", "push")
+            won = None if (r.result is None or void) else r.result == r.user_side
             rows.append({"leg": f"prop:{r.game_date}:{r.player}:{r.stat}:{r.line:g}:{r.user_side}",
                          "label": f"{r.player} {r.stat} {r.user_side} {r.line:g}",
                          "odds": r.over_odds if over else r.under_odds,
                          "model_p": r.model_p_over if over else 1 - r.model_p_over,
-                         "won": won})
+                         "won": won, "void": void})
     return pd.DataFrame(rows)
 
 
@@ -98,31 +100,27 @@ def add(dates: List[str], games_only: bool = False, name: Optional[str] = None,
            "dates": ";".join(dates), "legs": "|".join(legs["leg"]),
            "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     df = pd.concat([df, pd.DataFrame([row])], ignore_index=True)
-    tmp = Path(path).with_name(Path(path).name + ".tmp")
-    df.to_csv(tmp, index=False)
-    for attempt in range(20):                  # OneDrive may briefly lock the file
-        try:
-            os.replace(tmp, path)
-            break
-        except PermissionError:
-            if attempt == 19:
-                raise
-            time.sleep(0.5)
+    write_csv(df, path)
     return row
 
 
 def settle(legs: pd.DataFrame) -> dict:
-    """Parlay outcome at 1 unit and the same legs as 1-unit singles."""
+    """Parlay outcome at 1 unit and the same legs as 1-unit singles.
+
+    Void legs are dropped, as bookmakers do: the parlay is repriced on the
+    remaining legs, and a parlay whose legs are all void returns the stake (0).
+    """
+    legs = legs[~legs["void"]] if "void" in legs else legs
     live = legs[legs["won"].notna()]
     pending = legs["won"].isna().any() and not (live["won"] == False).any()  # noqa: E712
-    odds = math.prod(legs["odds"])
-    model_p = math.prod(legs["model_p"])
+    odds = math.prod(legs["odds"]) if len(legs) else 1.0
+    model_p = math.prod(legs["model_p"]) if len(legs) else 1.0
     if (live["won"] == False).any():                                       # noqa: E712
         parlay = -1.0
     elif pending:
         parlay = None
     else:
-        parlay = odds - 1
+        parlay = odds - 1                                  # 0.0 if every leg was void
     singles = float(sum((r.odds - 1) if r.won else -1.0 for r in live.itertuples()))
     return {"odds": odds, "model_p": model_p, "model_ev": model_p * odds - 1,
             "parlay": parlay, "singles": singles, "n_settled": len(live), "n": len(legs)}
@@ -143,7 +141,7 @@ def report(path: Path = PARLAY_PATH) -> None:
         print(f"\n#{r.parlay_id} {r.name}: {s['n']} legs, odds {s['odds']:.2f}, "
               f"model P(all hit) {s['model_p']:.1%} (EV {s['model_ev']:+.0%}) -> {status}")
         for l in legs.itertuples():
-            mark = {True: "won", False: "lost", None: "-"}[l.won]
+            mark = "void" if l.void else {True: "won", False: "lost", None: "-"}[l.won]
             print(f"    {l.label:34} {l.odds:5.2f}  model {l.model_p:4.0%}  {mark}")
         if s["parlay"] is not None:
             print(f"    1 unit as a parlay: {s['parlay']:+.2f}    "

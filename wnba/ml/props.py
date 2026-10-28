@@ -24,7 +24,7 @@ alpha fitted per stat on training residuals. P(over x.5) comes from the
 matching negative binomial (Poisson when alpha <= 1).
 
 Usage:
-    python -m wnba.ml.props --backtest                       # 2026, per stat
+    python -m wnba.ml.props --backtest                       # current season, per stat
     python -m wnba.ml.props --home NYL --away ATL --auto-injuries
 """
 from __future__ import annotations
@@ -33,7 +33,7 @@ import argparse
 import math
 from dataclasses import dataclass
 from datetime import date
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 
 import numpy as np
 import pandas as pd
@@ -42,6 +42,8 @@ from sklearn.linear_model import LinearRegression
 
 from wnba.db import SessionLocal
 from wnba.ml import totals
+from wnba.dates import us_today
+from wnba.dates import current_season
 
 STATS = {"pts": "points", "reb": "rebounds", "ast": "assists", "fg3m": "threes",
          "pra": "pts+reb+ast"}
@@ -79,7 +81,6 @@ def add_player_form(df: pd.DataFrame) -> pd.DataFrame:
     season_g = df.groupby(["athlete_id", "season"], sort=False)
     cum_min = season_g["minutes"].transform(lambda s: s.shift(1).cumsum())
     for stat in STATS:
-        per_min = df[stat] / df["minutes"]
         # EWM of the rate, weighting each game by the minutes it came from
         num = g[stat].transform(lambda s: s.shift(1).ewm(halflife=RATE_HALFLIFE, min_periods=1).mean())
         den = g["minutes"].transform(lambda s: s.shift(1).ewm(halflife=RATE_HALFLIFE, min_periods=1).mean())
@@ -87,7 +88,6 @@ def add_player_form(df: pd.DataFrame) -> pd.DataFrame:
         cum = season_g[stat].transform(lambda s: s.shift(1).cumsum())
         # season-to-date rate; early in a season fall back to the recent rate
         df[f"rate_season_{stat}"] = (cum / cum_min).where(cum_min >= 60, df[f"rate_ewm_{stat}"])
-        del per_min
     # simple baselines for comparison
     for stat in STATS:
         df[f"base_last10_{stat}"] = g[stat].transform(
@@ -158,7 +158,7 @@ def fit(train: pd.DataFrame) -> Dict[str, StatModel]:
         y = train[stat].to_numpy()
         reg = LinearRegression().fit(X, y)
         mu = np.clip(reg.predict(X), 0.05, None)
-        # method of moments on binned means: Var(y) ~ alpha * mu
+        # method of moments, one global ratio: Var(y) ~ alpha * mu
         alpha = float(np.sum((y - mu) ** 2) / np.sum(mu))
         models[stat] = StatModel(stat, reg, max(alpha, 1.0))
     return models
@@ -167,7 +167,8 @@ def fit(train: pd.DataFrame) -> Dict[str, StatModel]:
 # --------------------------------------------------------------------------
 # backtest (no market lines exist for past props, so: accuracy + calibration)
 # --------------------------------------------------------------------------
-def backtest(season: int = 2026) -> None:
+def backtest(season: int | None = None) -> None:
+    season = season or current_season()
     db = SessionLocal()
     try:
         df = build_dataset(db)
@@ -295,10 +296,10 @@ def project_game(home: str, away: str, game_date: Optional[date] = None,
 def main() -> None:
     parser = argparse.ArgumentParser(description="Player prop projections.")
     parser.add_argument("--backtest", action="store_true")
-    parser.add_argument("--season", type=int, default=2026)
+    parser.add_argument("--season", type=int, default=current_season())
     parser.add_argument("--home")
     parser.add_argument("--away")
-    parser.add_argument("--date", type=date.fromisoformat, default=date.today())
+    parser.add_argument("--date", type=date.fromisoformat, default=us_today())
     parser.add_argument("--auto-injuries", action="store_true")
     args = parser.parse_args()
     if args.backtest:

@@ -18,11 +18,13 @@ psycopg2-binary==2.9.13
 playwright==1.63.0
 beautifulsoup4==4.15.0
 pdfplumber==0.11.10               # official WNBA injury report PDFs
+requests==2.34.2              # ESPN API (game odds, box scores)
 
 # --- data / ML ---
 pandas==3.0.6
 scikit-learn==1.9.1
 numpy==2.4.6
+scipy==1.17.1                 # distributions for props / market
 joblib==1.6.0                 # model persistence
 
 # --- tests ---

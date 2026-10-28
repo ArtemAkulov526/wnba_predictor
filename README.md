@@ -28,11 +28,13 @@ How the models work, current performance and everyday commands:
 
 ## Setup
 
-Requires Python 3.11+ and a running PostgreSQL server.
+Requires Python 3.11+ and a running PostgreSQL server. Commands are for
+Windows PowerShell; on macOS/Linux use `.venv/bin/` instead of
+`.venv\Scripts\` and `cp` instead of `copy`.
 
 **1. Install**
 
-```bash
+```powershell
 python -m venv .venv
 .venv\Scripts\pip install -r requirements.txt
 .venv\Scripts\playwright install chromium
@@ -41,7 +43,7 @@ python -m venv .venv
 
 **2. Configure the database**
 
-```bash
+```powershell
 copy .env.example .env      # then set your Postgres password / WNBA_DB_URL
 ```
 
@@ -49,29 +51,30 @@ copy .env.example .env      # then set your Postgres password / WNBA_DB_URL
 
 **3. Create the tables**
 
-```bash
-python scripts/seed_teams.py     # the 15 franchises, incl. 2026 expansion teams
+```powershell
 python scripts/migrate.py        # tables + constraints; safe to re-run
+python scripts/seed_teams.py     # the 15 franchises, incl. 2026 expansion teams
 ```
 
 **4. Load the data** (first run takes a while; later runs only fill gaps)
 
-```bash
+```powershell
 python -m wnba.scraping.basketball_reference     # team box scores incl. playoffs (3 s crawl delay)
 python -m wnba.scraping.player_logs              # per-player box scores 2018–now
 python -m wnba.scraping.official_injuries        # latest official injury report
-python -m wnba.scraping.teamrankings             # current-season closing spreads/totals
+python -m wnba.scraping.espn_odds                # game odds (DraftKings via ESPN): open, current, close
+python -m wnba.scraping.teamrankings             # current-season closing spreads/totals (backup)
 ```
 
 **5. Train**
 
-```bash
+```powershell
 python -m wnba.ml.train                          # walk-forward evaluation; saves models/
 python -m wnba.ml.predict --home MIN --away LVA  # one prediction
 ```
 
 **6. Run the web app**
 
-```bash
+```powershell
 uvicorn wnba.web.app:app --reload                # http://127.0.0.1:8000 (predictor, team pages, /log)
 ```

@@ -8,7 +8,8 @@ model (e.g. `fatigue`, `injury`) and which do not (e.g. `team-i-like`).
 Storage is a plain CSV, `data/prediction_log.csv`, not the database. It is the
 one dataset here that cannot be re-scraped: a prediction is only meaningful if
 it was written down before the game. A file survives database resets, can be
-read and edited by hand, and is tracked by git. Teams are stored by
+read and edited by hand. It is kept out of git (data/ is gitignored, the
+repository is public) -- back it up separately. Teams are stored by
 abbreviation so the file does not depend on database ids.
 
 Usage:
@@ -24,16 +25,15 @@ Usage:
     python -m wnba.ml.tracking list             # every logged game
 
 `grade` reads results from `game_logs`, so run the gamelog scraper first:
-    python -m wnba.scraping.basketball_reference --what gamelog --from-season 2026
+    python -m wnba.scraping.basketball_reference --from-season 2026
 """
 from __future__ import annotations
 
 import argparse
 import logging
 import math
-import os
 from dataclasses import dataclass
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence
 
@@ -42,6 +42,8 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from wnba.paths import DATA_DIR
+from wnba.dates import us_today
+from wnba.csvio import write_csv
 
 logger = logging.getLogger(__name__)
 
@@ -214,12 +216,7 @@ def read_log(path: Path = LOG_PATH) -> pd.DataFrame:
 
 def write_log(df: pd.DataFrame, path: Path = LOG_PATH) -> None:
     """Atomic write: a crash mid-save cannot leave a half-written log."""
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    df = _coerce(df).sort_values(["game_date", "home"], kind="stable")
-    tmp = path.with_name(path.name + ".tmp")
-    df.to_csv(tmp, index=False)
-    os.replace(tmp, path)
+    write_csv(_coerce(df).sort_values(["game_date", "home"], kind="stable"), path)
 
 
 def _find(df: pd.DataFrame, game_date: date, home: str, away: str) -> Optional[int]:
@@ -320,10 +317,9 @@ def log_prediction(
 
     if backfilled is None:
         # Logged after game day is not a clean pre-game prediction. Game dates
-        # are US dates, so compare with the US date (UTC-5), not the local one:
-        # a Europe-based user is already on the next day before tip-off.
-        us_today = (datetime.now(timezone.utc) - timedelta(hours=5)).date()
-        backfilled = game_date < us_today
+        # are US dates, so compare with the US date, not the local one: a
+        # Europe-based user is already on the next day before tip-off.
+        backfilled = game_date < us_today()
 
     row = {
         "game_date": game_date.isoformat(), "away": away, "home": home,
@@ -417,6 +413,35 @@ def record_closing_odds(home: str, away: str, game_date: date,
     df.at[i, "closing_home_prob"] = round(market_probability(home_odds, away_odds), 4)
     write_log(df, path)
     return df.loc[i].to_dict()
+
+
+def attach_espn_closing(path: Path = LOG_PATH, odds_path: Optional[Path] = None) -> int:
+    """Fill the closing moneyline for logged games that have none, from the
+    DraftKings closing prices collected by wnba.scraping.espn_odds.
+
+    Only rows marked `close` (finished games) are used, and a moneyline you
+    entered by hand is never overwritten. Returns rows updated.
+    """
+    odds_path = Path(odds_path or DATA_DIR / "espn_odds.csv")
+    if not odds_path.exists():
+        return 0
+    o = pd.read_csv(odds_path, dtype={"game_date": str})
+    o = o[(o["status"] == "close") & o["home_ml"].notna() & o["away_ml"].notna()]
+    close = {(r.game_date, r.home, r.away): (float(r.home_ml), float(r.away_ml))
+             for r in o.itertuples(index=False)}
+    df = read_log(path)
+    updated = 0
+    for i in df.index:
+        key = (str(df.at[i, "game_date"]), df.at[i, "home"], df.at[i, "away"])
+        if key not in close or not pd.isna(df.at[i, "closing_home_odds"]):
+            continue
+        h, a = close[key]
+        df.at[i, "closing_home_odds"], df.at[i, "closing_away_odds"] = h, a
+        df.at[i, "closing_home_prob"] = round(market_probability(h, a), 4)
+        updated += 1
+    if updated:
+        write_log(df, path)
+    return updated
 
 
 def attach_closing_lines(path: Path = LOG_PATH,
@@ -759,7 +784,7 @@ def main() -> None:
     p_log = sub.add_parser("log", help="record a prediction before tip-off")
     p_log.add_argument("--home", required=True)
     p_log.add_argument("--away", required=True)
-    p_log.add_argument("--date", type=date.fromisoformat, default=date.today())
+    p_log.add_argument("--date", type=date.fromisoformat, default=us_today())
     p_log.add_argument("--neutral", action="store_true")
     p_log.add_argument("--pick", help="team you think wins")
     p_log.add_argument("--confidence", type=float,
@@ -771,7 +796,7 @@ def main() -> None:
     p_log.add_argument("--home-odds", type=float, help="decimal odds on the home team, e.g. 2.00")
     p_log.add_argument("--away-odds", type=float, help="decimal odds on the away team, e.g. 1.75")
     p_log.add_argument("--auto-injuries", action="store_true",
-                       help="use ESPN's current injury report for both teams")
+                       help="use the latest injury report (official PDF, ESPN fallback)")
 
     p_res = sub.add_parser("result", help="enter a final score by hand")
     p_res.add_argument("--home", required=True)
@@ -787,6 +812,13 @@ def main() -> None:
     p_cl.add_argument("--home-odds", type=float, required=True)
     p_cl.add_argument("--away-odds", type=float, required=True)
 
+    p_am = sub.add_parser("amend", help="add confidence/tags to a backfilled row after grading")
+    p_am.add_argument("--home", required=True)
+    p_am.add_argument("--away", required=True)
+    p_am.add_argument("--date", type=date.fromisoformat, required=True)
+    p_am.add_argument("--confidence", type=float, required=True)
+    p_am.add_argument("--tags")
+
     sub.add_parser("grade", help="fill in results from game_logs")
     p_rep = sub.add_parser("report", help="model vs you")
     p_rep.add_argument("--clean-only", action="store_true",
@@ -800,12 +832,17 @@ def main() -> None:
         row = record_result(args.home.upper(), args.away.upper(), args.date,
                             args.home_pts, args.away_pts)
         logger.info("graded: %s won", row["home"] if row["home_won"] else row["away"])
+        attach_espn_closing()
         attach_closing_lines()
         return
     if args.cmd == "closing":
         r = record_closing_odds(args.home.upper(), args.away.upper(), args.date,
                                 args.home_odds, args.away_odds)
         logger.info("closing line stored: P(%s) %.1f%%", r["home"], 100 * r["closing_home_prob"])
+        return
+    if args.cmd == "amend":
+        amend_backfilled(args.home.upper(), args.away.upper(), args.date, args.confidence, args.tags)
+        logger.info("amended %s@%s %s", args.away.upper(), args.home.upper(), args.date)
         return
     if args.cmd == "list":
         list_log()
@@ -831,8 +868,10 @@ def main() -> None:
                         " [backfilled: logged after game day]" if row["backfilled"] else "")
         elif args.cmd == "grade":
             graded, pending = grade_pending(db)
+            ml = attach_espn_closing()
             closing = attach_closing_lines()
-            logger.info("graded %d, still pending %d; closing lines attached to %d", graded, pending, closing)
+            logger.info("graded %d, still pending %d; closing moneylines from ESPN %d, "
+                        "closing spreads attached to %d", graded, pending, ml, closing)
         elif args.cmd == "report":
             report(db, clean_only=args.clean_only)
     finally:

@@ -19,6 +19,7 @@ import pandas as pd
 
 from wnba.ml import tracking
 from wnba.paths import DATA_DIR
+from wnba.csvio import write_csv
 
 logger = logging.getLogger(__name__)
 
@@ -44,7 +45,22 @@ def add(home: str, away: str, game_date: date, pick: str, odds: float,
            "pick": pick, "odds": odds, "user_prob": user_prob, "state": state,
            "tags": tracking.normalize_tags(tags), "note": note,
            "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
-    pd.concat([df, pd.DataFrame([row])], ignore_index=True).to_csv(LIVE_PATH, index=False)
+    write_csv(pd.concat([df, pd.DataFrame([row])], ignore_index=True), LIVE_PATH)
+
+
+def _scraped_home_won(game_date: str, home: str, away: str) -> Optional[bool]:
+    """Result from game_logs, for live bets on games never logged pre-game."""
+    from wnba.db import SessionLocal
+    db = SessionLocal()
+    try:
+        row = pd.read_sql("""SELECT g.won FROM game_logs g
+                             JOIN teams t ON t.id = g.team_id JOIN teams o ON o.id = g.opponent_id
+                             WHERE g.date = %(d)s AND t.abbreviation = %(h)s
+                               AND o.abbreviation = %(a)s AND g.is_home""",
+                          db.bind, params={"d": game_date, "h": home, "a": away})
+    finally:
+        db.close()
+    return None if row.empty else bool(row.iloc[0]["won"])
 
 
 def report() -> None:
@@ -58,9 +74,12 @@ def report() -> None:
     n = 0
     for r in df.itertuples():
         g = games[(games.game_date == r.game_date) & (games.home == r.home) & (games.away == r.away)]
-        won = None
+        home_won = None
         if len(g) and not pd.isna(g.iloc[0].home_won):
-            won = bool(g.iloc[0].home_won) == (r.pick == r.home)
+            home_won = bool(g.iloc[0].home_won)
+        else:                                  # not in the prediction log: use game_logs
+            home_won = _scraped_home_won(r.game_date, r.home, r.away)
+        won = None if home_won is None else home_won == (r.pick == r.home)
         status = "pending" if won is None else ("WON" if won else "lost")
         units = None if won is None else (r.odds - 1 if won else -1.0)
         print(f"{r.game_date} {r.away}@{r.home}  {r.pick} @ {r.odds:.2f}  [{r.state}]  -> {status}"
